@@ -5,8 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/views/default/login.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/login.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/views/default/register.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/register.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/views/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/head.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Resources/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/public/css/loginstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Resources/public/css/loginstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Resources/public/css/loginstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/QueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/QueryBuilder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +34,7 @@
   <component name="ProjectId" id="1RuuXxu0LadmhyGdXhtX7WuI5fR" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flevosap_2.0_obsolete" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -62,7 +64,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570529345153</updated>
-      <workItem from="1570529346380" duration="10021000" />
+      <workItem from="1570529346380" duration="14320000" />
     </task>
     <servers />
   </component>

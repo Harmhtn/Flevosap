@@ -2,33 +2,33 @@
 <form method="post" action="register">
 <!--    customer name-->
     <div class="form-group">
-        <label for="Input">Naam</label>
+        <label for="Input">Naam</label><br>
         <input type="text" class="form-control" name="customer_name" placeholder="Gebruikersnaam">
     </div>
 <!--    customer email-->
     <div class="form-group">
-        <label for="Input">Email</label>
+        <label for="Input">Email</label><br>
         <input type="email" class="form-control" name="customer_email" placeholder="Email">
     </div>
 <!--    customer password-->
     <div class="form-group">
-        <label for="InputPassword">Wachtwoord</label>
+        <label for="InputPassword">Wachtwoord</label><br>
         <input type="password" class="form-control" name="customer_password" id="InputPassword" placeholder="Wachtwoord">
     </div>
 <!--    customer zipcode-->
     <div class="form-group">
-        <label for="Input">Postcode</label>
+        <label for="Input">Postcode</label><br>
         <input type="text" class="form-control" name="customer_zipcode" placeholder="Postcode">
     </div>
 <!--    customer address-->
     <div class="form-group">
-        <label for="Input">Adres</label>
-        <input type="text" class="form-control" name="customer_" placeholder="Adres">
+        <label for="Input">Adres</label><br>
+        <input type="text" class="form-control" name="customer_address" placeholder="Adres">
     </div>
 <!--    customer city-->
     <div class="form-group form-check">
-       <label>Stad</label>
-        <select name="select_city">
+       <label>Stad</label><br>
+        <select class="custom-select" name="select_city">
             <option selected="selected">Kies een stad</option>
             <?php
             foreach ($cities as $city)
@@ -40,17 +40,17 @@
     </div>
 <!--    customer phone-->
     <div class="form-group">
-        <label for="Input">Telefoonnummer</label>
+        <label for="Input">Telefoonnummer</label><br>
         <input type="text" class="form-control" name="customer_phone" pattern="06+[0-9]{8}" required>
     </div>
 <!--    customer particulier/zakelijk-->
     <div class="input-group">
-        <input type="radio" name="MyRadio" value="1" checked>
-        <label for="particulier">Particuliere registratie</label>
+        <label for="particulier">Particuliere registratie</label><br>
+        <input type="radio" class="form-control" name="MyRadio" value="1" checked>
     </div>
     <div class="input-group">
-        <input type="radio" name="MyRadio" value="2" checked>
-        <label for="zakelijk">Zakelijke registratie</label>
+        <label for="zakelijk">Zakelijke registratie</label><br>
+        <input type="radio" class="form-control" name="MyRadio" value="2" checked>
     </div>
     <button type="submit" class="btn btn-primary">Registreer</button>
 </form>
