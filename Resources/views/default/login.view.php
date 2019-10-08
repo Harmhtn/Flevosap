@@ -9,7 +9,7 @@
 
 
         <!-- Login Form -->
-        <form method="post" action="../login.php">
+        <form method="post" action="/login">
             <input type="email" id="login" class="fadeIn second form-control" name="login" placeholder="Login met email adres"><br>
             <input type="password" id="password" class="fadeIn third form-control" name="login" placeholder="Wachtwoord"><br>
             <input type="submit" class="fadeIn fourth" name="login_user" value="Log In">

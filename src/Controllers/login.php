@@ -11,7 +11,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $email = $_POST['mail'];
     $pass = $_POST['password'];
 
-    $user = $flevo->loginUser($email, $pass);
+    $user = $flevo->login($email, $pass);
+    echo"<pre>";
+    print_r($user);
+    exit;
+
     if (!$user)
     {
         echo "Geen account bekend met deze gegevens!";
