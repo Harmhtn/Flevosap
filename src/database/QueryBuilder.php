@@ -21,4 +21,16 @@ class QueryBuilder
         return $results;
 
     }
+
+    public function login($email, $password)
+    {
+
+        $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = $email AND customer_password = $password");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+
+    }
 }
