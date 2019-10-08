@@ -7,7 +7,8 @@ if (!empty($router)) {
         'login' => 'src/controllers/login.php',
         'register' => 'src/controllers/register.php',
         'orderreview' => 'src/controllers/order_review.php',
-        'shoppingcart' => 'src/controllers/shoppingcart.php'
+        'winkelmand' => 'src/controllers/cart.php',
+        'admin' => 'src/controllers/admin.php'
 
     ]);
 }
