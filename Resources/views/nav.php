@@ -8,6 +8,7 @@
         <a class="p-2 text-dark" href="#">Horeca</a>
         <a class="p-2 text-dark" href="#">Nieuws</a>
         <a  class="p-2 text-dark" href="#">Contact</a>
+        <a  class="p-2 text-dark" href="/logout">Logout</a>
     </nav>
     <a class="fas fa-shopping-cart"></a>
 </div>

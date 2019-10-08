@@ -1,55 +1,61 @@
-<div class="container m-4">
-    <form method="post" action="../register.php">
-        <div class="input-group">
-            <label>Naam</label>
-            <input type="text" name="customer_name" required autofocus>
-        </div>
-        <div class="input-group">
-            <label>Email</label>
-            <input type="email" name="customer_email" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-        </div>
-        <div class="input-group">
-            <label>Wachtwoord</label>
-            <input type="password" name="customer_password" value="" required>
-        </div>
-        <div class="input-group">
-            <label>Postcode</label>
-            <input type="text" name="customer_zipcode" value="" pattern="[0-9]{4}[a-zA-Z]{2}">
-        </div>
-        <div class="input-group">
-            <label>Adres</label>
-            <input type="text" name="customer_address" value="">
-        </div>
-        <div class="input-group">
-            <label>Stad</label>
-            <select name="select_city">
-                <option selected="selected">Kies een stad</option>
-                <?php
-                foreach ($cities as $city)
-                {
-                    echo "<option value='". $city['city_id']. "'>". $city['city_name']. "</option>";
-                }
-                ?>
+<div class="container">
+<form method="post" action="register">
+<!--    customer name-->
+    <div class="form-group">
+        <label for="Input">Naam</label>
+        <input type="text" class="form-control" name="customer_name" placeholder="Gebruikersnaam">
+    </div>
+<!--    customer email-->
+    <div class="form-group">
+        <label for="Input">Email</label>
+        <input type="email" class="form-control" name="customer_email" placeholder="Email">
+    </div>
+<!--    customer password-->
+    <div class="form-group">
+        <label for="InputPassword">Wachtwoord</label>
+        <input type="password" class="form-control" name="customer_password" id="InputPassword" placeholder="Wachtwoord">
+    </div>
+<!--    customer zipcode-->
+    <div class="form-group">
+        <label for="Input">Postcode</label>
+        <input type="text" class="form-control" name="customer_zipcode" placeholder="Postcode">
+    </div>
+<!--    customer address-->
+    <div class="form-group">
+        <label for="Input">Adres</label>
+        <input type="text" class="form-control" name="customer_" placeholder="Adres">
+    </div>
+<!--    customer city-->
+    <div class="form-group form-check">
+       <label>Stad</label>
+        <select name="select_city">
+            <option selected="selected">Kies een stad</option>
+            <?php
+            foreach ($cities as $city)
+            {
+                echo "<option value='". $city['city_id']. "'>". $city['city_name']. "</option>";
+            }
+            ?>
+        </select>
+    </div>
+<!--    customer phone-->
+    <div class="form-group">
+        <label for="Input">Telefoonnummer</label>
+        <input type="text" class="form-control" name="customer_phone" pattern="06+[0-9]{8}" required>
+    </div>
+<!--    customer particulier/zakelijk-->
+    <div class="input-group">
+        <input type="radio" name="MyRadio" value="1" checked>
+        <label for="particulier">Particuliere registratie</label>
+    </div>
+    <div class="input-group">
+        <input type="radio" name="MyRadio" value="2" checked>
+        <label for="zakelijk">Zakelijke registratie</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Registreer</button>
+</form>
 
-            </select>
-        </div>
-        <div class="input-group">
-            <label>Telefoon nummer</label>
-            <input type="text" name="customer_phone" value="" pattern="06+[0-9]{8}"  required>
-        </div>
-        <div class="input-group">
-            <input type="radio" name='MyRadio' value="1"  checked>
-            <label for="particulier">Partiucliere registratie</label>
-        </div>
-        <div class="input-group">
-            <input type="radio" name='MyRadio' value="2">
-            <label for="zakelijk">Zakelijke registratie</label>
-        </div>
-        <div class="input-group">
-            <button type="submit" class="btn" >Registreer</button>
-        </div>
-        <p>
-            Al een gebruiker? <a href="../login.php">Log nu in</a>
-        </p>
-    </form>
+<div id="formFooter">
+    <a class="underlineHover" href="login">Al een account?</a><br>
+</div>
 </div>

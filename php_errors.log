@@ -427,3 +427,21 @@ Stack trace:
 #1 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): require('C:\\inetpub\\wwwr...')
 #2 {main}
   thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\Resources\views\default\index.view.php on line 8
+[08-Oct-2019 12:53:43 UTC] PHP Notice:  Undefined index: mail in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 11
+[08-Oct-2019 12:53:43 UTC] PHP Notice:  Undefined index: password in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 12
+[08-Oct-2019 12:53:43 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND customer_password =' at line 1 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:29
+Stack trace:
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(29): PDOStatement->execute()
+#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php(14): QueryBuilder->login(NULL, NULL)
+#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): require('C:\\inetpub\\wwwr...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 29
+[08-Oct-2019 13:07:38 UTC] PHP Notice:  Undefined index: mail in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 11
+[08-Oct-2019 13:07:38 UTC] PHP Notice:  Undefined index: password in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 12
+[08-Oct-2019 13:07:38 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND customer_password =' at line 1 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:29
+Stack trace:
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(29): PDOStatement->execute()
+#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php(14): QueryBuilder->login(NULL, NULL)
+#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): require('C:\\inetpub\\wwwr...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 29

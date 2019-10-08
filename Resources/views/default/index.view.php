@@ -9,19 +9,12 @@ foreach ($all_products as $product) {
     </div>
     <div class='col-md-6'>
         <div class='card-body'>
-            <form action='addToCart.php?id=" . $product['product_id'] . "' method='post'>
+            <form action='src/Controllers/cart.php?id=" . $product['product_id'] . "' method='post'>
             <button type=\"submit\" class=\"btn btn-info float-right mb-2\">
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
             <div class=\"form-group\">
-                <label for=\"sel1\"></label>
-                <select name='amount' class=\"form-control\" id=\"sel1\">
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
-                </select>
+            <input type=\"number\" id=\"tentacles\" name=\"amount\" max=\"" . $product['product_name'] . "\">
             </div>
             </form>
             <h5 class='card-title'> " . $product['product_name'] . "</h5>
