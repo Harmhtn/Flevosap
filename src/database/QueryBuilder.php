@@ -22,7 +22,18 @@ class QueryBuilder
 
     }
 
-<<<<<<< HEAD
+    public function getProduct($id)
+    {
+
+        $sql = $this->pdo->prepare("SELECT * FROM product WHERE product_id = $id");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+
+    }
+
     public function createProduct(){
         $name = $_POST['name'];
         $description = $_POST['description'];
@@ -51,14 +62,15 @@ class QueryBuilder
     }
 
 
-    public function removeItem($id){
+    public function removeItem($id)
+    {
         $sql = ("DELETE FROM product WHERE product_id = '$id'");
 
         $sel = $this->conn->prepare($sql);
 
         $sel->execute();
+    }
 
-=======
     public function login($email, $password)
     {
 
@@ -110,6 +122,5 @@ class QueryBuilder
         $result = $sel->fetchAll();
 
         return $result;
->>>>>>> 6a16b3d91d770e518d800b7cd7d78d41121847ae
     }
 }

@@ -15,7 +15,7 @@ if(!empty($_GET["action"]))
         if(!empty($_POST["quantity"]))
         {
         $id = $_GET['id'];
-        $productById = $res->getProduct($id);
+        $productById = $app['database']->getProduct($id);
         $itemArray = array($productById[0]["product_name"]=>array('id'=>$productById[0]["product_id"], 'name'=>$productById[0]["product_name"], 'quantity'=>$_POST["quantity"], 'price'=>$productById[0]["product_price"], 'image'=>$productById[0]["product_image"]));
 
             if(!empty($_SESSION["cart_item"]))
@@ -78,7 +78,7 @@ if(!empty($_GET["action"]))
 
     }
     //change link
-    header('Location:cart.php');
+    header('Location:winkelmand');
 }
 
 
