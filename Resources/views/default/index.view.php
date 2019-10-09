@@ -1,4 +1,6 @@
 <?php
+
+
 foreach ($all_products as $product) {
 //for select make a for loop or input field
     echo "
@@ -10,6 +12,7 @@ foreach ($all_products as $product) {
     <div class='col-md-6'>
         <div class='card-body'>
             <form action='wikelmand?id=" . $product['product_id'] . "' method='post'>
+
             <button type=\"submit\" class=\"btn btn-info float-right mb-2\">
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
