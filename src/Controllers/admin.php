@@ -66,7 +66,8 @@ if(!empty($_GET['action'])) {
             break;
     }
 }
-$allProduct = $res->getAllProduct();
+$table = 'product';
+$allProduct = $app['database']->selectAll($table);
 
 //load head and navbar
 require 'Resources/views/head.php';

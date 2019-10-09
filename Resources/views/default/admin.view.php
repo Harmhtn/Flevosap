@@ -37,7 +37,7 @@ if(!empty($allProduct)) {
                 <tr>
                   <th scope='row' class='border-0'>
                     <div class='p-2'>
-                      <img src=../../Resources/Images/imageupload/" . $product['product_image'] . " width='70' class='img-fluid rounded shadow-sm'>
+                      <img src=src/Resources/public/images/imageupload/" . $product['product_image'] . " width='70' class='img-fluid rounded shadow-sm'>
                     </div>
                   </th>
                   <td class='border-0 align-middle'><strong>" . $product['product_name'] . "</strong></td>
@@ -60,16 +60,16 @@ if(!empty($allProduct)) {
     </div>
 </div>
 
-<form method="POST" action="admin.php?action=add" enctype="multipart/form-data">
+<form method="POST" action="admin.php?action=add" >
     <input type="file"  name="image" style="margin-bottom: 10px">
     <br>
-    <input type="text" name="name" placeholder="Product naam" style="margin-bottom: 10px">
+    <input type="text" name="name" placeholder="Product naam">
     <br>
     <textarea name="description" placeholder="Product beschrijving" style="resize: none; width: 25%;  height: 200px"></textarea>
     <br>
     <textarea name="nutrition"  placeholder="Product voedingswaarde" style="resize: none; width: 25%; height: 200px"></textarea>
     <br>
-    <input type="text" name="price" placeholder="Prijs" style="margin-bottom: 10px">
+    <input type="text" name="price" placeholder="Prijs" style="margin-bottom: 10px; width: 70px ">
     <br>
     <select name="juice_type">
         <option selected="selected">Kies de sap soort</option>
