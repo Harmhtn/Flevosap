@@ -12,9 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $pass = $_POST['password'];
 
     $user = $flevo->login($email, $pass);
-    echo"<pre>";
-    print_r($user);
-    exit;
+
 
     if (!$user)
     {
