@@ -3,13 +3,7 @@
 //load head and navbar
 require 'Resources/views/head.php';
 
-//load view
-require 'Resources/views/default/register.view.php';
-
-//load footer
-require 'Resources/views/footer.php';
-
-$flevo = new Login();
+$flevo = $app['database'];
 $cities = $flevo->getCities();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -31,10 +25,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
 //inloggen om te checken of de gebruiker al bestaat
-    if ($flevo->loginUser($mail, $pass))
+    if ($flevo->login($mail, $pass))
     {
         echo "Er bestaat al een account met deze email";
-        echo '<a href="login.php"> keer terug naar loginscherm</a>';
+        echo '<a href="login">, keer terug naar loginscherm</a>';
 
     }
     else
@@ -42,10 +36,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         // functie aanroepen om gebruiker te maken
         $flevo->register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
         echo "Gelukt! Het account is aangemaakt";
-        echo '<a href="login.php">, keer terug naar loginscherm</a>';
+        echo '<a href="login">, keer terug naar loginscherm</a>';
     }
 
 }else
 {
-    include "default/register.view.php";
+    require 'Resources/views/default/register.view.php';
 }
+
+//load footer
+require 'Resources/views/footer.php';

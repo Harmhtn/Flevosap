@@ -7,8 +7,7 @@ require 'Resources/views/head.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-
-    $email = $_POST['mail'];
+    $email = $_POST['email'];
     $pass = $_POST['password'];
 
     $user = $flevo->login($email, $pass);
@@ -29,9 +28,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 
 }else{
-    echo "Vul alle velden in!";
-
-
 //load view
     require 'Resources/views/default/login.view.php';
 }
