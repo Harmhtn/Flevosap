@@ -1,8 +1,8 @@
 
 <?php
 session_start();
-require_once ('src/Classes/QueryMyDatabase.php');
-$res = new QueryMyDatabase();
+
+
 
 if (isset($_GET['confirm'])){
 
