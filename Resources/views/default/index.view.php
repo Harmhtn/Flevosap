@@ -9,7 +9,7 @@ foreach ($all_products as $product) {
     </div>
     <div class='col-md-6'>
         <div class='card-body'>
-            <form action='src/Controllers/cart.php?id=" . $product['product_id'] . "' method='post'>
+            <form action='wikelmand?id=" . $product['product_id'] . "' method='post'>
             <button type=\"submit\" class=\"btn btn-info float-right mb-2\">
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
