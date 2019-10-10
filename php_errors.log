@@ -1,0 +1,21 @@
+[09-Oct-2019 11:49:14 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL), expecting function (T_FUNCTION) or const (T_CONST) in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 25
+[09-Oct-2019 11:50:07 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:31
+Stack trace:
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): Router->direct('wikelmand')
+#1 {main}
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 31
+[09-Oct-2019 11:50:38 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:31
+Stack trace:
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): Router->direct('wikelmand')
+#1 {main}
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 31
+[09-Oct-2019 11:50:46 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:31
+Stack trace:
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): Router->direct('wikelmand')
+#1 {main}
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 31
+[09-Oct-2019 12:08:08 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:31
+Stack trace:
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): Router->direct('winkelmand/1/ad...')
+#1 {main}
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 31

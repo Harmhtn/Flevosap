@@ -11,8 +11,7 @@ foreach ($all_products as $product) {
     </div>
     <div class='col-md-6'>
         <div class='card-body'>
-            <form action='wikelmand?id=" . $product['product_id'] . "' method='post'>
-
+            <form action='winkelmand/" . $product['product_id'] . "/add' method='post'>
             <button type=\"submit\" class=\"btn btn-info float-right mb-2\">
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
