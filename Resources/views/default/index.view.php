@@ -11,12 +11,16 @@ foreach ($all_products as $product) {
     </div>
     <div class='col-md-6'>
         <div class='card-body'>
+<<<<<<< HEAD
             <form action='winkelmand/" . $product['product_id'] . "/add' method='post'>
+=======
+            <form action='winkelmand?action=add&id=". $product['product_id'] ."' method='post'>
+>>>>>>> 8855ab9d186344f454acd3dc51bfd547c3201ac5
             <button type=\"submit\" class=\"btn btn-info float-right mb-2\">
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
             <div class=\"form-group\">
-            <input type=\"number\" id=\"tentacles\" name=\"amount\" max=\"" . $product['product_name'] . "\">
+            <input type=\"number\" id=\"tentacles\" name=\"quantity\" max=\"" . $product['product_name'] . "\">
             </div>
             </form>
             <h5 class='card-title'> " . $product['product_name'] . "</h5>

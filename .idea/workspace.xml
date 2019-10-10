@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d80f0a7-57ca-408b-831e-5dbe96f0afab" name="Default Changelist" comment="" />
+    <list default="true" id="bca173ae-47e6-4bfe-9d65-7d71a17a92c8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/views/default/admin.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/admin.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/views/default/login.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/login.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/views/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/admin.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,20 +25,15 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/fpdf/fpdf" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/fpdf/fpdf" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1RuuXxu0LadmhyGdXhtX7WuI5fR" />
+  <component name="ProjectId" id="1RxqAp1dOVML0EzlpdsgkOvk0AU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../flevosap_2.0_obsolete" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -51,12 +52,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4d80f0a7-57ca-408b-831e-5dbe96f0afab" name="Default Changelist" comment="" />
-      <created>1570529345153</created>
+      <changelist id="bca173ae-47e6-4bfe-9d65-7d71a17a92c8" name="Default Changelist" comment="" />
+      <created>1570618953762</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1570529345153</updated>
-      <workItem from="1570529346380" duration="15063000" />
+      <updated>1570618953762</updated>
+      <workItem from="1570618956895" duration="15203000" />
     </task>
     <servers />
   </component>

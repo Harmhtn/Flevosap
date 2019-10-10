@@ -22,6 +22,19 @@ class QueryBuilder
 
     }
 
+
+    public function getProduct($id)
+    {
+
+        $sql = $this->pdo->prepare("SELECT * FROM product WHERE product_id = $id");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+
+    }
+
     public function createProduct(){
         $name = $_POST['name'];
         $description = $_POST['description'];
@@ -57,8 +70,9 @@ class QueryBuilder
         $sel = $this->conn->prepare($sql);
 
         $sel->execute();
-
     }
+
+
     public function login($email, $password)
     {
 
