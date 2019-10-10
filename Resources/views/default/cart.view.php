@@ -3,7 +3,7 @@
     <div class='pb-5 ml-xl-5 ml-sm-2 ml-md-2'>
     <div class='container-fluid'>
       <div class='row row justify-content-between'>
-        <div class='col-xl-8 col-md-8 col-sm-11 p-5 bg-white rounded mb-5' style="height: fit-content; width: fit-content" >
+        <div class='col-xl-8 col-md-8 col-sm-11 p-5 bg-white rounded shadow-lg mb-5' style="height: fit-content; width: fit-content" >
 
           <!-- Shopping cart table -->
           <div class=''>
@@ -80,10 +80,10 @@ else
                 <div class="col-xl-3 col-sm-11 p-5 bg-white mb-5 mr-xl-3 mr-md-3 mr-sm-2 ml-sm-2 shadow-lg " style="height: 500px; border-radius: 15px">
                     <div class="text-white rounded-pill px-4 py-3 text-uppercase font-weight-bold" style="background-color: #4B515D">Bestelling </div>
                     <div class="p-4">
-                        <ul class="list-unstyled mb-4">
-                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Subtotaal</strong><strong>€ <?= number_format($_SESSION['total_price'], 2);?></strong></li>
-                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Verzendkosten</strong><strong>€ 0.00</strong></li>
-                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">BTW</strong><strong>€ <?= number_format($_SESSION['btw'], 2);?></strong></li>
+                        <ul class="list-unstyled mb-4 border-bottom  border-secondary">
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Subtotaal</strong><strong>€ <?= number_format($_SESSION['total_price'], 2);?></strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Verzendkosten</strong><strong>€ 0.00</strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">BTW</strong><strong>€ <?= number_format($_SESSION['btw'], 2);?></strong></li>
                             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Totaal</strong>
                                 <h5 class="font-weight-bold">€ <?= number_format($_SESSION['total_price']+$_SESSION['btw'], 2);?></h5>
                             </li>

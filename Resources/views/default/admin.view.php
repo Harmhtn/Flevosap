@@ -60,8 +60,8 @@ if(!empty($allProduct)) {
     </div>
 </div>
 
-<form method="POST" action="admin.php?action=add" >
-    <input type="file"  name="image" style="margin-bottom: 10px">
+<form method="POST" enctype="multipart/form-data"  action="admin?action=add" >
+    <input type="file" name="image" style="margin-bottom: 10px">
     <br>
     <input type="text" name="name" placeholder="Product naam">
     <br>

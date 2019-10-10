@@ -22,6 +22,7 @@ class QueryBuilder
 
     }
 
+
     public function getProduct($id)
     {
 
@@ -35,6 +36,8 @@ class QueryBuilder
     }
 
     public function createProduct(){
+        //TODO dont forget to add new product_type i put it in hardcoded please change
+        //TODO also add storage amount also hardcoded
         $name = $_POST['name'];
         $description = $_POST['description'];
         $nutrition = $_POST['nutrition'];
@@ -46,11 +49,11 @@ class QueryBuilder
 
         if(!empty($name) || !empty($description) || !empty($nutritionNew) || !empty($price) || !empty($image) || !empty($juice_type)) {
             $sql = ("INSERT INTO product 
-            (product_name, product_description, nutrition_value, product_price, product_image, juice_type_juice_type_id)
-            VALUES ('$name', '$description', '$nutritionNew', '$price', '$image', '$juice_type')
+            (product_name, product_description, nutrition_value, product_price, product_image, juice_type_juice_type_id, product_type, storage_amount)
+            VALUES ('$name', '$description', '$nutritionNew', '$price', '$image', '$juice_type', 1, 1)
             ");
 
-            $sel = $this->conn->prepare($sql);
+            $sel = $this->pdo->prepare($sql);
 
             $sel->execute();
             return;
@@ -66,10 +69,11 @@ class QueryBuilder
     {
         $sql = ("DELETE FROM product WHERE product_id = '$id'");
 
-        $sel = $this->conn->prepare($sql);
+        $sel = $this->pdo->prepare($sql);
 
         $sel->execute();
     }
+
 
     public function login($email, $password)
     {
