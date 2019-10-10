@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="src/Resources/public/css/loginstyle.css">
+
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
