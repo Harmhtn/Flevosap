@@ -22,6 +22,59 @@ class QueryBuilder
 
     }
 
+
+    public function getProduct($id)
+    {
+
+        $sql = $this->pdo->prepare("SELECT * FROM product WHERE product_id = $id");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+
+    }
+
+    public function createProduct(){
+        //TODO dont forget to add new product_type i put it in hardcoded please change
+        //TODO also add storage amount also hardcoded
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $nutrition = $_POST['nutrition'];
+        $price = $_POST['price'];
+        $image = $_SESSION['picture'];
+        $juice_type = $_POST['juice_type'];
+        $nutritionNew = nl2br(  $nutrition, true);
+
+
+        if(!empty($name) || !empty($description) || !empty($nutritionNew) || !empty($price) || !empty($image) || !empty($juice_type)) {
+            $sql = ("INSERT INTO product 
+            (product_name, product_description, nutrition_value, product_price, product_image, juice_type_juice_type_id, product_type, storage_amount)
+            VALUES ('$name', '$description', '$nutritionNew', '$price', '$image', '$juice_type', 1, 1)
+            ");
+
+            $sel = $this->pdo->prepare($sql);
+
+            $sel->execute();
+            return;
+        }
+        else{
+            $_POST['upload'] = 'empty';
+            return;
+        }
+    }
+
+
+    public function removeItem($id)
+    {
+        $sql = ("DELETE FROM product WHERE product_id = '$id'");
+
+        $sel = $this->pdo->prepare($sql);
+
+        $sel->execute();
+    }
+
+
     public function login($email, $password)
     {
 
