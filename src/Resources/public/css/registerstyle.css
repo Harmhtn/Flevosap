@@ -7,3 +7,19 @@
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
 }
+
+#icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.jumbotron{
+    background-color: #cfc703;
+    text-align: center;
+}
+
+#footer {
+    margin-top: 2rem;
+    text-align: center;
+}
