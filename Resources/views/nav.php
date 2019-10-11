@@ -1,5 +1,5 @@
 <div class="d-flex flex-md-row align-items-center bg-white">
-    <a class="my-0 mr-md-auto" href="index.php"><img style="max-height: 120px;" class="" src="Resources/Images/logo-header.png" alt=""></a>
+    <a class="my-0 mr-md-auto" href=""><img style="max-height: 120px;" class="" src="src/Resources/public/images/logo-nav.png" alt=""></a>
     <nav class="">
         <a class="p-2 text-dark" href="#">Boomgaard</a>
         <a class="p-2 text-dark" href="#">In de fles</a>

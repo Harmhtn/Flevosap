@@ -9,7 +9,8 @@ if (!empty($router)) {
         'register' => 'src/controllers/register.php',
         'orderreview' => 'src/controllers/order_review.php',
         'winkelmand' => 'src/controllers/cart.php',
-        'admin' => 'src/controllers/admin.php'
+        'admin' => 'src/controllers/admin.php',
+        'forgotpass' => 'src/Controllers/forgotpass.php'
 
     ]);
 }
