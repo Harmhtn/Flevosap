@@ -4,9 +4,9 @@
     <list default="true" id="bca173ae-47e6-4bfe-9d65-7d71a17a92c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/views/default/admin.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/admin.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/views/default/login.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/login.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/views/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/head.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/views/default/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/index.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/QueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/QueryBuilder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +14,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -25,8 +25,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/fpdf/fpdf" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1RxqAp1dOVML0EzlpdsgkOvk0AU" />
@@ -57,7 +57,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570618953762</updated>
-      <workItem from="1570618956895" duration="15203000" />
+      <workItem from="1570618956895" duration="17908000" />
+      <workItem from="1570962624780" duration="1935000" />
+      <workItem from="1571039976340" duration="1419000" />
     </task>
     <servers />
   </component>
@@ -69,7 +71,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
