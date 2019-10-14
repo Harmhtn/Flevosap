@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 return [
     'database' => [
@@ -10,5 +11,14 @@ return [
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
+    ],
+    'mailer' => [
+        'host' => 'smtp.gmail.com',
+        'port' => 465,
+        'encryption' => 'ssl',
+        'username' => 'team3wind@gmail.com',
+        'password' => 'team3c123!',
+        'fromEmail' => 'test@example.com',
+        'fromName' => 'Test name',
     ]
 ];
