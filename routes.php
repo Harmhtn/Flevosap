@@ -10,7 +10,7 @@ if (!empty($router)) {
         'orderreview' => 'src/controllers/order_review.php',
         'winkelmand' => 'src/controllers/cart.php',
         'admin' => 'src/controllers/admin.php',
-        'forgotpass' => 'src/Controllers/forgotpass.php'
+        'forgotpass' => 'src/controllers/forgotpass.php'
 
     ]);
 }
