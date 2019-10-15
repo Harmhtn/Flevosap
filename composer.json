@@ -4,7 +4,9 @@
   "minimum-stability": "stable",
   "license": "proprietary",
   "require": {
-    "fpdf/fpdf": "^1.81"
+    "fpdf/fpdf": "^1.81",
+    "pear/mail": "^1.4",
+    "swiftmailer/swiftmailer": "^6.0"
   },
   "authors": [
     {

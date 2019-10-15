@@ -1,5 +1,5 @@
 
-/*Login/register*/
+/*Login*/
 a {
     color: #bdb403;
     display:inline-block;
@@ -254,4 +254,5 @@ input[type=text]:placeholder {
 
 #icon {
     width:60%;
+    position: center;
 }
