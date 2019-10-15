@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="4d80f0a7-57ca-408b-831e-5dbe96f0afab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
     <list default="true" id="bca173ae-47e6-4bfe-9d65-7d71a17a92c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/views/default/admin.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/admin.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/views/default/login.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/login.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/views/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/admin.php" afterDir="false" />
+>>>>>>> f0114e538a48c38bda93c4547c4b254208e09e15
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +19,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -33,7 +38,17 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+=======
     <property name="nodejs_package_manager_path" value="npm" />
+>>>>>>> f0114e538a48c38bda93c4547c4b254208e09e15
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -56,8 +71,14 @@
       <created>1570618953762</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
+      <updated>1570529345153</updated>
+      <workItem from="1570529346380" duration="15063000" />
+      <workItem from="1570619069203" duration="2931000" />
+=======
       <updated>1570618953762</updated>
       <workItem from="1570618956895" duration="15203000" />
+>>>>>>> f0114e538a48c38bda93c4547c4b254208e09e15
     </task>
     <servers />
   </component>
@@ -69,7 +90,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
