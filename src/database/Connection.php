@@ -14,9 +14,6 @@ class Connection
                 $config['options']
             );
         }catch(PDOException $e){
-            echo"<pre>";
-            print_r( $e->getMessage());
-            exit;
 
         }
     }

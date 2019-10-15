@@ -15,13 +15,12 @@ foreach ($all_products as $product) {
     </div>
     <div class='col-md-6'>
         <div class='card-body'>
-
             <form action='winkelmand?action=add&id=". $product['product_id'] ."' method='post'>
             <button type=\"submit\" class=\"btn btn-info float-right mb-2\">
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
             <div class=\"form-group\">
-            <input type=\"number\" id=\"tentacles\" name=\"quantity\" min='1' max=\"" . ."\"> <p>In vooraad: ". $product['storage_amount'] ."</p>
+            <input type=\"number\" id=\"tentacles\" name=\"quantity\" min='1' max=\"" ."\"> <p>In vooraad: ". $product['storage_amount'] ."</p>
 
             </div>
             </form>
