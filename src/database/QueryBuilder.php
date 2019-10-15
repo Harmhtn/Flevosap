@@ -35,7 +35,8 @@ class QueryBuilder
 
     }
 
-    public function createProduct(){
+    public function createProduct()
+    {
         $name = $_POST['name'];
         $description = $_POST['description'];
         $nutrition = $_POST['nutrition'];
@@ -44,25 +45,36 @@ class QueryBuilder
         $juice_type = $_POST['juice_type'];
         $product_type = $_POST['product_type'];
         $amount = $_POST['amount'];
-        $nutritionNew = nl2br(  $nutrition, true);
+        $nutritionNew = nl2br($nutrition, true);
 
 
+        if (!empty($_POST['name']) || !empty($_POST['description']) || !empty($nutritionNew) || !empty($_POST['price']) || !empty($_POST['amount']) || !empty($_SESSION['picture'])) {
+            if ($product_type == 1 || $product_type == 2) {
+                if ($juice_type == 1 || $juice_type == 2) {
+                    $sql = ("INSERT INTO product 
+                    (product_name, product_description, nutrition_value, product_price, product_image, juice_type_juice_type_id, product_type, storage_amount)
+                    VALUES ('$name', '$description', '$nutritionNew', '$price', '$image', '$juice_type', $product_type, $amount)
+                    ");
 
-        if(!empty($name) || !empty($description) || !empty($nutritionNew) || !empty($price) || !empty($image) || !empty($juice_type)) {
-            $sql = ("INSERT INTO product 
-            (product_name, product_description, nutrition_value, product_price, product_image, juice_type_juice_type_id, product_type, storage_amount)
-            VALUES ('$name', '$description', '$nutritionNew', '$price', '$image', '$juice_type', $product_type, $amount)
-            ");
+                    $sel = $this->pdo->prepare($sql);
 
-            $sel = $this->pdo->prepare($sql);
-
-            $sel->execute();
-            return;
-        }
-        else{
+                    $sel->execute();
+                    return;
+                } else {
+                    echo 'Je moet een product soort kiezen';
+                }
+            }
+            else{
+                echo 'Je moet een prodct type kiezen';
+            }
+        } else {
             $_POST['upload'] = 'empty';
+            echo 'Alles moet ingevuld zijn';
             return;
         }
+
+
+
     }
 
 

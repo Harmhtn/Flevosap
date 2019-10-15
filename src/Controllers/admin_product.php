@@ -71,7 +71,7 @@ $allCustomers = $app['database']->selectAll($table1);
 require 'Resources/views/head.php';
 
 //load view
-require 'Resources/views/default/admin.view.php';
+require 'Resources/views/default/admin_product.view.php';
 
 //load footer
 require 'Resources/views/footer.php';
