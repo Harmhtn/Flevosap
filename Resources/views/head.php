@@ -12,9 +12,11 @@
 <body>
 
 <?php
-if(isset($_SESSION)) {
+// als sessie is enabled maar er bestaat er 1
+// && niet als sessie is enabled maar er bestaat niks
+// && als session logged in je er
+if (session_status() == PHP_SESSION_ACTIVE && session_status() != PHP_SESSION_NONE && isset($_SESSION['logged_in'])) {
     require "Resources/views/nav.php";
 }
-
 ?>
 

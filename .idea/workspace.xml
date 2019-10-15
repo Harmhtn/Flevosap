@@ -7,11 +7,15 @@
 =======
     <list default="true" id="bca173ae-47e6-4bfe-9d65-7d71a17a92c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/Resources/views/default/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/index.view.php" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/Resources/views/default/admin.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/admin.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/views/default/login.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/login.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/views/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/admin.php" afterDir="false" />
 >>>>>>> f0114e538a48c38bda93c4547c4b254208e09e15
+>>>>>>> 1ed5762e80affb56196d9303073dde2a76353354
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,14 +34,17 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/fpdf/fpdf" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1RxqAp1dOVML0EzlpdsgkOvk0AU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
 <<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -47,6 +54,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
 =======
+>>>>>>> 1ed5762e80affb56196d9303073dde2a76353354
     <property name="nodejs_package_manager_path" value="npm" />
 >>>>>>> f0114e538a48c38bda93c4547c4b254208e09e15
   </component>
@@ -78,7 +86,11 @@
 =======
       <updated>1570618953762</updated>
       <workItem from="1570618956895" duration="15203000" />
+<<<<<<< HEAD
+      <workItem from="1571142177248" duration="1337000" />
+=======
 >>>>>>> f0114e538a48c38bda93c4547c4b254208e09e15
+>>>>>>> 1ed5762e80affb56196d9303073dde2a76353354
     </task>
     <servers />
   </component>
