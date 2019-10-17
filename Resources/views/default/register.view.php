@@ -40,8 +40,7 @@
                 <select class="custom-select shadow-sm mb-2 bg-white rounded" name="select_city">
                     <option selected="selected">Kies een stad</option>
                     <?php
-                    foreach ($cities as $city)
-                    {
+                    foreach ($cities as $city) {
                         echo "<option value='". $city['city_id']. "'>". $city['city_name']. "</option>";
                     }
                     ?>
