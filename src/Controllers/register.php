@@ -27,11 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($flevo->login($mail, $pass)) {
         echo "Er bestaat al een account met deze email";
         echo '<a href="login">, keer terug naar loginscherm</a>';
+    } elseif (count(array_filter($_POST))!=count($_POST)) {
+        echo 'Vul alle velden in';
+        die;
     } else {
         // functie aanroepen om gebruiker te maken
         $flevo->register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
         echo "Gelukt! Het account is aangemaakt";
-        echo '<a href="login">, keer terug naar loginscherm</a>';
+        header('login');
     }
 } else {
     require 'Resources/views/default/register.view.php';
