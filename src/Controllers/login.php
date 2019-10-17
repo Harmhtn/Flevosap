@@ -1,8 +1,8 @@
 <?php
-session_start();
 $flevo = $app['database'];
 
 //load head and navbar
+//require 'Resources/views/head.php';
 require 'Resources/views/head.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION["user_id"] = $use["customer_id"];
         }
         //Provide the user with a login session.
-
         $_SESSION["logged_in"] = true;
         echo "Je bent ingelogd";
     }
