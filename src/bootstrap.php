@@ -14,6 +14,9 @@ require 'src/Router.php';
 require 'src/database/Connection.php';
 require 'src/database/QueryBuilder.php';
 
-$app['database'] = new QueryBuilder(
+/** @var QueryBuilder $database */
+$database = new QueryBuilder(
     Connection::make($app['config']['database'])
 );
+
+$app['database'] = $database;

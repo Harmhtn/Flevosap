@@ -1,7 +1,21 @@
+
+    <div class="dropdown">
+        <form action="" method="post">
+        <button type="submit" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sorteer producten
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/?sort=alphabetical">Alfabetische volgorde</a>
+            <a class="dropdown-item" href="/?sort=price-high">Prijs hoog</a>
+            <a class="dropdown-item" href="/?sort=price-low">Prijs laag</a>
+        </div>
+        </form>
+    </div>
+</div>
 <?php
 
 
-foreach ($all_products as $product) {
+foreach ($products as $product) {
 //for select make a for loop or input field
     echo "
 <div class='row'>
@@ -11,14 +25,7 @@ foreach ($all_products as $product) {
     </div>
     <div class='col-md-6'>
         <div class='card-body'>
-<<<<<<< HEAD
-
-            <form action='winkelmand/" . $product['product_id'] . "/add' method='post'>
             <form action='winkelmand?action=add&id=". $product['product_id'] ."' method='post'>
-=======
-            <form action='winkelmand?action=add&id=". $product['product_id'] ."' method='post'>
-
->>>>>>> 1ed5762e80affb56196d9303073dde2a76353354
             <button type=\"submit\" class=\"btn btn-info float-right mb-2\">
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
