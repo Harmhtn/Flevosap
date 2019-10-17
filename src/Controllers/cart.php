@@ -1,12 +1,11 @@
 <?php
-session_start();
-
 
 //See if an action is specified
 if (!empty($_GET["action"])) {
     switch ($_GET["action"]) {
         //add product to cart
         case "add":
+
 
         //check if q
         if (!empty($_POST["quantity"])) {
