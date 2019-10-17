@@ -12,30 +12,57 @@ class QueryBuilder
 
     public function selectAll($table)
     {
-
         $sql = $this->pdo->prepare("SELECT * FROM $table");
         $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
+    }
 
+    public function orderByName($table)
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_name");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function orderByPriceHigh($table)
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price DESC");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function orderByPriceLow($table)
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price ASC");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
     }
 
 
     public function getProduct($id)
     {
-
         $sql = $this->pdo->prepare("SELECT * FROM product WHERE product_id = $id");
         $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
-
     }
 
-    public function createProduct(){
+    public function createProduct()
+    {
         //TODO dont forget to add new product_type i put it in hardcoded please change
         //TODO also add storage amount also hardcoded
         $name = $_POST['name'];
@@ -44,10 +71,10 @@ class QueryBuilder
         $price = $_POST['price'];
         $image = $_SESSION['picture'];
         $juice_type = $_POST['juice_type'];
-        $nutritionNew = nl2br(  $nutrition, true);
+        $nutritionNew = nl2br($nutrition, true);
 
 
-        if(!empty($name) || !empty($description) || !empty($nutritionNew) || !empty($price) || !empty($image) || !empty($juice_type)) {
+        if (!empty($name) || !empty($description) || !empty($nutritionNew) || !empty($price) || !empty($image) || !empty($juice_type)) {
             $sql = ("INSERT INTO product 
             (product_name, product_description, nutrition_value, product_price, product_image, juice_type_juice_type_id, product_type, storage_amount)
             VALUES ('$name', '$description', '$nutritionNew', '$price', '$image', '$juice_type', 1, 1)
@@ -57,8 +84,7 @@ class QueryBuilder
 
             $sel->execute();
             return;
-        }
-        else{
+        } else {
             $_POST['upload'] = 'empty';
             return;
         }
@@ -77,17 +103,15 @@ class QueryBuilder
 
     public function login($email, $password)
     {
-
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
         $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
-
     }
 
-    public function register($username, $mail, $pass , $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date )
+    public function register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date)
     {
         //insert de user in de db vergeet niet alle columns!!!!!
         //pass hash
@@ -111,7 +135,6 @@ class QueryBuilder
 
 
         $sel->execute();
-
     }
 
     public function getCities()

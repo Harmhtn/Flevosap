@@ -23,7 +23,7 @@ class MailService
         $message = (new Swift_Message($subject))
             ->setFrom([$_ENV['mailer']['fromEmail'] => $_ENV['mailer']['fromName']])
             ->setTo($to)
-            ->setBody($body);
+            ->setBody($body, 'text/html');
 
         $responseCode = $this->mailer->send($message);
 
