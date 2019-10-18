@@ -1,5 +1,4 @@
 <?php
-session_start();
 $flevo = $app['database'];
 
 //load head and navbar
