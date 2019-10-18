@@ -1,5 +1,4 @@
 <?php
-session_start();
 // to do :
 //BTW al bij standaard prijs inberekend
 //Edit products

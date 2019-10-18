@@ -4,7 +4,9 @@
 foreach ($all_products as $product) {
     //amount in cart aftrekken van in vooraad
     //check in session if amount is to much
-
+    if (empty($amount)){
+        $amount = 0;
+    }
 
 //for select make a for loop or input field
     echo "
@@ -20,7 +22,7 @@ foreach ($all_products as $product) {
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
             <div class=\"form-group\">
-            <input type=\"number\" id=\"tentacles\" name=\"quantity\" min='1' max=\"" ."\"> <p>In vooraad: ". $product['storage_amount'] ."</p>
+            <input type=\"number\" id=\"tentacles\" name=\"quantity\" min='1' max=\"" . $avalible . "\"> <p>In vooraad: ". $product['storage_amount'] ."</p>
 
             </div>
             </form>

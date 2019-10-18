@@ -87,6 +87,24 @@ class QueryBuilder
         $sel->execute();
     }
 
+    public function blockUser($id)
+    {
+        $sql = ("UPDATE customers SET customer_type_customer_type_id = 4 WHERE customer_id = $id");
+
+        $sel = $this->pdo->prepare($sql);
+
+        $sel->execute();
+    }
+
+    public function deBlockUser($id)
+    {
+        $sql = ("UPDATE customers SET customer_type_customer_type_id = 1 WHERE customer_id = $id");
+
+        $sel = $this->pdo->prepare($sql);
+
+        $sel->execute();
+    }
+
 
     public function login($email, $password)
     {
@@ -98,6 +116,14 @@ class QueryBuilder
 
         return $results;
 
+    }
+    public function checkBlock($email, $password){
+        $sql = $this->pdo->prepare("SELECT customer_type_customer_type_id FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
+        $sql->execute();
+
+        $results = $sql->fetchAll();
+
+        return $results;
     }
 
     public function register($username, $mail, $pass , $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date )
