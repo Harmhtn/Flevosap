@@ -20,6 +20,16 @@ class QueryBuilder
         return $results;
     }
 
+    public function selectUserAddress($table, $userId)
+    {
+        $sql = $this->pdo->prepare("SELECT customer_address FROM $table WHERE customer_id = $userId");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
     public function orderByName($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_name");
