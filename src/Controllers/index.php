@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+
 
 $table = 'product';
 $products = null;

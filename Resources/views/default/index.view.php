@@ -16,6 +16,15 @@
 
 foreach ($products as $product) {
 //for select make a for loop or input field
+    if (isset($_SESSION['cart_item'][$product['product_name']]['quantity']))   {
+        $amountCart = $_SESSION['cart_item'][$product['product_name']]['quantity'];
+    }
+    else {
+        $amountCart = 0;
+    }
+    $amountAvailible = $product['storage_amount'];
+    $Max = $amountAvailible - $amountCart;
+
     echo "
 <div class='row'>
     <div class='col-md-1'></div>
@@ -29,7 +38,7 @@ foreach ($products as $product) {
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
             <div class=\"form-group\">
-            <input type=\"number\" id=\"tentacles\" name=\"quantity\" min='1' max=\"" . $avalible . "\"> <p>In vooraad: ". $product['storage_amount'] ."</p>
+            <input type=\"number\" id=\"tentacles\" name=\"quantity\" min='1' max=\"" . $Max . "\"> <p>In vooraad: ". $Max ."</p>
 
             </div>
             </form>
