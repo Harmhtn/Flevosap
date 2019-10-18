@@ -1,12 +1,22 @@
+
+    <div class="dropdown">
+        <form action="" method="post">
+        <button type="submit" class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sorteer producten
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/?sort=alphabetical">Alfabetische volgorde</a>
+            <a class="dropdown-item" href="/?sort=price-high">Prijs hoog</a>
+            <a class="dropdown-item" href="/?sort=price-low">Prijs laag</a>
+        </div>
+        </form>
+    </div>
+</div>
 <?php
 
 
+
 foreach ($all_products as $product) {
-    //amount in cart aftrekken van in vooraad
-    //check in session if amount is to much
-    if (empty($amount)){
-        $amount = 0;
-    }
 
 //for select make a for loop or input field
     echo "

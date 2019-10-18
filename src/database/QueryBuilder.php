@@ -12,31 +12,59 @@ class QueryBuilder
 
     public function selectAll($table)
     {
-
         $sql = $this->pdo->prepare("SELECT * FROM $table");
         $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
+    }
 
+    public function orderByName($table)
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_name");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function orderByPriceHigh($table)
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price DESC");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function orderByPriceLow($table)
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price ASC");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
     }
 
 
     public function getProduct($id)
     {
-
         $sql = $this->pdo->prepare("SELECT * FROM product WHERE product_id = $id");
         $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
-
     }
 
     public function createProduct()
     {
+        //TODO dont forget to add new product_type i put it in hardcoded please change
+        //TODO also add storage amount also hardcoded
         $name = $_POST['name'];
         $description = $_POST['description'];
         $nutrition = $_POST['nutrition'];
@@ -67,6 +95,7 @@ class QueryBuilder
             else{
                 echo 'Je moet een prodct type kiezen';
             }
+
         } else {
             $_POST['upload'] = 'empty';
             echo 'Alles moet ingevuld zijn';
@@ -108,14 +137,12 @@ class QueryBuilder
 
     public function login($email, $password)
     {
-
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
         $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
-
     }
     public function checkBlock($email, $password){
         $sql = $this->pdo->prepare("SELECT customer_type_customer_type_id FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
@@ -126,7 +153,7 @@ class QueryBuilder
         return $results;
     }
 
-    public function register($username, $mail, $pass , $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date )
+    public function register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date)
     {
         //insert de user in de db vergeet niet alle columns!!!!!
         //pass hash
@@ -150,7 +177,6 @@ class QueryBuilder
 
 
         $sel->execute();
-
     }
 
     public function getCities()

@@ -19,6 +19,6 @@ return [
         'username' => 'team3wind@gmail.com',
         'password' => 'team3c123!',
         'fromEmail' => 'test@example.com',
-        'fromName' => 'Test name',
+        'fromName' => 'Flevosap team',
     ]
 ];
