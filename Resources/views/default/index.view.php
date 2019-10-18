@@ -14,10 +14,7 @@
 </div>
 <?php
 
-
-
-foreach ($all_products as $product) {
-
+foreach ($products as $product) {
 //for select make a for loop or input field
     echo "
 <div class='row'>
