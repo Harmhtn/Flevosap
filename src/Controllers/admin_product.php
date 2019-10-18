@@ -30,8 +30,8 @@ if(!empty($_GET['action'])) {
                 $fileExtTmp = explode('.', $fileName);
                 $fileExt = strtolower(end($fileExtTmp));
 
-                $allowed = array('jpg', 'jpeg', 'png');
-                $_SESSION[''] = '';
+                $allowed = array('jpg', 'jpeg', 'png', 'PGN', 'JPG', 'JPEG');
+
                 if(in_array($fileExt, $allowed))
                 {
                     if($fileError === 0)
@@ -65,12 +65,13 @@ if(!empty($_GET['action'])) {
 }
 $table = 'product';
 $allProduct = $app['database']->selectAll($table);
-
+$table1 = 'customers';
+$allCustomers = $app['database']->selectAll($table1);
 //load head and navbar
 require 'Resources/views/head.php';
 
 //load view
-require 'Resources/views/default/admin.view.php';
+require 'Resources/views/default/admin_product.view.php';
 
 //load footer
 require 'Resources/views/footer.php';

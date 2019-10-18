@@ -8,6 +8,14 @@
     <list default="true" id="bca173ae-47e6-4bfe-9d65-7d71a17a92c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/Resources/views/default/admin.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/admin_product.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/views/default/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/index.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/admin_product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/QueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/QueryBuilder.php" afterDir="false" />
+=======
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/Resources/views/default/index.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/index.view.php" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/Resources/views/default/admin.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/views/default/admin.view.php" afterDir="false" />
@@ -16,6 +24,7 @@
       <change beforePath="$PROJECT_DIR$/src/Controllers/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/admin.php" afterDir="false" />
 >>>>>>> f0114e538a48c38bda93c4547c4b254208e09e15
 >>>>>>> 1ed5762e80affb56196d9303073dde2a76353354
+>>>>>>> cba70740cc1f92b2e874987f61690cecaf595a5d
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +37,13 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,6 +60,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
 <<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+=======
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
 =======
 <<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -55,6 +75,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
 =======
 >>>>>>> 1ed5762e80affb56196d9303073dde2a76353354
+>>>>>>> cba70740cc1f92b2e874987f61690cecaf595a5d
     <property name="nodejs_package_manager_path" value="npm" />
 >>>>>>> f0114e538a48c38bda93c4547c4b254208e09e15
   </component>
@@ -85,12 +106,19 @@
       <workItem from="1570619069203" duration="2931000" />
 =======
       <updated>1570618953762</updated>
+<<<<<<< HEAD
+      <workItem from="1570618956895" duration="17908000" />
+      <workItem from="1570962624780" duration="1935000" />
+      <workItem from="1571039976340" duration="11046000" />
+      <workItem from="1571138340667" duration="7561000" />
+=======
       <workItem from="1570618956895" duration="15203000" />
 <<<<<<< HEAD
       <workItem from="1571142177248" duration="1337000" />
 =======
 >>>>>>> f0114e538a48c38bda93c4547c4b254208e09e15
 >>>>>>> 1ed5762e80affb56196d9303073dde2a76353354
+>>>>>>> cba70740cc1f92b2e874987f61690cecaf595a5d
     </task>
     <servers />
   </component>

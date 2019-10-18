@@ -1,5 +1,12 @@
 <?php
-session_start();
+// to do :
+//BTW al bij standaard prijs inberekend
+//Edit products
+// add page users
+    //edit users
+    //freeze account - account soort id 3
+
+
 
 
 //See if an action is specified
