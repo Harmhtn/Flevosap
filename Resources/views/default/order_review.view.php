@@ -9,7 +9,7 @@
     </tr>
 
     <?php
-    $i = 0;
+
     foreach ($_SESSION['cart_item'] as $result) {
         ?>
         <tr>

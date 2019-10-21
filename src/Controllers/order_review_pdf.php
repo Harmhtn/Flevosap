@@ -1,22 +1,25 @@
 <?php
 require('vendor/fpdf/fpdf/original/fpdf.php');
 
+
 class PDF extends FPDF
 {
+
     //page header
     public function Header()
     {
         //logo
-        $this->Image('src/Resources/public/images/logo-header.png', 10, 6, 30);
+        $this->Image('src/Resources/public/images/logo-header.png', 15, 8, 40);
         // Arial bold 15
-        $this->SetFont('Arial', 'B', 15);
+        $this->SetFont('Arial', 'B', 20);
         // Move to the right
         $this->Cell(80);
         // Title
-        $this->Cell(30, 10, 'Orderoverzicht Flevosap', 1, 0, 'C');
+        $this->Cell(30, 10, 'Orderoverzicht Flevosap', 0, 0, 'C');
         // Line break
         $this->Ln(20);
     }
+
 
     // Page footer
     public function Footer()
@@ -33,8 +36,53 @@ class PDF extends FPDF
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont('Arial', 'B', 16);
-$pdf->Cell(40, 10, '');
-$pdf->Output();
+$pdf->SetFont('Arial', 'B', 12);
+$pdf->Cell(30, 10, 'Product ID', '1');
+$pdf->Cell(35, 10, 'Naam', '1');
+$pdf->Cell(25, 10, 'Aantal', '1');
+$pdf->Cell(35, 10, 'Prijs', '1');
+$pdf->Cell(35, 10, 'Totaal', '1');
+$pdf->Ln(11);
+foreach ($_SESSION['cart_item'] as $result) {
+    $pdf->Cell(30, 5, $result['id'], '1');
+    $pdf->Cell(35, 5, $result['name'], '1');
+    $pdf->Cell(25, 5, $result['quantity'], '1');
+    $pdf->Cell(35, 5, $result['price'], '1');
+    $pdf->Cell(35, 5, ($result['quantity']*$result['price']), '1');
+    $pdf->Ln(6);
+}
+$pdf->Cell(300, 5, '_________________________________________________________________', '0', 'C');
+$pdf->Ln(6);
+$pdf->Cell(35, 5, 'Totaal bedrag is');
+//totaal bedrag uitrekenen
+$cart = $_SESSION['cart_item'];
+$cart_amount = count($_SESSION['cart_item']);
+$totalPrice = '';
+while ($cart !== 0) {
+    foreach($cart as $car){
 
-?>
+    }
+
+
+
+
+    $totalPrice = $cart['quantity'] * $cart['price'];
+    $totalPrice+=
+    $cart--;
+}
+
+$pdf->Cell(35, 5, $totalPrice);
+$pdf->Ln(15);
+//bezorgadres afbeelden
+$pdf->Cell(35, 5, 'Het bezorgadres is:');
+$pdf->Ln(6);
+$table = 'customers';
+$userdId = $_SESSION['user_id'];
+$user_data = $app['database']->selectUserAddress($table, $userdId);
+if (!empty($user_data)) {
+    foreach ($user_data as $r) {
+        $pdf->Cell(35, 5, $r['customer_address']);
+    }
+}
+
+$pdf->Output();
