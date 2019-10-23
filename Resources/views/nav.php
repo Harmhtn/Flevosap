@@ -12,6 +12,11 @@
         <a class="p-2 text-dark" href="#">Nieuws</a>
         <a class="p-2 text-dark" href="#">Contact</a>
         <a class="p-2 text-dark" href="logout">Logout</a>
+        <?php
+
+        if ($_SESSION[''] == 3){
+            echo '<a class="p-2 text-dark" href="admin">Admin</a>';
+        } ?>
     </nav>
     <a class="fas fa-shopping-cart" href="winkelmand"></a>
 </div>
