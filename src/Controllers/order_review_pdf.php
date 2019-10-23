@@ -53,25 +53,23 @@ foreach ($_SESSION['cart_item'] as $result) {
 }
 $pdf->Cell(300, 5, '_________________________________________________________________', '0', 'C');
 $pdf->Ln(6);
-$pdf->Cell(35, 5, 'Totaal bedrag is');
+$pdf->Cell(35, 5, 'Totaal bedrag exclusief btw');
+$pdf->Ln(6);
 //totaal bedrag uitrekenen
-$cart = $_SESSION['cart_item'];
-$cart_amount = count($_SESSION['cart_item']);
-$totalPrice = '';
-while ($cart !== 0) {
-    foreach($cart as $car){
-
+$carts = $_SESSION['cart_item'];
+$cart_amount = count($carts);
+$totalPrice = 0;
+    foreach ($carts as $cart) {
+        $totalPrice += $cart['quantity'] * $cart['price'];
     }
-
-
-
-
-    $totalPrice = $cart['quantity'] * $cart['price'];
-    $totalPrice+=
-    $cart--;
-}
-
+$totalPriceExBtw = $totalPrice * 0.9;
+$pdf->Cell(35, 5, $totalPriceExBtw);
+$pdf->Ln(6);
+$pdf->Cell(35, 5, 'Totaal bedrag inclusief btw');
+$pdf->Ln(6);
 $pdf->Cell(35, 5, $totalPrice);
+
+
 $pdf->Ln(15);
 //bezorgadres afbeelden
 $pdf->Cell(35, 5, 'Het bezorgadres is:');
