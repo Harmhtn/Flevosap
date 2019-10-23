@@ -21,8 +21,11 @@
         <?php
     }
     ?>
-
 </table>
+</div>
+<div class="container">
+    <p style="font-weight: bold">Totaal prijs exclusief btw: <?php echo $totalPrice ?> euro</p>
+    <p style="font-weight: bold">Totaal prijs inclusief btw: <?php echo $totalPriceExBtw ?> euro</p>
 </div>
 <div class="container">
     <h2>De producten worden bezorgd naar

@@ -160,4 +160,21 @@ class QueryBuilder
 
         return $result;
     }
+
+    public function placeOrder($newAddress, $customerId, $paymentMethodId, $orderDateConverted, $orderNote)
+    {
+
+        $sql = "INSERT INTO orders(order_date,
+                            order_note, payment_method_id, delivery_address,
+                            customers_customer_id) 
+                VALUES (:orderDate, :orderNote, :paymentId, :deliveryAddress, :customersId)";
+        $sel = $this->pdo->prepare($sql);
+        $sel->bindValue('orderDate', $orderDateConverted);
+        $sel->bindValue('orderNote', $orderNote);
+        $sel->bindValue('paymentId', $paymentMethodId);
+        $sel->bindValue('deliveryAddress', $newAddress);
+        $sel->bindValue('customersId', $customerId);
+
+        return $sel->execute();
+    }
 }
