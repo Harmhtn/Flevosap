@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //in db plaatsen
     $success = $flevo->placeOrder($newAddress, $customerId, $paymentMethodId, $orderDateConverted, $orderNote);
     if ($success) {
-        echo "Gelukt! De order is geplaatst";
+        echo "Gelukt! De order is geplaatst, bekijk hier de pdf <a href='orderreviewpdf'>versie</a>";
     } else {
         echo "Faal! De order is niet geplaatst";
     }
