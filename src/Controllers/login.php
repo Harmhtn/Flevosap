@@ -20,8 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $flevo->login($email, $new_password);
     $block = $app['database']->checkBlock($email, $new_password);
 
-
-
     if ($block[0][0] == 4) {
         echo 'Dit account is geblokkeerd';
     } else {
