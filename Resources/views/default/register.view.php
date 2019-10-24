@@ -8,6 +8,13 @@
             <h1>Maak nu je Flevosap account aan</h1>
         </div>
     </div>
+    <?php
+    if (!empty($already_exists)) {
+        ?>
+        <div class="alert alert-danger"> Dit account bestaat al</div>
+        <?php
+    }
+    ?>
         <form method="post" action="register">
         <!--    customer name-->
             <div class="form-group">

@@ -1,10 +1,12 @@
 <?php
 
 if (!empty($router)) {
+
     $router->define([
+
         '' => 'src/controllers/index.php',
         'login' => 'src/controllers/login.php',
-        'logout' => 'src/controllers/logout.php',
+        'logout' => 'src/controllers/login.php',
         'register' => 'src/controllers/register.php',
         'orderreview' => 'src/controllers/order_review.php',
         'orderreviewpdf' => 'src/controllers/order_review_pdf.php',
@@ -12,8 +14,7 @@ if (!empty($router)) {
         'admin' => 'src/controllers/admin.php',
         'admin/product' => 'src/controllers/admin_product.php',
         'admin/gebruiker' => 'src/controllers/admin_user.php',
-        'forgotpass' => 'src/controllers/forgotpass.php',
-        'newpass' => 'src/Controllers/newpass.php'
+        'forgot_password' => 'src/controllers/forgot_password.php',
 
     ]);
 }

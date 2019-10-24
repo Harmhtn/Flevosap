@@ -1,7 +1,4 @@
 <?php
-
-
-
 $table = 'product';
 $products = null;
 
@@ -27,7 +24,13 @@ if (!empty($_GET['action'])) {
         if (!empty($_POST["quantity"])) {
             $id = $_GET['id'];
             $productById = $app['database']->getProduct($id);
-            $itemArray = array($productById[0]["product_name"] => array('id' => $productById[0]["product_id"], 'name' => $productById[0]["product_name"], 'quantity' => $_POST["quantity"], 'price' => $productById[0]["product_price"], 'image' => $productById[0]["product_image"]));
+            $itemArray = array($productById[0]["product_name"] => array(
+                'id' => $productById[0]["product_id"],
+                'name' => $productById[0]["product_name"],
+                'quantity' => $_POST["quantity"],
+                'price' => $productById[0]["product_price"],
+                'image' => $productById[0]["product_image"]));
+
 
             if (!empty($_SESSION["cart_item"])) {
                 if (in_array($productById[0]["product_name"], array_keys($_SESSION["cart_item"]))) {
@@ -49,7 +52,6 @@ if (!empty($_GET['action'])) {
     }
     header('Location:/');
 }
-
 
 //load head and navbar
 require 'Resources/views/head.php';
