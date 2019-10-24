@@ -65,7 +65,7 @@ $allProduct = $app['database']->selectAll($table);
 $table1 = 'customers';
 $allCustomers = $app['database']->selectAll($table1);
 
-if ($_SESSION[''] != 3) {
+if ($_SESSION['user_type'] != 3) {
     header('Location:/');
 }
 //load head and navbar

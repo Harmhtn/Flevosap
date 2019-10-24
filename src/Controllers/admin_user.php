@@ -19,7 +19,7 @@ if (!empty($_GET['action'])){
 $table = 'customers';
 $allCustomers = $app['database']->selectAll($table);
 
-if ($_SESSION[''] != 3) {
+if ($_SESSION['user_type'] != 3) {
     header('Location:/');
 }
 //load head and navbar

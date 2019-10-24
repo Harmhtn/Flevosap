@@ -14,7 +14,7 @@
         <a class="p-2 text-dark" href="logout">Logout</a>
         <?php
 
-        if ($_SESSION[''] == 3){
+        if ($_SESSION['user_type'] == 3){
             echo '<a class="p-2 text-dark" href="admin">Admin</a>';
         } ?>
     </nav>
