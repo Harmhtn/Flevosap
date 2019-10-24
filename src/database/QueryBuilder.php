@@ -30,6 +30,16 @@ class QueryBuilder
         return $results;
     }
 
+    public function selectUserOrderAddress($table, $userId)
+    {
+        $sql = $this->pdo->prepare("SELECT delivery_address FROM $table WHERE customers_customer_id = $userId");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
     public function orderByName($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_name");
@@ -101,19 +111,14 @@ class QueryBuilder
                 } else {
                     echo 'Je moet een product soort kiezen';
                 }
-            }
-            else{
+            } else {
                 echo 'Je moet een prodct type kiezen';
             }
-
         } else {
             $_POST['upload'] = 'empty';
             echo 'Alles moet ingevuld zijn';
             return;
         }
-
-
-
     }
 
 
@@ -154,7 +159,8 @@ class QueryBuilder
 
         return $results;
     }
-    public function checkBlock($email, $password){
+    public function checkBlock($email, $password)
+    {
         $sql = $this->pdo->prepare("SELECT customer_type_customer_type_id FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
         $sql->execute();
 
@@ -205,7 +211,6 @@ class QueryBuilder
 
     public function placeOrder($newAddress, $customerId, $paymentMethodId, $orderDateConverted, $orderNote)
     {
-
         $sql = "INSERT INTO orders(order_date,
                             order_note, payment_method_id, delivery_address,
                             customers_customer_id) 

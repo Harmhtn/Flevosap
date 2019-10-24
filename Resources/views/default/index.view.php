@@ -1,11 +1,10 @@
 
 <?php
 foreach ($products as $product) {
-//for select make a for loop or input field
-    if (isset($_SESSION['cart_item'][$product['product_name']]['quantity']))   {
+    //for select make a for loop or input field
+    if (isset($_SESSION['cart_item'][$product['product_name']]['quantity'])) {
         $amountCart = $_SESSION['cart_item'][$product['product_name']]['quantity'];
-    }
-    else {
+    } else {
         $amountCart = 0;
     }
     $amountAvailible = $product['storage_amount'];
