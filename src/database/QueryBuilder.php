@@ -283,15 +283,5 @@ class QueryBuilder
         $sql->bindParam('pass', $password);
         $sql->bindParam('id', $id);
 
-        try{
-            $sql->execute();
-
-        }catch (PDOException $e){
-            echo"<pre>";
-            print_r($e->getMessage());
-            exit;
-
-        }
-
     }
 }
