@@ -69,6 +69,11 @@ if (!empty($_SESSION['cart_item'])) {
     $_SESSION['btw'] = 0;
 }
 
+//verzendkosten
+$shippingCosts = 5;
+if ($totalPrice >= 20) {
+    $shippingCosts = 0;
+}
 
 
 //load head and navbar
