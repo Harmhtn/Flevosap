@@ -107,8 +107,16 @@ class QueryBuilder
                     $sel->bindValue('productType', $product_type);
                     $sel->bindValue('amount', $amount);
 
-                    $sel->execute();
+                    try {
+                        $sel->execute();
+                    }
+                    catch (exeption $e){
+
+                        $_SESSION['error'] = true;
+
+                    }
                     return;
+
                 } else {
                     echo 'Je moet een product soort kiezen';
                 }
@@ -159,8 +167,14 @@ class QueryBuilder
     public function login($email, $password)
     {
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
-        $sql->execute();
 
+
+        try {
+            $sql->execute();
+        }
+        catch (exeption $e){
+        $_SESSION['error'] = true;
+        }
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
@@ -195,9 +209,15 @@ class QueryBuilder
         $sel->bindValue("payment", $payment_method);
         $sel->bindValue("customer_type", $customer_type);
         $sel->bindValue("last_updated", $last_updated_date);
+        $error = false;
+        try {
+            $sel->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-
-        $sel->execute();
+        }
+        return $error;
     }
 
     public function getCities()

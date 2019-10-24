@@ -32,9 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die;
     } else {
         // functie aanroepen om gebruiker te maken
-        $flevo->register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
-        echo "Gelukt! Het account is aangemaakt";
-        header('login');
+        $error = $flevo->register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
+
+       // if ($error) {
+//            echo "Gelukt! Het account is aangemaakt";
+//            header('login');
+//        }
+//        else{
+//            echo "er is een fout opgetreden";
+//        }
     }
 } else {
     require 'Resources/views/default/register.view.php';
