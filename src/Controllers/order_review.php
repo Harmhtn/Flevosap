@@ -1,11 +1,5 @@
 <?php
-
-require('vendor/fpdf/fpdf/original/fpdf.php');
-
-
-$pdf = new FPDF();
-$pdf->AddPage();
-$pdf->SetFont('Arial','B',16);
-$pdf->Cell(40,10,'Order overzicht');
-$pdf->Output();
+declare(strict_types=1);
+require 'Resources/views/head.php';
+require 'Resources/views/default/order_review.view.php';
 

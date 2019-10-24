@@ -28,7 +28,7 @@
                 </tr>
               </thead>
 <?php
-if(!empty($_SESSION['cart_item'])) {
+if (!empty($_SESSION['cart_item'])) {
     foreach ($_SESSION['cart_item'] as $product) {
         echo "
               <tbody>
@@ -59,9 +59,7 @@ if(!empty($_SESSION['cart_item'])) {
         </tr>
     </tbody>
     ";
-}
-else
-{
+} else {
     echo "
         <tbody>
             <tr>
@@ -71,7 +69,6 @@ else
             </tr> 
         </tbody>
     ";
-
 }
 ?>
             </table>

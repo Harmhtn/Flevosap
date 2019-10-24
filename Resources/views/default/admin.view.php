@@ -30,7 +30,7 @@
 
 <div class="container" style="margin-top: 100px">
 <?php
-if(!empty($allProduct)) {
+if (!empty($allProduct)) {
     foreach ($allProduct as $product) {
         echo "
               <tbody>
@@ -46,9 +46,7 @@ if(!empty($allProduct)) {
                   <td class='border-0 align-middle'><a onclick=\"return confirm('Are you sure you want to delete this item?')\" href='admin.php?action=remove&id=" . $product['product_id'] . "' class='fa fa-trash' aria-hidden='true'></a></td>
                   </tr>              
         ";
-
     }
-
 }
 
 ?>

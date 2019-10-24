@@ -6,7 +6,7 @@
         <a class="p-2 text-dark" href="#">Boomgaard</a>
         <a class="p-2 text-dark" href="#">In de fles</a>
         <a class="p-2 text-dark" href="#">Hmmm</a>
-        <a class="p-2 text-dark" href="#">Sappen</a>
+        <a class="p-2 text-dark" href="">Sappen</a>
         <a class="p-2 text-dark" href="#">Horeca</a>
         <a class="p-2 text-dark" href="#">Nieuws</a>
         <a class="p-2 text-dark" href="#">Contact</a>

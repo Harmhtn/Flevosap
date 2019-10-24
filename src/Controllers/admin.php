@@ -2,6 +2,7 @@
 <?php
 session_start();
 
+
 if (!empty($_GET['action'])) {
     switch ($_GET['action']) {
         case 'remove':
@@ -13,6 +14,7 @@ if (!empty($_GET['action'])) {
 
             break;
         case 'add':
+        case "add":
             if (isset($_POST['add'])) {
                 $file = $_FILES['image'];
 
@@ -36,6 +38,7 @@ if (!empty($_GET['action'])) {
                             $_SESSION['picture'] = $fileNameNew;
                             $productById = $app['database']->createProduct();
                         } else {
+<<<<<<< HEAD
                             echo 'The picture is to big';
                         }
                     } else {
@@ -43,6 +46,15 @@ if (!empty($_GET['action'])) {
                     }
                 } else {
                     echo 'Dit type bestand is niet toegestaan.';
+=======
+                            echo "The picture is to big";
+                        }
+                    } else {
+                        echo "Er is een fout opgetreden.". $fileError;
+                    }
+                } else {
+                    echo "Dit type bestand is niet toegestaan.";
+>>>>>>> ea5f4f3f22c6b915c3b7c7a7d5f317671b515d9c
                 }
             }
 

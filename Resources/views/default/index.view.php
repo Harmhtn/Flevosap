@@ -16,7 +16,7 @@
 
 
 foreach ($products as $product) {
-//for select make a for loop or input field
+    //for select make a for loop or input field
     echo "
 <div class='row'>
     <div class='col-md-1'></div>
