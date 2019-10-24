@@ -1,7 +1,6 @@
 <?php
 require('vendor/fpdf/fpdf/original/fpdf.php');
 
-
 class PDF extends FPDF
 {
 
@@ -74,13 +73,15 @@ $pdf->Ln(15);
 //bezorgadres afbeelden
 $pdf->Cell(35, 5, 'Het bezorgadres is:');
 $pdf->Ln(6);
-$table = 'customers';
+$table = 'orders';
 $userdId = $_SESSION['user_id'];
-$user_data = $app['database']->selectUserAddress($table, $userdId);
+$user_data = $app['database']->selectUserOrderAddress($table, $userdId);
 if (!empty($user_data)) {
     foreach ($user_data as $r) {
-        $pdf->Cell(35, 5, $r['customer_address']);
+        $pdf->Cell(35, 5, $r['delivery_address']);
     }
 }
+
+
 
 $pdf->Output();
