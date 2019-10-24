@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 5efe70a52fbc6ee543aa7442f7169174dc497689
 $table = 'product';
 $products = null;
 

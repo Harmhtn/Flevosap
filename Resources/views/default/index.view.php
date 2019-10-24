@@ -1,19 +1,21 @@
-<div class="dropdown">
-    <form action="" method="post">
-        <button type="submit" class="btn btn-secondary dropdown-toggle"
-                id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-            Sorteer producten
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/?sort=alphabetical">Alfabetische volgorde</a>
-            <a class="dropdown-item" href="/?sort=price-high">Prijs hoog</a>
-            <a class="dropdown-item" href="/?sort=price-low">Prijs laag</a>
-        </div>
-    </form>
-</div>
+
 
 <div class="container">
+    <div class="dropdown" align="right">
+        <form action="" method="post">
+            <button type="submit" class="btn btn-secondary dropdown-toggle"
+                    id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                Sorteer producten
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/?sort=alphabetical">Alfabetische volgorde</a>
+                <a class="dropdown-item" href="/?sort=price-high">Prijs hoog</a>
+                <a class="dropdown-item" href="/?sort=price-low">Prijs laag</a>
+            </div>
+        </form>
+    </div>
+
     <?php
     foreach ($products as $product) {
 

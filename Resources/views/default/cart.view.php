@@ -79,7 +79,7 @@ if (!empty($_SESSION['cart_item'])) {
                     <div class="p-4">
                         <ul class="list-unstyled mb-4 border-bottom  border-secondary">
                             <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Subtotaal</strong><strong>€ <?= number_format($_SESSION['total_price'], 2);?></strong></li>
-                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Verzendkosten</strong><strong>€ 0.00</strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Verzendkosten</strong><strong><?php echo "€ " . $shippingCosts = number_format($shippingCosts, 2)?></strong></li>
                             <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">BTW</strong><strong>€ <?= number_format($_SESSION['btw'], 2);?></strong></li>
                             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Totaal</strong>
                                 <h5 class="font-weight-bold">€ <?= number_format($_SESSION['total_price']+$_SESSION['btw'], 2);?></h5>
