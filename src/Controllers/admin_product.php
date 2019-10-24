@@ -1,8 +1,5 @@
 
 <?php
-session_start();
-
-
 
 if (!empty($_GET['action'])) {
     switch ($_GET['action']) {
@@ -64,6 +61,10 @@ $table = 'product';
 $allProduct = $app['database']->selectAll($table);
 $table1 = 'customers';
 $allCustomers = $app['database']->selectAll($table1);
+
+if ($_SESSION['user_type'] != 3) {
+    header('Location:/');
+}
 //load head and navbar
 require 'Resources/views/head.php';
 

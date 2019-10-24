@@ -53,6 +53,8 @@ if (!empty($_GET['action'])) {
     }
     header('Location:/');
 }
+
+
 //load head and navbar
 require 'Resources/views/head.php';
 

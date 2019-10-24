@@ -43,7 +43,7 @@ if(!empty($allProduct)) {
                 <tr>
                   <th scope='row' class='border-0'>
                     <div class='p-2'>
-                      <img src=src/Resources/public/images/imageupload/" . $product['product_image'] . " width='auto' class='img-fluid rounded shadow-sm'>
+                      <img src='src/Resources/public/images/imageupload/" . $product['product_image'] . "' class='card-img' alt='...'>
                     </div>
                   </th>
                   <td class='border-0 align-middle' style='size: auto'><strong>" . $product['product_name'] . "</strong></td>
