@@ -15,9 +15,8 @@
         <?php
 
 
-        if ($_SESSION['user_type'] == 3){
+        if ($_SESSION['user_type'] == 3) {
             echo '<a class="p-2 text-dark ml-2" href="admin">Admin</a>';
-
         } ?>
         <a class="fas fa-shopping-cart p-2" href="winkelmand"></a>
     </nav>
