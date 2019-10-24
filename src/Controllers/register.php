@@ -28,9 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($flevo->login($mail, $new_password)) {
         $already_exists = true;
 
-    } elseif (count(array_filter($_POST))!=count($_POST)) {
-        echo 'Vul alle velden in';
-        die;
     } else {
         // functie aanroepen om gebruiker te maken
         $flevo->register($username, $mail, $new_password, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);

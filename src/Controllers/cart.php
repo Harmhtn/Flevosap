@@ -4,12 +4,8 @@
 if (!empty($_GET["action"])) {
     switch ($_GET["action"]) {
         //add product to cart
-<<<<<<< HEAD
-=======
 
         case "add":
-
-
         //check if q
         if (!empty($_POST["quantity"])) {
             $id = $_GET['id'];
@@ -35,7 +31,6 @@ if (!empty($_GET["action"])) {
         }
         break;
 
->>>>>>> 88afd44dd12b164c16a903bee4a2c7e9ddf227a1
 
         case "remove":
             if (!empty($_SESSION["cart_item"])) {

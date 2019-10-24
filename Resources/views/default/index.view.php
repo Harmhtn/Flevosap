@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container">
     <?php
     foreach ($products as $product) {
