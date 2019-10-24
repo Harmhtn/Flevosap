@@ -52,14 +52,12 @@ if (isset($_POST['email_send'])) {
             $mail = $smtp->send($to, $headers, $body);
 
         } catch (PEAR_Exception $e) {
-            echo "<pre>";
-            print_r($e->getMessage());
-            exit;
+            $error = "Er kon geen mail verstuurd worden";
         }
-        echo "Er is een mail verstuurd naar het email adress controlleer ook uw spam box";
+        $error =  "Er is een mail verstuurd naar het email adress controlleer ook uw spam box";
 
     } else {
-        echo "Dit email adress staat niet geregistreerd";
+        $error =  "Dit email adress staat niet geregistreerd";
     }
 
 

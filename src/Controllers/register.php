@@ -23,8 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
+    $new_password = hash('sha256', $pass);
     //inloggen om te checken of de gebruiker al bestaat
-    if ($flevo->login($mail, $pass)) {
+    if ($flevo->login($mail, $new_password)) {
         $already_exists = true;
 
     } elseif (count(array_filter($_POST))!=count($_POST)) {
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die;
     } else {
         // functie aanroepen om gebruiker te maken
-        $flevo->register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
+        $flevo->register($username, $mail, $new_password, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
         header('Location: /login');
     }
 } else {
