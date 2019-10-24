@@ -12,36 +12,34 @@
         <!--    customer name-->
             <div class="form-group">
                 <label for="Input">Naam</label><br>
-                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_name" placeholder="Gebruikersnaam">
+                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_name" placeholder="Gebruikersnaam" required>
             </div>
         <!--    customer email-->
             <div class="form-group">
                 <label for="Input">Email</label><br>
-                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="email" name="customer_email" placeholder="Email">
+                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="email" name="customer_email" placeholder="Email" required>
             </div>
         <!--    customer password-->
             <div class="form-group">
                 <label for="InputPassword">Wachtwoord</label><br>
-                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="password" name="customer_password" id="InputPassword" placeholder="Wachtwoord">
+                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="password" name="customer_password" id="InputPassword" placeholder="Wachtwoord" required>
             </div>
         <!--    customer zipcode-->
             <div class="form-group">
                 <label for="Input">Postcode</label><br>
-                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_zipcode" placeholder="Postcode">
+                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_zipcode" placeholder="Postcode" required>
             </div>
         <!--    customer address-->
             <div class="form-group">
                 <label for="Input">Adres</label><br>
-                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_address" placeholder="Adres">
+                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_address" placeholder="Adres" required>
             </div>
         <!--    customer city-->
             <div class="form-group">
                <label>Stad</label><br>
-                <select class="custom-select shadow-sm mb-2 bg-white rounded" name="select_city">
-                    <option selected="selected">Kies een stad</option>
+                <select class="custom-select shadow-sm mb-2 bg-white rounded" name="select_city" required>
                     <?php
-                    foreach ($cities as $city)
-                    {
+                    foreach ($cities as $city) {
                         echo "<option value='". $city['city_id']. "'>". $city['city_name']. "</option>";
                     }
                     ?>

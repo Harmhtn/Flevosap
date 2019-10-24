@@ -28,7 +28,7 @@
                 </tr>
               </thead>
 <?php
-if(!empty($_SESSION['cart_item'])) {
+if (!empty($_SESSION['cart_item'])) {
     foreach ($_SESSION['cart_item'] as $product) {
         echo "
               <tbody>
@@ -59,9 +59,7 @@ if(!empty($_SESSION['cart_item'])) {
         </tr>
     </tbody>
     ";
-}
-else
-{
+} else {
     echo "
         <tbody>
             <tr>
@@ -71,7 +69,6 @@ else
             </tr> 
         </tbody>
     ";
-
 }
 ?>
             </table>
@@ -87,7 +84,7 @@ else
                             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Totaal</strong>
                                 <h5 class="font-weight-bold">€ <?= number_format($_SESSION['total_price']+$_SESSION['btw'], 2);?></h5>
                             </li>
-                        </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Bestelling afronden</a>
+                        </ul><a href="orderreview" class="btn btn-dark rounded-pill py-2 btn-block">Bestelling afronden</a>
                     </div>
                 </div>
           </div>

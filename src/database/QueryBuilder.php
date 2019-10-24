@@ -20,6 +20,16 @@ class QueryBuilder
         return $results;
     }
 
+    public function selectUserAddress($table, $userId)
+    {
+        $sql = $this->pdo->prepare("SELECT customer_address FROM $table WHERE customer_id = $userId");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
     public function orderByName($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_name");
@@ -191,5 +201,22 @@ class QueryBuilder
         $result = $sel->fetchAll();
 
         return $result;
+    }
+
+    public function placeOrder($newAddress, $customerId, $paymentMethodId, $orderDateConverted, $orderNote)
+    {
+
+        $sql = "INSERT INTO orders(order_date,
+                            order_note, payment_method_id, delivery_address,
+                            customers_customer_id) 
+                VALUES (:orderDate, :orderNote, :paymentId, :deliveryAddress, :customersId)";
+        $sel = $this->pdo->prepare($sql);
+        $sel->bindValue('orderDate', $orderDateConverted);
+        $sel->bindValue('orderNote', $orderNote);
+        $sel->bindValue('paymentId', $paymentMethodId);
+        $sel->bindValue('deliveryAddress', $newAddress);
+        $sel->bindValue('customersId', $customerId);
+
+        return $sel->execute();
     }
 }
