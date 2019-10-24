@@ -5,16 +5,14 @@ class Connection
 {
     public static function make($config)
     {
-
-        try{
+        try {
             return new PDO(
                 'mysql:host=' . $config['server_name'] . ';dbname=' . $config['db_name'] . '',
                 $config['username'],
                 $config['password'],
                 $config['options']
             );
-        }catch(PDOException $e){
-
+        } catch (PDOException $e) {
         }
     }
 }

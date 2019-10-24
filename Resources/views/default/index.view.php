@@ -15,6 +15,9 @@
 <?php
 
 foreach ($products as $product) {
+<<<<<<< HEAD
+    //for select make a for loop or input field
+=======
 //for select make a for loop or input field
     if (isset($_SESSION['cart_item'][$product['product_name']]['quantity']))   {
         $amountCart = $_SESSION['cart_item'][$product['product_name']]['quantity'];
@@ -25,6 +28,7 @@ foreach ($products as $product) {
     $amountAvailible = $product['storage_amount'];
     $Max = $amountAvailible - $amountCart;
 
+>>>>>>> 5288dfef84c5adca04d6be7d561da66b2d878517
     echo "
 <div class='row'>
     <div class='col-md-1'></div>

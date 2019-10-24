@@ -6,8 +6,7 @@ require 'Resources/views/head.php';
 $flevo = $app['database'];
 $cities = $flevo->getCities();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //alle $_POST values
     $username = $_POST['customer_name'];
@@ -24,23 +23,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 
 
-//inloggen om te checken of de gebruiker al bestaat
-    if ($flevo->login($mail, $pass))
-    {
+    //inloggen om te checken of de gebruiker al bestaat
+    if ($flevo->login($mail, $pass)) {
         echo "Er bestaat al een account met deze email";
         echo '<a href="login">, keer terug naar loginscherm</a>';
-
-    }
-    else
-    {
+    } elseif (count(array_filter($_POST))!=count($_POST)) {
+        echo 'Vul alle velden in';
+        die;
+    } else {
         // functie aanroepen om gebruiker te maken
         $flevo->register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
         echo "Gelukt! Het account is aangemaakt";
-        echo '<a href="login">, keer terug naar loginscherm</a>';
+        header('login');
     }
-
-}else
-{
+} else {
     require 'Resources/views/default/register.view.php';
 }
 
