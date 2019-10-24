@@ -74,8 +74,12 @@ $pdf->Ln(15);
 $pdf->Cell(35, 5, 'Het bezorgadres is:');
 $pdf->Ln(6);
 $table = 'orders';
+//haal het order id op inplaats van $userId
 $userdId = $_SESSION['user_id'];
+
+//haal gegevens uit db met order id
 $user_data = $app['database']->selectUserOrderAddress($table, $userdId);
+
 if (!empty($user_data)) {
     foreach ($user_data as $r) {
         $pdf->Cell(35, 5, $r['delivery_address']);

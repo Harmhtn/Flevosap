@@ -76,3 +76,14 @@ Stack trace:
 [24-Oct-2019 11:20:36 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 25
 [24-Oct-2019 11:21:37 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 25
 [24-Oct-2019 11:27:51 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 37
+[24-Oct-2019 12:50:10 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 25
+[24-Oct-2019 12:57:08 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 35
+[24-Oct-2019 12:57:28 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 35
+[24-Oct-2019 13:09:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'customer_zipcode' at row 1 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:203
+Stack trace:
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(203): PDOStatement->execute()
+#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\register.php(33): QueryBuilder->register('maudtt', 'maud@vierhazen....', 'fa690b82061edfd...', '1335 KA', '0651148427', 'Semesterhof, 11', '1', 1, '1', '2019-10-24 13:0...')
+#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(36): require('C:\\inetpub\\wwwr...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 203
+[24-Oct-2019 13:10:00 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 35

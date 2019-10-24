@@ -12,6 +12,13 @@
 
         <!-- Login Form -->
         <form method="post" action="login">
+            <?php
+            if (!empty($error)) {
+                ?>
+                <div class="alert alert-danger"><?= $error ?></div>
+                <?php
+            }
+            ?>
             <input type="email" id="login" class="fadeIn second form-control" name="email" placeholder="Login met email adres"><br>
             <input type="password" id="password" class="fadeIn third form-control" name="password" placeholder="Wachtwoord"><br>
             <input type="submit" class="fadeIn fourth" value="Log In">

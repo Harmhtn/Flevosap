@@ -23,13 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
+    $new_password = hash('sha256', $pass);
     //inloggen om te checken of de gebruiker al bestaat
-    if ($flevo->login($mail, $pass)) {
+    if ($flevo->login($mail, $new_password)) {
         $already_exists = true;
 
-    } elseif (count(array_filter($_POST))!=count($_POST)) {
-        echo 'Vul alle velden in';
-        die;
     } else {
         // functie aanroepen om gebruiker te maken
 

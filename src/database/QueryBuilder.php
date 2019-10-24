@@ -40,7 +40,7 @@ class QueryBuilder
     }
     public function selectUserOrderAddress($table, $userId)
     {
-        $sql = $this->pdo->prepare("SELECT delivery_address FROM $table WHERE customers_customer_id = $userId");
+        $sql = $this->pdo->prepare("SELECT delivery_address FROM $table WHERE order_id = $userId");
         $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -313,16 +313,6 @@ class QueryBuilder
         $sql = $this->pdo->prepare($sql);
         $sql->bindParam('pass', $password);
         $sql->bindParam('id', $id);
-
-        try{
-            $sql->execute();
-
-        }catch (PDOException $e){
-            echo"<pre>";
-            print_r($e->getMessage());
-            exit;
-
-        }
 
     }
 }
