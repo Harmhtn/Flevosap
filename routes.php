@@ -13,12 +13,8 @@ if (!empty($router)) {
         'admin/product' => 'src/controllers/admin_product.php',
         'admin/gebruiker' => 'src/controllers/admin_user.php',
         'forgotpass' => 'src/controllers/forgotpass.php',
-<<<<<<< HEAD
-        'newpass' => 'src/Controllers/newpass.php',
-=======
+
         'newpass' => 'src/Controllers/newpass.php'
 
-
->>>>>>> 5288dfef84c5adca04d6be7d561da66b2d878517
     ]);
 }

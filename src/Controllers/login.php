@@ -5,7 +5,8 @@ $flevo = $app['database'];
 //require 'Resources/views/head.php';
 require 'Resources/views/head.php';
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
     $email = $_POST['email'];
     $pass = $_POST['password'];
 
@@ -29,11 +30,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Je bent ingelogd";
         }
     }
-}else{
+} else {
 //load view
     require 'Resources/views/default/login.view.php';
 }
-
 
 
 //load footer
