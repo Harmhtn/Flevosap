@@ -13,17 +13,31 @@ class QueryBuilder
     public function selectAll($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table");
-        $sql->execute();
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
+        }
+        return $error;
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
-
         return $results;
     }
 
     public function selectUserAddress($table, $userId)
     {
         $sql = $this->pdo->prepare("SELECT customer_address FROM $table WHERE customer_id = $userId");
-        $sql->execute();
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
+
+        }
+        return $error;
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -32,8 +46,15 @@ class QueryBuilder
     public function selectIfEmailLoginExists($login)
     {
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$login'");
-        $sql->execute();
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
+        }
+        return $error;
         $results = $sql->fetch(PDO::FETCH_ASSOC);
 
         return $results;
@@ -41,7 +62,15 @@ class QueryBuilder
     public function selectUserOrderAddress($table, $userId)
     {
         $sql = $this->pdo->prepare("SELECT delivery_address FROM $table WHERE customers_customer_id = $userId");
-        $sql->execute();
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
+
+        }
+        return $error;
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -51,8 +80,15 @@ class QueryBuilder
     public function orderByName($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_name");
-        $sql->execute();
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
+        }
+        return $error;
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
@@ -61,7 +97,15 @@ class QueryBuilder
     public function orderByPriceHigh($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price DESC");
-        $sql->execute();
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
+
+        }
+        return $error;
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -71,7 +115,15 @@ class QueryBuilder
     public function orderByPriceLow($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price ASC");
-        $sql->execute();
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
+
+        }
+        return $error;
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -85,7 +137,15 @@ class QueryBuilder
 
         $sel = $this->pdo->prepare($sql);
         $sel->bindValue('id', $id);
-        $sel->execute();
+        $error = false;
+        try {
+            $sel->execute();
+        }
+        catch (exception $e){
+            $error = true;
+
+        }
+        return $error;
 
 
         $results = $sel->fetchAll(PDO::FETCH_ASSOC);
@@ -124,16 +184,16 @@ class QueryBuilder
                     $sel->bindValue('juiceType', $juice_type);
                     $sel->bindValue('productType', $product_type);
                     $sel->bindValue('amount', $amount);
-
+                    $error = false;
                     try {
                         $sel->execute();
                     }
-                    catch (exeption $e){
-
-                        $_SESSION['error'] = true;
+                    catch (exception $e){
+                        $error = true;
 
                     }
-                    return;
+                    return $error;
+
 
                 } else {
                     echo 'Je moet een product soort kiezen';
@@ -154,8 +214,15 @@ class QueryBuilder
         $sql = ("DELETE FROM product WHERE product_id = '$id'");
 
         $sel = $this->pdo->prepare($sql);
+        $error = false;
+        try {
+            $sel->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-        $sel->execute();
+        }
+        return $error;
     }
 
     public function blockUser($id)
@@ -163,8 +230,15 @@ class QueryBuilder
         $sql = ("UPDATE customers SET customer_type_customer_type_id = 4 WHERE customer_id = $id");
 
         $sel = $this->pdo->prepare($sql);
+        $error = false;
+        try {
+            $sel->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-        $sel->execute();
+        }
+        return $error;
     }
 
     public function deBlockUser($id)
@@ -172,8 +246,15 @@ class QueryBuilder
         $sql = ("UPDATE customers SET customer_type_customer_type_id = 1 WHERE customer_id = $id");
 
         $sel = $this->pdo->prepare($sql);
+        $error = false;
+        try {
+            $sel->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-        $sel->execute();
+        }
+        return $error;
     }
 
 
@@ -181,13 +262,15 @@ class QueryBuilder
     {
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
 
-
+        $error = false;
         try {
             $sql->execute();
         }
-        catch (exeption $e){
-        $_SESSION['error'] = true;
+        catch (exception $e){
+            $error = true;
+
         }
+        return $error;
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
@@ -195,7 +278,15 @@ class QueryBuilder
     public function checkBlock($email, $password)
     {
         $sql = $this->pdo->prepare("SELECT customer_type_customer_type_id FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
-        $sql->execute();
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
+
+        }
+        return $error;
 
         $results = $sql->fetchAll();
 
@@ -240,8 +331,15 @@ class QueryBuilder
         $sql = ("SELECT * FROM city");
 
         $sel = $this->pdo->prepare($sql);
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-        $sel->execute();
+        }
+        return $error;
 
         $result = $sel->fetchAll();
 
@@ -260,8 +358,17 @@ class QueryBuilder
         $sel->bindValue('paymentId', $paymentMethodId);
         $sel->bindValue('deliveryAddress', $newAddress);
         $sel->bindValue('customersId', $customerId);
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-        return $sel->execute();
+        }
+        return $error;
+
+        return;
     }
 
     public function addToken($token, $email)
@@ -274,8 +381,15 @@ class QueryBuilder
 
         $sql->bindParam('tn', $token);
         $sql->bindParam('em', $email);
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-        $sql->execute();
+        }
+        return $error;
     }
 
     public function resetToken($token, $user_id)
@@ -287,8 +401,15 @@ class QueryBuilder
         $sql = $this->pdo->prepare($sql);
 
         $sql->bindParam('id', $user_id);
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-        $sql->execute();
+        }
+        return $error;
     }
 
     public function checkToken($token)
@@ -296,9 +417,15 @@ class QueryBuilder
         $sql = "select * from customers where authentication_token = '$token'";
 
         $sql = $this->pdo->prepare($sql);
+        $error = false;
+        try {
+            $sql->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-        $sql->execute();
-
+        }
+        return $error;
         $results = $sql->fetch(PDO::FETCH_ASSOC);
 
 
@@ -313,16 +440,15 @@ class QueryBuilder
         $sql = $this->pdo->prepare($sql);
         $sql->bindParam('pass', $password);
         $sql->bindParam('id', $id);
-
-        try{
+        $error = false;
+        try {
             $sql->execute();
-
-        }catch (PDOException $e){
-            echo"<pre>";
-            print_r($e->getMessage());
-            exit;
+        }
+        catch (exception $e){
+            $error = true;
 
         }
+        return $error;
 
     }
 }

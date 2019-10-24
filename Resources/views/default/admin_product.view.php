@@ -36,6 +36,16 @@
 
 <div class="container" style="margin-top: 100px">
 <?php
+if (!empty($error)) {
+    if ($error) {
+        echo '<div class="alert alert-danger">er is een fout opgetreden met het laden!</div>';
+    }
+}
+if (!empty($error)) {
+    if ($error) {
+        echo '<div class="alert alert-danger">er is een fout opgetreden met het verwijderen!</div>';
+    }
+}
 if(!empty($allProduct)) {
     foreach ($allProduct as $product) {
 
@@ -60,6 +70,7 @@ if(!empty($allProduct)) {
 
 }
 
+
 ?>
                         </table>
                     </div>
@@ -68,6 +79,19 @@ if(!empty($allProduct)) {
         <div class="p-5 bg-white mb-5 mr-xl-3 mr-md-3 mr-sm-2 ml-sm-2 shadow-lg " style="height: fit-content; border-radius: 15px">
             <div class="text-white rounded-pill px-4 py-3 text-uppercase font-weight-bold" style="background-color: #4B515D">Product toevoegen </div>
             <div class="p-4">
+                <?php
+                if (!empty($error)) {
+                    if ($error) {
+                        echo '<div class="alert alert-danger">er is een fout opgetreden met het toevoegen!</div>';
+                    }
+                }
+
+                if (!empty($_SESSION['errorcreate'])) {
+
+                        echo '<div class="alert alert-danger">'.$_SESSION["errorcreate"].'</div>';
+
+                }
+                ?>
                 <form method="POST" enctype="multipart/form-data"  action="product?action=add"  class="form-group">
                     <ul class="">
                     <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Foto product</strong></li>

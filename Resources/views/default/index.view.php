@@ -15,9 +15,17 @@
 
 <div class="container">
     <?php
+    if (!empty($_SESSION['error1'])) {
+        if ($_SESSION['error1']) {
+            echo '<div class="alert alert-danger">Er is een fout opgetreden met het laden.</div>';
+        }
+    }
     foreach ($products as $product) {
 
 //for select make a for loop or input field
+
+
+
         if (isset($_SESSION['cart_item'][$product['product_name']]['quantity'])) {
             $amountCart = $_SESSION['cart_item'][$product['product_name']]['quantity'];
         } else {

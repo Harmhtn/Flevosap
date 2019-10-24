@@ -6,12 +6,14 @@ if (!empty($_GET['action'])) {
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
                 $picture = $app['database']->getProduct($id);
+                $error = $app['database']->getProduct($id);
                 $filename = "src/Resources/public/images/imageupload/" . $picture[0]['product_image'];
 
                 if (file_exists($filename)) {
                     unlink($filename);
                 }
                 $product = $app['database']->removeItem($id);
+                $error1 = $app['database']->removeItem($id);
                 header('Location:/admin/product');
             }
 
@@ -48,15 +50,15 @@ if (!empty($_GET['action'])) {
                                         move_uploaded_file($fileTmpName, $fileDestination);
                                         $_SESSION['picture'] = $fileNameNew;
                                         $productById = $app['database']->createProduct();
+                                        $error3 = $app['database']->createProduct();
                                     } else {
-
-                                        echo "The picture is to big";
+                                        $_SESSION['errorcreate'] = 'The file is to big';
                                     }
                                 } else {
-                                    echo "Er is een fout opgetreden." . $fileError;
+                                    $_SESSION['errorcreate'] = "Er is een fout opgetreden." . $fileError;
                                 }
                             } else {
-                                echo "Dit type bestand is niet toegestaan.";
+                                $_SESSION['errorcreate'] = "Dit type bestand is niet toegestaan.";
                             }
                         }
                         header('Location:/admin/product');
