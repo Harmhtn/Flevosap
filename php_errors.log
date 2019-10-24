@@ -67,3 +67,5 @@ Stack trace:
 #2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(12): require('C:\\inetpub\\wwwr...')
 #3 {main}
   thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 113
+[24-Oct-2019 07:47:44 UTC] PHP Notice:  Undefined index: user_type in C:\inetpub\wwwroot\PHP\flevosap_2.0\Resources\views\nav.php on line 17
+[24-Oct-2019 07:47:44 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 17
