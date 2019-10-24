@@ -32,8 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die;
     } else {
         // functie aanroepen om gebruiker te maken
+
         $flevo->register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
         header('Location: /login');
+
     }
 } else {
     require 'Resources/views/default/register.view.php';
