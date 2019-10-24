@@ -44,11 +44,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Je bent ingelogd";
         }
     }
-}else{
+}
 //load view
 
     require 'Resources/views/default/login.view.php';
-}
+
 
 
 
