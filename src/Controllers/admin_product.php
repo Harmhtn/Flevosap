@@ -7,7 +7,14 @@ if (!empty($_GET['action'])) {
 
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
-                $productById = $app['database']->removeItem($id);
+                $picture = $app['database']->getProduct($id);
+                $filename = "src/Resources/public/images/imageupload/" . $picture[0]['product_image'];
+
+                if (file_exists($filename)) {
+                    unlink($filename);
+                }
+                $product = $app['database']->removeItem($id);
+                header('Location:/admin/product');
             }
 
             break;
@@ -30,33 +37,35 @@ if (!empty($_GET['action'])) {
                 if (in_array($fileExt, $allowed)) {
                     if ($fileError === 0) {
                         if ($fileSize > 20000) {
-                $allowed = array('jpg', 'jpeg', 'png', 'PGN', 'JPG', 'JPEG');
+                            $allowed = array('jpg', 'jpeg', 'png', 'PGN', 'JPG', 'JPEG');
 
-                if(in_array($fileExt, $allowed))
-                {
-                    if($fileError === 0)
-                    {
-                        if($fileSize > 20000){
+                            if (in_array($fileExt, $allowed)) {
+                                if ($fileError === 0) {
+                                    if ($fileSize > 20000) {
 
-                            $fileNameNew = uniqid('', true) . '.' . $fileExt;
-                            $fileDestination = 'src/Resources/public/images/imageupload/' . $fileNameNew;
-                            move_uploaded_file($fileTmpName, $fileDestination);
-                            $_SESSION['picture'] = $fileNameNew;
-                            $productById = $app['database']->createProduct();
-                        } else {
-                            echo "The picture is to big";
+                                        $fileNameNew = uniqid('', true) . '.' . $fileExt;
+                                        $fileDestination = 'src/Resources/public/images/imageupload/' . $fileNameNew;
+                                        move_uploaded_file($fileTmpName, $fileDestination);
+                                        $_SESSION['picture'] = $fileNameNew;
+                                        $productById = $app['database']->createProduct();
+                                    } else {
+                                        echo "The picture is to big";
+                                    }
+                                } else {
+                                    echo "Er is een fout opgetreden." . $fileError;
+                                }
+                            } else {
+                                echo "Dit type bestand is niet toegestaan.";
+                            }
                         }
-                    } else {
-                        echo "Er is een fout opgetreden.". $fileError;
+                        header('Location:/admin/product');
+                        break;
                     }
-                } else {
-                    echo "Dit type bestand is niet toegestaan.";
                 }
             }
-
-            break;
     }
 }
+
 $table = 'product';
 $allProduct = $app['database']->selectAll($table);
 $table1 = 'customers';
