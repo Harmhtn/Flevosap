@@ -1,6 +1,6 @@
 <?php
 
-if($_SERVER['REQUEST_URI'] == '/logout'){
+if ($_SERVER['REQUEST_URI'] == '/logout') {
     session_destroy();
 }
 
@@ -23,9 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($block[0][0] == 4) {
         echo 'Dit account is geblokkeerd';
     } else {
-
-        if (!$user) {
-            echo "Geen account bekend met deze gegevens!";
+        if ($block[0][0] == 4) {
+            $error = 'Dit account is geblokkeerd';
         } else {
             foreach ($user as $use) {
                 $_SESSION["user_id"] = $use["customer_id"];
@@ -40,8 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 }
 //load view
-    require 'Resources/views/default/login.view.php';
-
+require 'Resources/views/default/login.view.php';
 
 
 //load footer
