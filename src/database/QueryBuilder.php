@@ -81,29 +81,63 @@ class QueryBuilder
         $price = $_POST['price'];
         $image = $_SESSION['picture'];
         $juice_type = $_POST['juice_type'];
+        $product_type = $_POST['product_type'];
+        $amount = $_POST['amount'];
         $nutritionNew = nl2br($nutrition, true);
 
 
-        if (!empty($name) || !empty($description) || !empty($nutritionNew) || !empty($price) || !empty($image) || !empty($juice_type)) {
-            $sql = ("INSERT INTO product 
-            (product_name, product_description, nutrition_value, product_price, product_image, juice_type_juice_type_id, product_type, storage_amount)
-            VALUES ('$name', '$description', '$nutritionNew', '$price', '$image', '$juice_type', 1, 1)
-            ");
+        if (!empty($_POST['name']) || !empty($_POST['description']) || !empty($nutritionNew) || !empty($_POST['price']) || !empty($_POST['amount']) || !empty($_SESSION['picture'])) {
+            if ($product_type == 1 || $product_type == 2) {
+                if ($juice_type == 1 || $juice_type == 2) {
+                    $sql = ("INSERT INTO product 
+                    (product_name, product_description, nutrition_value, product_price, product_image, juice_type_juice_type_id, product_type, storage_amount)
+                    VALUES ('$name', '$description', '$nutritionNew', '$price', '$image', '$juice_type', $product_type, $amount)
+                    ");
 
-            $sel = $this->pdo->prepare($sql);
+                    $sel = $this->pdo->prepare($sql);
 
-            $sel->execute();
-            return;
+                    $sel->execute();
+                    return;
+                } else {
+                    echo 'Je moet een product soort kiezen';
+                }
+            }
+            else{
+                echo 'Je moet een prodct type kiezen';
+            }
+
         } else {
             $_POST['upload'] = 'empty';
+            echo 'Alles moet ingevuld zijn';
             return;
         }
+
+
+
     }
 
 
     public function removeItem($id)
     {
         $sql = ("DELETE FROM product WHERE product_id = '$id'");
+
+        $sel = $this->pdo->prepare($sql);
+
+        $sel->execute();
+    }
+
+    public function blockUser($id)
+    {
+        $sql = ("UPDATE customers SET customer_type_customer_type_id = 4 WHERE customer_id = $id");
+
+        $sel = $this->pdo->prepare($sql);
+
+        $sel->execute();
+    }
+
+    public function deBlockUser($id)
+    {
+        $sql = ("UPDATE customers SET customer_type_customer_type_id = 1 WHERE customer_id = $id");
 
         $sel = $this->pdo->prepare($sql);
 
@@ -117,6 +151,14 @@ class QueryBuilder
         $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+    public function checkBlock($email, $password){
+        $sql = $this->pdo->prepare("SELECT customer_type_customer_type_id FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
+        $sql->execute();
+
+        $results = $sql->fetchAll();
 
         return $results;
     }

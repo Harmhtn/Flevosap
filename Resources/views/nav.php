@@ -5,6 +5,7 @@
         <a class="my-0 mr-md-auto" href=""><img style="max-height: 120px;" class="" src="src/Resources/public/images/logo-nav.png" alt=""></a>
         <a class="p-2 text-dark" href="#">Boomgaard</a>
         <a class="p-2 text-dark" href="#">In de fles</a>
+        <a class="p-2 text-dark" href="/">Webshop</a>
         <a class="p-2 text-dark" href="#">Hmmm</a>
         <a class="p-2 text-dark" href="">Sappen</a>
         <a class="p-2 text-dark" href="#">Horeca</a>

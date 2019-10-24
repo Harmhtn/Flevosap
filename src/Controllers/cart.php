@@ -4,6 +4,7 @@
 if (!empty($_GET["action"])) {
     switch ($_GET["action"]) {
         //add product to cart
+
         case "add":
 
 
@@ -31,6 +32,7 @@ if (!empty($_GET["action"])) {
             }
         }
         break;
+
 
         case "remove":
             if (!empty($_SESSION["cart_item"])) {
