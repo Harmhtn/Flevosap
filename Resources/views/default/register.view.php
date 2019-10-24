@@ -16,6 +16,14 @@
     }
     ?>
         <form method="post" action="register">
+            <?php
+            if (!empty($error)) {
+                if ($error) {
+                 echo '<div class="alert alert-danger">vul de goede gegevens in!</div>';
+                }
+            }
+            ?>
+
         <!--    customer name-->
             <div class="form-group">
                 <label for="Input">Naam</label><br>
@@ -34,7 +42,7 @@
         <!--    customer zipcode-->
             <div class="form-group">
                 <label for="Input">Postcode</label><br>
-                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_zipcode" placeholder="Postcode" required>
+                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_zipcode" placeholder="1234AB" required>
             </div>
         <!--    customer address-->
             <div class="form-group">

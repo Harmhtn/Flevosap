@@ -1,10 +1,16 @@
 <?php
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 5efe70a52fbc6ee543aa7442f7169174dc497689
 $table = 'product';
 $products = null;
 
 if (isset($_GET['sort'])) {
     $sort = $_GET['sort'];
 
+    $all_products = $app['database']->selectAll($table);
     if ($sort === 'alphabetical') {
         $products = $app['database']->orderByName($table);
     } elseif ($sort === 'price-high') {
