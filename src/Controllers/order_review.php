@@ -4,6 +4,9 @@ require 'Resources/views/head.php';
 
 $flevo = $app['database'];
 $table = 'customers';
+echo "<pre>";
+print_r($_SESSION);
+exit;
 $userdId = $_SESSION['user_id'];
 $user_data = $app['database']->selectUserAddress($table, $userdId);
 
