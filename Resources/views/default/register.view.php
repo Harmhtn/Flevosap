@@ -19,7 +19,7 @@
             <?php
             if (!empty($error)) {
                 if ($error) {
-                 echo '<div class="alert alert-danger">vul de goede gegevens in!</div>';
+                    echo '<div class="alert alert-danger">vul de goede gegevens in!</div>';
                 }
             }
             ?>
