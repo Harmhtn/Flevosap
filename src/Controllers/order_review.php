@@ -38,10 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $carts = $_SESSION['cart_item'];
 $cart_amount = count($carts);
-$totalPrice = 0;
+$totalPriceExBtw = 0;
 foreach ($carts as $cart) {
-    $totalPrice += $cart['quantity'] * $cart['price'];
+    $totalPriceExBtw += $cart['quantity'] * $cart['price'];
+    $totalPriceExBtw = number_format($totalPriceExBtw, 2);
 }
-$totalPriceExBtw = $totalPrice * 0.9;
+
+
+$totalPriceInBtw = number_format($totalPriceExBtw * 1.1, 2);
+
+
 
 require 'Resources/views/default/order_review.view.php';

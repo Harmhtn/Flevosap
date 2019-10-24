@@ -31,6 +31,7 @@ if (!empty($_GET['action'])) {
                 'price' => $productById[0]["product_price"],
                 'image' => $productById[0]["product_image"]));
 
+
             if (!empty($_SESSION["cart_item"])) {
                 if (in_array($productById[0]["product_name"], array_keys($_SESSION["cart_item"]))) {
                     foreach ($_SESSION["cart_item"] as $current => $value) {
