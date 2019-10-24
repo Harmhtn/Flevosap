@@ -19,7 +19,7 @@
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-            <a class="underlineHover" href="forgotpass">Wachtwoord vergeten?</a><br>
+            <a class="underlineHover" href="forgot_password">Wachtwoord vergeten?</a><br>
             <a class="underlineHover" href="register">Nog geen account?</a>
         </div>
 
