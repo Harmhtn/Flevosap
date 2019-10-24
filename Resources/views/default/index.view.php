@@ -14,9 +14,21 @@
 </div>
 <?php
 
-
 foreach ($products as $product) {
+<<<<<<< HEAD
     //for select make a for loop or input field
+=======
+//for select make a for loop or input field
+    if (isset($_SESSION['cart_item'][$product['product_name']]['quantity']))   {
+        $amountCart = $_SESSION['cart_item'][$product['product_name']]['quantity'];
+    }
+    else {
+        $amountCart = 0;
+    }
+    $amountAvailible = $product['storage_amount'];
+    $Max = $amountAvailible - $amountCart;
+
+>>>>>>> 5288dfef84c5adca04d6be7d561da66b2d878517
     echo "
 <div class='row'>
     <div class='col-md-1'></div>
@@ -25,23 +37,43 @@ foreach ($products as $product) {
     </div>
     <div class='col-md-6'>
         <div class='card-body'>
-            <form action='winkelmand?action=add&id=". $product['product_id'] ."' method='post'>
-            <button type=\"submit\" class=\"btn btn-info float-right mb-2\">
+            <form action='?action=add&id=". $product['product_id'] ."'  method='post'>
+            <button type=\"submit\" onclick='added()' class=\"btn btn-info float-right mb-2\">
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
             <div class=\"form-group\">
-            <input type=\"number\" id=\"tentacles\" name=\"quantity\" max=\"" . $product['product_name'] . "\">
+            <input type=\"number\" id=\"tentacles\" name=\"quantity\" min='1' max=\"" . $Max . "\"> <p>In vooraad: ". $Max ."</p>
+
             </div>
             </form>
             <h5 class='card-title'> " . $product['product_name'] . "</h5>
             <p class='card-text'>" . $product['product_description'] . "</p>
+            <a data-toggle='collapse' role=\"button\" href=\"#". $product['product_id'] ."\"  >Voedingswaarde</a>
+            <p class='card-text collapse' role=\"button\" id=\"". $product['product_id'] ."\" >" . $product['nutrition_value'] . "</p>
             <p class='card-text'><small class='text-muted'>" . $product['product_price'] . "</small></p>
         </div>
     </div>
     <div class='col-md-2'></div>
+
 </div>
-<hr>
+
+<div class=\"modal fade\" id=\"myModal\" role=\"dialog\">
+    <div class=\"modal-dialog\">
+      
+    </div>
+  </div>
 ";
 }
 
 ?>
+<script>
+    //make alert after reload.
+    function added() {
+        window.alert("Het product is toegevoegd aan de winkelmand");
+    }
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
