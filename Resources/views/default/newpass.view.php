@@ -1,9 +1,14 @@
-<div class="container shadow p-3 mb-2 rounded">
-    <div class="form-group">
-        <form action="newpass" method="post">
-            <h2>Voer nu je nieuwe wachtwoord in</h2>
-            <input type="password" id="newpass" class="form-control" name="newpass" placeholder="Wachtwoord"><br>
-            <input type="submit" class="btn-dark btn-lg" value="Bevestig">
-        </form>
+<div class="container">
+    <div class="row justify-content-center text-white">
+        <div class="col-4 mt-4 p-4 rounded" style="background-color: #00adee">
+            <form action="/forgot_password?newpass=<?= $result['customer_id'] ?>" class="form-signin w-100" method="post">
+                <h4 class="">Het nieuwe wachtwoord in</h4>
+                <label>Password:
+                    <input class="form-control" name="new_password" type="password">
+                </label>
+                <br>
+                <input class="btn btn-light" type="submit">
+            </form>
+        </div>
     </div>
 </div>

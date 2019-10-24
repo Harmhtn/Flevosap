@@ -29,6 +29,24 @@ class QueryBuilder
 
         return $results;
     }
+    public function selectIfEmailLoginExists($login)
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$login'");
+        $sql->execute();
+
+        $results = $sql->fetch(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+    public function selectUserOrderAddress($table, $userId)
+    {
+        $sql = $this->pdo->prepare("SELECT delivery_address FROM $table WHERE customers_customer_id = $userId");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
 
     public function orderByName($table)
     {
@@ -120,19 +138,14 @@ class QueryBuilder
                 } else {
                     echo 'Je moet een product soort kiezen';
                 }
-            }
-            else{
+            } else {
                 echo 'Je moet een prodct type kiezen';
             }
-
         } else {
             $_POST['upload'] = 'empty';
             echo 'Alles moet ingevuld zijn';
             return;
         }
-
-
-
     }
 
 
@@ -179,7 +192,8 @@ class QueryBuilder
 
         return $results;
     }
-    public function checkBlock($email, $password){
+    public function checkBlock($email, $password)
+    {
         $sql = $this->pdo->prepare("SELECT customer_type_customer_type_id FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
         $sql->execute();
 
@@ -236,7 +250,6 @@ class QueryBuilder
 
     public function placeOrder($newAddress, $customerId, $paymentMethodId, $orderDateConverted, $orderNote)
     {
-
         $sql = "INSERT INTO orders(order_date,
                             order_note, payment_method_id, delivery_address,
                             customers_customer_id) 
@@ -249,5 +262,67 @@ class QueryBuilder
         $sel->bindValue('customersId', $customerId);
 
         return $sel->execute();
+    }
+
+    public function addToken($token, $email)
+    {
+        $sql = "UPDATE customers SET authentication_date = CURRENT_TIMESTAMP,
+                authentication_token = :tn
+                WHERE customer_email = :em";
+
+        $sql = $this->pdo->prepare($sql);
+
+        $sql->bindParam('tn', $token);
+        $sql->bindParam('em', $email);
+
+        $sql->execute();
+    }
+
+    public function resetToken($token, $user_id)
+    {
+        $sql = "UPDATE customers SET authentication_date = NULL,
+                authentication_token = NULL
+                WHERE customer_id = :id";
+
+        $sql = $this->pdo->prepare($sql);
+
+        $sql->bindParam('id', $user_id);
+
+        $sql->execute();
+    }
+
+    public function checkToken($token)
+    {
+        $sql = "select * from customers where authentication_token = '$token'";
+
+        $sql = $this->pdo->prepare($sql);
+
+        $sql->execute();
+
+        $results = $sql->fetch(PDO::FETCH_ASSOC);
+
+
+        return $results;
+    }
+
+    public function updatePassword($password, $id)
+    {
+        $sql = "UPDATE customers SET customer_password = :pass
+                WHERE customer_id = :id";
+
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindParam('pass', $password);
+        $sql->bindParam('id', $id);
+
+        try{
+            $sql->execute();
+
+        }catch (PDOException $e){
+            echo"<pre>";
+            print_r($e->getMessage());
+            exit;
+
+        }
+
     }
 }

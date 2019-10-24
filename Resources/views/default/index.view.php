@@ -13,21 +13,22 @@
     </form>
 </div>
 
-<?php
+<div class="container">
+    <?php
+    foreach ($products as $product) {
 
-foreach ($products as $product) {
 //for select make a for loop or input field
-    if (isset($_SESSION['cart_item'][$product['product_name']]['quantity']))   {
-        $amountCart = $_SESSION['cart_item'][$product['product_name']]['quantity'];
-    }
-    else {
-        $amountCart = 0;
-    }
-    $amountAvailible = $product['storage_amount'];
-    $Max = $amountAvailible - $amountCart;
+        if (isset($_SESSION['cart_item'][$product['product_name']]['quantity'])) {
+            $amountCart = $_SESSION['cart_item'][$product['product_name']]['quantity'];
+        } else {
+            $amountCart = 0;
+        }
+        $amountAvailible = $product['storage_amount'];
+        $Max = $amountAvailible - $amountCart;
 
 
-    echo "
+
+        echo "
 <div class='row'>
     <div class='col-md-1'></div>
     <div class='col-md-3'>
@@ -35,19 +36,19 @@ foreach ($products as $product) {
     </div>
     <div class='col-md-6'>
         <div class='card-body'>
-            <form action='?action=add&id=". $product['product_id'] ."'  method='post'>
+            <form action='?action=add&id=" . $product['product_id'] . "'  method='post'>
             <button type=\"submit\" onclick='added()' class=\"btn btn-info float-right mb-2\">
             <i class=\"fas fa-cart-arrow-down\"></i>
             </button>
             <div class=\"form-group\">
-            <input type=\"number\" id=\"tentacles\" name=\"quantity\" min='1' max=\"" . $Max . "\"> <p>In vooraad: ". $Max ."</p>
+            <input type=\"number\" id=\"tentacles\" name=\"quantity\" min='1' max=\"" . $Max . "\"> <p>In vooraad: " . $Max . "</p>
 
             </div>
             </form>
             <h5 class='card-title'> " . $product['product_name'] . "</h5>
             <p class='card-text'>" . $product['product_description'] . "</p>
-            <a data-toggle='collapse' role=\"button\" href=\"#". $product['product_id'] ."\"  >Voedingswaarde</a>
-            <p class='card-text collapse' role=\"button\" id=\"". $product['product_id'] ."\" >" . $product['nutrition_value'] . "</p>
+            <a data-toggle='collapse' role=\"button\" href=\"#" . $product['product_id'] . "\"  >Voedingswaarde</a>
+            <p class='card-text collapse' role=\"button\" id=\"" . $product['product_id'] . "\" >" . $product['nutrition_value'] . "</p>
             <p class='card-text'><small class='text-muted'>" . $product['product_price'] . "</small></p>
         </div>
     </div>
@@ -57,14 +58,14 @@ foreach ($products as $product) {
       
 
 ";
-}
+    }
 
-?>
+    ?>
+</div>
 <script>
     //make alert after reload.
     function added() {
         window.alert("Het product is toegevoegd aan de winkelmand");
     }
 </script>
-
 

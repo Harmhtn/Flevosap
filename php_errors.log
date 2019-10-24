@@ -1,61 +1,78 @@
-[09-Oct-2019 11:49:14 UTC] PHP Parse error:  syntax error, unexpected '<<' (T_SL), expecting function (T_FUNCTION) or const (T_CONST) in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 25
-[09-Oct-2019 11:50:07 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:31
+[24-Oct-2019 08:51:32 UTC] PHP Notice:  Undefined index: role in C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php on line 26
+[24-Oct-2019 08:51:32 UTC] PHP Notice:  Undefined index: role in C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php on line 26
+[24-Oct-2019 08:51:36 UTC] PHP Notice:  Undefined index: role in C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php on line 26
+[24-Oct-2019 08:52:03 UTC] PHP Notice:  Undefined index: role in C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php on line 26
+[24-Oct-2019 08:54:08 UTC] PHP Notice:  Undefined index: role in C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php on line 26
+[24-Oct-2019 08:55:18 UTC] PHP Notice:  Undefined index: role in C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php on line 26
+[24-Oct-2019 08:57:52 UTC] PHP Notice:  Undefined index: role in C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php on line 26
+[24-Oct-2019 08:57:54 UTC] PHP Notice:  Undefined index: role in C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php on line 26
+[24-Oct-2019 08:57:58 UTC] PHP Parse error:  syntax error, unexpected '$_SESSION' (T_VARIABLE) in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 34
+[24-Oct-2019 08:58:32 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 18
+[24-Oct-2019 09:00:18 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 31
+[24-Oct-2019 09:04:23 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:30
 Stack trace:
-#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): Router->direct('wikelmand')
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(36): Router->direct('account')
 #1 {main}
-  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 31
-[09-Oct-2019 11:50:38 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:31
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 30
+[24-Oct-2019 09:04:24 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:30
 Stack trace:
-#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): Router->direct('wikelmand')
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(36): Router->direct('account')
 #1 {main}
-  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 31
-[09-Oct-2019 11:50:46 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:31
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 30
+[24-Oct-2019 09:06:41 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 34
+[24-Oct-2019 09:07:14 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 34
+[24-Oct-2019 09:07:36 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 36
+[24-Oct-2019 09:07:40 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 36
+[24-Oct-2019 09:10:11 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 36
+[24-Oct-2019 09:54:48 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 36
+[24-Oct-2019 10:16:25 UTC] PHP Warning:  require(Resources/views/default/forgot_password.view.php): failed to open stream: No such file or directory in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\forgot_password.php on line 98
+[24-Oct-2019 10:16:25 UTC] PHP Fatal error:  require(): Failed opening required 'Resources/views/default/forgot_password.view.php' (include_path='C:\inetpub\wwwroot\PHP\flevosap_2.0\vendor/pear/console_getopt;C:\inetpub\wwwroot\PHP\flevosap_2.0\vendor/pear/mail;C:\inetpub\wwwroot\PHP\flevosap_2.0\vendor/pear/pear-core-minimal/src;C:\inetpub\wwwroot\PHP\flevosap_2.0\vendor/pear/pear_exception;.;C:\php-7.3.9\pear;c:\php\includes') in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\forgot_password.php on line 98
+[24-Oct-2019 11:03:55 UTC] PHP Notice:  Undefined index: user_email in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\forgot_password.php on line 19
+[24-Oct-2019 11:03:55 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'authentication_token' in 'field list' in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:244
 Stack trace:
-#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): Router->direct('wikelmand')
-#1 {main}
-  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 31
-[09-Oct-2019 12:08:08 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:31
-Stack trace:
-#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): Router->direct('winkelmand/1/ad...')
-#1 {main}
-  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 31
-[10-Oct-2019 11:44:52 UTC] PHP Notice:  Undefined index: image in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php on line 77
-[10-Oct-2019 11:48:08 UTC] PHP Warning:  move_uploaded_file(scr/Resources/public/images/imageupload/5d9f1a781dbd86.68512503.png): failed to open stream: No such file or directory in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php on line 43
-[10-Oct-2019 11:48:08 UTC] PHP Warning:  move_uploaded_file(): Unable to move 'C:\Users\maud_cp8wljs\AppData\Local\Temp\phpE106.tmp' to 'scr/Resources/public/images/imageupload/5d9f1a781dbd86.68512503.png' in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php on line 43
-[10-Oct-2019 11:48:08 UTC] PHP Notice:  Undefined property: QueryBuilder::$conn in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 54
-[10-Oct-2019 11:48:08 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:54
-Stack trace:
-#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php(45): QueryBuilder->createProduct()
-#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): require('C:\\inetpub\\wwwr...')
-#2 {main}
-  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 54
-[10-Oct-2019 11:49:14 UTC] PHP Warning:  move_uploaded_file(scr/Resources/public/images/imageupload/5d9f1aba60ade8.51679696.png): failed to open stream: No such file or directory in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php on line 43
-[10-Oct-2019 11:49:14 UTC] PHP Warning:  move_uploaded_file(): Unable to move 'C:\Users\maud_cp8wljs\AppData\Local\Temp\phpE3E1.tmp' to 'scr/Resources/public/images/imageupload/5d9f1aba60ade8.51679696.png' in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php on line 43
-[10-Oct-2019 11:49:14 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: 'g' for column 'product_price' at row 1 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:56
-Stack trace:
-#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(56): PDOStatement->execute()
-#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php(45): QueryBuilder->createProduct()
-#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): require('C:\\inetpub\\wwwr...')
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(244): PDOStatement->execute()
+#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\forgot_password.php(19): QueryBuilder->addToken('e43fa2a044ece12...', NULL)
+#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(16): require('C:\\inetpub\\wwwr...')
 #3 {main}
-  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 56
-[10-Oct-2019 11:50:46 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: 'g' for column 'product_price' at row 1 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:56
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 244
+[24-Oct-2019 11:05:37 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'authentication_token' in 'field list' in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:244
 Stack trace:
-#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(56): PDOStatement->execute()
-#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php(44): QueryBuilder->createProduct()
-#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): require('C:\\inetpub\\wwwr...')
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(244): PDOStatement->execute()
+#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\forgot_password.php(20): QueryBuilder->addToken('ee957250efd2562...', 'maud@vierhazen....')
+#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(16): require('C:\\inetpub\\wwwr...')
 #3 {main}
-  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 56
-[10-Oct-2019 11:51:50 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'product_type' doesn't have a default value in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:56
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 244
+[24-Oct-2019 11:06:54 UTC] PHP Notice:  Undefined index: user_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\Resources\views\default\newpass.view.php on line 4
+[24-Oct-2019 11:07:46 UTC] PHP Notice:  Undefined index: user_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\Resources\views\default\newpass.view.php on line 4
+[24-Oct-2019 11:08:47 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_id' in 'where clause' in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:283
 Stack trace:
-#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(56): PDOStatement->execute()
-#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php(44): QueryBuilder->createProduct()
-#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): require('C:\\inetpub\\wwwr...')
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(283): PDOStatement->execute()
+#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\forgot_password.php(92): QueryBuilder->updatePassword('85a39ab345d672f...', '23')
+#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(16): require('C:\\inetpub\\wwwr...')
 #3 {main}
-  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 56
-[10-Oct-2019 11:56:45 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000]: General error: 1364 Field 'storage_amount' doesn't have a default value in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:57
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 283
+[24-Oct-2019 11:09:22 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'customer_password' at row 1 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:283
 Stack trace:
-#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(57): PDOStatement->execute()
-#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\admin.php(44): QueryBuilder->createProduct()
-#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(7): require('C:\\inetpub\\wwwr...')
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(283): PDOStatement->execute()
+#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\forgot_password.php(92): QueryBuilder->updatePassword('85a39ab345d672f...', '23')
+#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(16): require('C:\\inetpub\\wwwr...')
 #3 {main}
-  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 57
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 283
+[24-Oct-2019 11:11:29 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:12:00 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:12:26 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:12:32 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:13:05 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:13:40 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:15:55 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 288
+[24-Oct-2019 11:17:27 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:18:07 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:18:33 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:18:38 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:18:55 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:19:14 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 24
+[24-Oct-2019 11:19:42 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 36
+[24-Oct-2019 11:20:31 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 25
+[24-Oct-2019 11:20:36 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 25
+[24-Oct-2019 11:21:37 UTC] PHP Notice:  Undefined offset: 0 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 25
+[24-Oct-2019 11:27:51 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 37
