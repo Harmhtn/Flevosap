@@ -81,18 +81,21 @@ class QueryBuilder
 
     public function getProduct($id)
     {
-        $sql = $this->pdo->prepare("SELECT * FROM product WHERE product_id = $id");
-        $sql->execute();
+        $sql = ("SELECT * FROM product WHERE product_id = :id ");
 
-        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+        $sel = $this->pdo->prepare($sql);
+        $sel->bindValue('id', $id);
+        $sel->execute();
+
+
+        $results = $sel->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
     }
 
     public function createProduct()
     {
-        //TODO dont forget to add new product_type i put it in hardcoded please change
-        //TODO also add storage amount also hardcoded
+
         $name = $_POST['name'];
         $description = $_POST['description'];
         $nutrition = $_POST['nutrition'];
@@ -109,13 +112,29 @@ class QueryBuilder
                 if ($juice_type == 1 || $juice_type == 2) {
                     $sql = ("INSERT INTO product 
                     (product_name, product_description, nutrition_value, product_price, product_image, juice_type_juice_type_id, product_type, storage_amount)
-                    VALUES ('$name', '$description', '$nutritionNew', '$price', '$image', '$juice_type', $product_type, $amount)
+                    VALUES ( :name , :description , :nutrition , :price , :image, :juiceType , :productType , :amount)
                     ");
 
                     $sel = $this->pdo->prepare($sql);
+                    $sel->bindValue('name', $name);
+                    $sel->bindValue('description', $description);
+                    $sel->bindValue('nutrition', $nutritionNew);
+                    $sel->bindValue('price', $price);
+                    $sel->bindValue('image', $image);
+                    $sel->bindValue('juiceType', $juice_type);
+                    $sel->bindValue('productType', $product_type);
+                    $sel->bindValue('amount', $amount);
 
-                    $sel->execute();
+                    try {
+                        $sel->execute();
+                    }
+                    catch (exeption $e){
+
+                        $_SESSION['error'] = true;
+
+                    }
                     return;
+
                 } else {
                     echo 'Je moet een product soort kiezen';
                 }
@@ -161,8 +180,14 @@ class QueryBuilder
     public function login($email, $password)
     {
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
-        $sql->execute();
 
+
+        try {
+            $sql->execute();
+        }
+        catch (exeption $e){
+        $_SESSION['error'] = true;
+        }
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
@@ -198,9 +223,15 @@ class QueryBuilder
         $sel->bindValue("payment", $payment_method);
         $sel->bindValue("customer_type", $customer_type);
         $sel->bindValue("last_updated", $last_updated_date);
+        $error = false;
+        try {
+            $sel->execute();
+        }
+        catch (exception $e){
+            $error = true;
 
-
-        $sel->execute();
+        }
+        return $error;
     }
 
     public function getCities()

@@ -38,12 +38,13 @@
 <?php
 if(!empty($allProduct)) {
     foreach ($allProduct as $product) {
+
         echo "
               <tbody>
                 <tr>
                   <th scope='row' class='border-0'>
                     <div class='p-2'>
-                      <img src='src/Resources/public/images/imageupload/" . $product['product_image'] . "' class='card-img' alt='...'>
+                      <img src='/src/Resources/public/images/imageupload/" . $product['product_image'] . "' class='card-img' alt='... '>
                     </div>
                   </th>
                   <td class='border-0 align-middle' style='size: auto'><strong>" . $product['product_name'] . "</strong></td>
@@ -51,7 +52,7 @@ if(!empty($allProduct)) {
                   <td class='border-0 align-middle'>" . $product['nutrition_value'] . "</td>
                   <td class='border-0 align-middle'><strong>€" . $product['product_price'] . "</strong></td>
                   <td class='border-0 align-middle '><strong class='ml-3'>" . $product['storage_amount'] . "</strong></td>
-                  <td class='border-0 align-middle'><a onclick=\"return confirm('Are you sure you want to delete this item?')\" href='admin?action=remove&id=" . $product['product_id'] . "' class='fa fa-trash' aria-hidden='true'></a></td>
+                  <td class='border-0 align-middle'><a onclick=\"return confirm('Are you sure you want to delete this item?')\" href='product?action=remove&id=" . $product['product_id'] . "' class='fa fa-trash' aria-hidden='true'></a></td>
                   </tr>              
         ";
 
@@ -67,7 +68,7 @@ if(!empty($allProduct)) {
         <div class="p-5 bg-white mb-5 mr-xl-3 mr-md-3 mr-sm-2 ml-sm-2 shadow-lg " style="height: fit-content; border-radius: 15px">
             <div class="text-white rounded-pill px-4 py-3 text-uppercase font-weight-bold" style="background-color: #4B515D">Product toevoegen </div>
             <div class="p-4">
-                <form method="POST" enctype="multipart/form-data"  action="admin?action=add"  class="form-group">
+                <form method="POST" enctype="multipart/form-data"  action="product?action=add"  class="form-group">
                     <ul class="">
                     <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Foto product</strong></li>
                         <input type="file" name="image" class="mb-2 mt-3">

@@ -1,9 +1,9 @@
 
     <div class='cart'>
-    <div class='pb-5 ml-xl-5 ml-sm-2 ml-md-2'>
+    <div class='pb-5 ml-xl-5 ml-sm-0 ml-md-0 ml-lg-2'>
     <div class='container-fluid'>
       <div class='row row justify-content-between'>
-        <div class='col-xl-8 col-md-8 col-sm-11 p-5 bg-white rounded shadow-lg mb-5' style="height: fit-content; width: fit-content" >
+        <div class='col-xl-8 col-md-11 col-sm-11 p-5 bg-white rounded shadow-lg mb-5' style="height: fit-content; width: fit-content" >
 
           <!-- Shopping cart table -->
           <div class=''>
