@@ -7,6 +7,8 @@ if (!empty($_GET['action'])){
             case 'Blokkeren':
                 $id = $_GET['id'];
                 $blockCustomer = $app['database']->blockUser($id);
+                $error = $app['database']->blockUser($id);
+
             break;
 
             case 'De-blokkeren':

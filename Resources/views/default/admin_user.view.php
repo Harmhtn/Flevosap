@@ -32,6 +32,16 @@
 
 <div class="container" style="margin-top: 100px">
 <?php
+if (!empty($error)){
+    if ($error){
+        echo '<div class="alert alert-danger">er is een fout opgetreden met het blokkkeren!</div>';
+    }
+}
+if (!empty($blockCustomer)){
+    if ($blockCustomer){
+        echo '<div class="alert alert-danger">er is een fout opgetreden met het de-blokkkeren!</div>';
+    }
+}
 
 if(!empty($allCustomers)) {
     foreach ($allCustomers as $customer) {
