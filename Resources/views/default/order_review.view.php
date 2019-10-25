@@ -26,6 +26,7 @@
 <div class="container">
     <p style="font-weight: bold">Totaal prijs exclusief btw: <?php echo $totalPriceExBtw ?> euro</p>
     <p style="font-weight: bold">Totaal prijs inclusief btw: <?php echo $totalPriceInBtw ?> euro</p>
+    <p style="font-weight: bold">Verzendkosten: <?php $shippingCosts ?></p>
 </div>
 <div class="container">
     <h2>De producten worden bezorgd naar
