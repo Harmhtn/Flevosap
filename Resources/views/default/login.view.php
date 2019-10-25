@@ -1,3 +1,4 @@
+<!-- view for login -->
 <link rel="stylesheet" href="src/Resources/public/css/loginstyle.css">
 
 <div class="wrapper fadeInDown">
@@ -10,6 +11,7 @@
         </div>
 
         <?php
+        //check for errors
         if (!empty($user) || !empty($block)){
             if ($user || $block){
                 echo '<div class="alert alert-danger">Er is een fout opgetreden met het inloggen.</div>';
@@ -20,6 +22,7 @@
         <!-- Login Form -->
         <form method="post" action="login">
             <?php
+            //check for errors
             if (!empty($error)) {
                 ?>
                 <div class="alert alert-danger"><?= $error ?></div>

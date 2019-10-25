@@ -1,3 +1,4 @@
+<!-- navbar -->
 <link rel="stylesheet" href="src/Resources/public/css/navbarstyle.css">
 
 <div class="container d-flex flex-md-row align-items-center bg-white">
@@ -14,7 +15,7 @@
         <a class="p-2 text-dark ml-2" href="logout">Logout</a>
         <?php
 
-
+        // if admin show a admin link
         if ($_SESSION['user_type'] == 3) {
             echo '<a class="p-2 text-dark ml-2" href="admin">Admin</a>';
         } ?>

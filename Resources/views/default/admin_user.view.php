@@ -1,10 +1,11 @@
+<!-- view for admin users -->
 <div class='cart'>
     <div class='pb-5 m-4'>
         <div class='container-fluid'>
             <div class='justify-content-between'>
                 <div class='pl-5 pr-5 pt-0 bg-white rounded shadow mb-5'>
 
-
+                    <!-- table for showing all users -->
                 <table class='table'>
                     <thead class="rounded-pill px-4">
                     <tr>
@@ -32,6 +33,7 @@
 
 <div class="container" style="margin-top: 100px">
 <?php
+//check for errors
 if (!empty($error)){
     if ($error){
         echo '<div class="alert alert-danger">er is een fout opgetreden met het blokkkeren!</div>';
@@ -43,9 +45,10 @@ if (!empty($blockCustomer)){
     }
 }
 
+// show all users
 if(!empty($allCustomers)) {
     foreach ($allCustomers as $customer) {
-
+        //give every type id a name and button names
         if ($customer['customer_type_customer_type_id'] == 1){
             $type = 'Particulier';
             $button = 'Blokkeren';
@@ -72,6 +75,7 @@ if(!empty($allCustomers)) {
                   <td class='border-0 align-middle'>" . $customer['customer_zipcode'] . "</td>
                   <td class='border-0 align-middle'><strong>" . $customer['customer_phone'] . "</strong></td>
                   <td class='border-0 align-middle '><strong class='ml-3'>" . $type . "</strong></td>
+                  <!-- button for blocking/deblocking users -->
                   <td class='border-0 align-middle'><a onclick=\"return confirm('Weet u zeker dat u dit wilt doen?')\" class='btn-info p-2 rounded' href='/admin/gebruiker?action=". $button ."&id=" . $customer['customer_id'] . "'>$button</a> </td>
                   </tr>  
               </tbody>            

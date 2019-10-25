@@ -1,6 +1,7 @@
-
+<!-- view for index -->
 
 <div class="container">
+    <!-- dropdown filter -->
     <div class="dropdown" align="right">
         <form action="" method="post">
             <button type="submit" class="btn btn-secondary dropdown-toggle"
@@ -17,6 +18,7 @@
     </div>
 
     <?php
+    //check for errors
     if (!empty($all_products) || !empty($products)) {
         if ($all_products || $products) {
             echo '<div class="alert alert-danger">Er is een fout opgetreden met het laden.</div>';
@@ -29,11 +31,7 @@
     }
 
     foreach ($products as $product) {
-
 //for select make a for loop or input field
-
-
-
         if (isset($_SESSION['cart_item'][$product['product_name']]['quantity'])) {
             $amountCart = $_SESSION['cart_item'][$product['product_name']]['quantity'];
         } else {
@@ -43,7 +41,7 @@
         $Max = $amountAvailible - $amountCart;
 
 
-
+    //show all products
         echo "
 <div class='row'>
     <div class='col-md-1'></div>
@@ -78,6 +76,7 @@
 
     ?>
 </div>
+<!-- alert for added to basket -->
 <script>
     //make alert after reload.
     function added() {

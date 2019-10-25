@@ -1,3 +1,4 @@
+<!-- view for order review -->
 <div class="container">
     <h1>Order Overzicht</h1>
     <table class="table table-hover">
@@ -9,12 +10,14 @@
         </tr>
 
         <?php
+        //check for error
         if (!empty($user_data)){
             if ($user_data) {
                 echo '<div class="alert alert-danger">Er is een fout opgetreden met de bestelling.</div>';
             }
         }
         foreach ($_SESSION['cart_item'] as $result) {
+            //show all cart items
             ?>
             <tr>
                 <td><?= $result['id'] ?></td>
@@ -27,6 +30,7 @@
         ?>
     </table>
 </div>
+<!-- show total price -->
 <div class="container">
     <p style="font-weight: bold">Totaal prijs exclusief btw: <?php echo $totalPriceExBtw ?> euro</p>
     <p style="font-weight: bold">Totaal prijs inclusief btw: <?php echo $totalPriceInBtw ?> euro</p>
@@ -35,6 +39,7 @@
 <div class="container">
     <h2>De producten worden bezorgd naar
         <?php
+        //check for error
         if (!empty($success)){
             if ($success){
                 echo '<div class="alert alert-danger">Er is een fout opgetreden met de bestelling.</div>';
@@ -47,6 +52,7 @@
         }
         ?>
     </h2>
+    <!-- form for different adress -->
     <form action="orderreview" method="post">
         Wilt u naar een ander adres laten bezorgen?
         <input id="jabutton" type="button" class=" btn btn-primary" value="Verander" onclick="Show()"><br>

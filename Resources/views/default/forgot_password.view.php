@@ -1,3 +1,4 @@
+<!-- view for forgot password -->
 <link rel="stylesheet" href="src/Resources/public/css/registerstyle.css">
 
 <div class="container shadow-sm p-3 mb-2 bg-white rounded">
@@ -8,7 +9,9 @@
         </div>
     </div>
 <div class="container">
-    <?php if (!empty($error)) {
+    <?php
+    //check for errors
+    if (!empty($error)) {
     echo $error;
 } ?>
             <form action="/forgot_password" method="post">

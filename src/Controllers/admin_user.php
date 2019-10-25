@@ -1,10 +1,13 @@
 <?php
 
+//check if action and id are not empty
 if (!empty($_GET['action'])){
     if (!empty($_GET['id'])) {
+        //check what action is set and execute the right one
         switch ($_GET['action'])
          {
             case 'Blokkeren':
+                //get the id and execute the blockUser method
                 $id = $_GET['id'];
                 $blockCustomer = $app['database']->blockUser($id);
                 $error = $app['database']->blockUser($id);
@@ -12,6 +15,7 @@ if (!empty($_GET['action'])){
             break;
 
             case 'De-blokkeren':
+                //get the id and execute the blockUser method
                 $id = $_GET['id'];
                 $blockCustomer = $app['database']->deBlockUser($id);
         }

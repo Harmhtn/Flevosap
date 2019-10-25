@@ -3,12 +3,14 @@
 //load head and navbar
 require 'Resources/views/head.php';
 
+//get the cities
 $flevo = $app['database'];
 $cities = $flevo->getCities();
 
+//check if the post isset
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    //alle $_POST values
+    //all $_POST values for registering
     $username = $_POST['customer_name'];
     $mail = $_POST['customer_email'];
     $pass = $_POST['customer_password'];
@@ -22,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $last_updated_date = $last_updated->format('Y-m-d H:i:s');
 
 
-
+    //hash the password for safety
     $new_password = hash('sha256', $pass);
     //inloggen om te checken of de gebruiker al bestaat
     if ($flevo->login($mail, $new_password)) {

@@ -1,3 +1,4 @@
+<!-- view for new password -->
 <div class="container">
     <div class="row justify-content-center text-white">
         <div class="col-4 mt-4 p-4 rounded" style="background-color: #00adee">
