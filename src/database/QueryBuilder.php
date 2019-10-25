@@ -61,6 +61,7 @@ class QueryBuilder
     }
     public function selectUserOrderAddress($table, $userId)
     {
+
         $sql = $this->pdo->prepare("SELECT delivery_address FROM $table WHERE customers_customer_id = $userId");
         $error = false;
         try {
@@ -71,6 +72,7 @@ class QueryBuilder
 
         }
         return $error;
+
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 

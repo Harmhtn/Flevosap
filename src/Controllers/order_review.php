@@ -9,7 +9,7 @@ $user_data = $app['database']->selectUserAddress($table, $userdId);
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $customerId = $_SESSION['user_id'];
+    $customerId = $_SESSION['customer_id'];
 
     if (isset($_POST['newAddress']) && !empty($_POST['newAddress'])) {
         $newAddress = $_POST['newAddress'];
@@ -44,9 +44,12 @@ foreach ($carts as $cart) {
     $totalPriceExBtw = number_format($totalPriceExBtw, 2);
 }
 
-
 $totalPriceInBtw = number_format($totalPriceExBtw * 1.1, 2);
 
+$shippingCosts = 0;
+if($totalPriceInBtw < 20) {
+    $shippingCosts = 5;
+}
 
 
 require 'Resources/views/default/order_review.view.php';
