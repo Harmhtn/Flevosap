@@ -335,7 +335,7 @@ class QueryBuilder
         $sel = $this->pdo->prepare($sql);
         $error = false;
         try {
-            $sql->execute();
+            $sel->execute();
         }
         catch (exception $e){
             $error = true;
