@@ -44,9 +44,12 @@ foreach ($carts as $cart) {
     $totalPriceExBtw = number_format($totalPriceExBtw, 2);
 }
 
-
 $totalPriceInBtw = number_format($totalPriceExBtw * 1.1, 2);
 
+$shippingCosts = 0;
+if($totalPriceInBtw < 20) {
+    $shippingCosts = 5;
+}
 
 
 require 'Resources/views/default/order_review.view.php';

@@ -67,7 +67,12 @@ $pdf->Ln(6);
 $pdf->Cell(35, 5, 'Totaal bedrag inclusief btw');
 $pdf->Ln(6);
 $pdf->Cell(35, 5, $totalPrice);
-
+$shippingCosts = 0;
+if($totalPriceInBtw < 20) {
+    $shippingCosts = 5;
+}
+$pdf->Ln(6);
+$pdf->Cell(35, 5, $shippingCosts);
 
 $pdf->Ln(15);
 //bezorgadres afbeelden
