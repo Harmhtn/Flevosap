@@ -87,3 +87,11 @@ Stack trace:
 #3 {main}
   thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 203
 [24-Oct-2019 13:10:00 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 35
+[25-Oct-2019 07:21:09 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'customer_zipcode' at row 1 in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php:203
+Stack trace:
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php(203): PDOStatement->execute()
+#1 C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\register.php(33): QueryBuilder->register('Maud de Haas', 'maud@vierhazen....', 'fa690b82061edfd...', '1335 KA', '0651148427', 'Semesterhof, 11', '1', 1, '1', '2019-10-25 07:2...')
+#2 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(16): require('C:\\inetpub\\wwwr...')
+#3 {main}
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\database\QueryBuilder.php on line 203
+[25-Oct-2019 07:21:38 UTC] PHP Notice:  Undefined index: customer_type_customer_type_id in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Controllers\login.php on line 35
