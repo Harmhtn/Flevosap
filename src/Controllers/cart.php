@@ -55,20 +55,23 @@ if (!empty($_GET["action"])) {
     //change link
     header('Location:winkelmand');
 }
-
-
+//verzendkosten
+$shippingCosts = 5;
 if (!empty($_SESSION['cart_item'])) {
     $totalPrice = 0;
+
     foreach ($_SESSION["cart_item"] as $item) {
         $totalPrice += $item["quantity"] * $item["price"];
         $_SESSION['btw'] = $totalPrice/ 100 * 9;
     }
     $_SESSION['total_price'] = $totalPrice;
+    if ($totalPrice >= 20) {
+        $shippingCosts = 0;
+    }
 } else {
     $_SESSION['total_price'] = 0;
     $_SESSION['btw'] = 0;
 }
-
 
 
 //load head and navbar

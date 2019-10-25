@@ -16,6 +16,14 @@
     }
     ?>
         <form method="post" action="register">
+            <?php
+            if (!empty($error)) {
+                if ($error) {
+                    echo '<div class="alert alert-danger">vul de goede gegevens in!</div>';
+                }
+            }
+            ?>
+
         <!--    customer name-->
             <div class="form-group">
                 <label for="Input">Naam</label><br>
@@ -24,7 +32,7 @@
         <!--    customer email-->
             <div class="form-group">
                 <label for="Input">Email</label><br>
-                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="email" name="customer_email" placeholder="Email" required>
+                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="email" name="customer_email" placeholder="voorbeeld@voorbeeldmail.nl" required>
             </div>
         <!--    customer password-->
             <div class="form-group">
@@ -34,7 +42,7 @@
         <!--    customer zipcode-->
             <div class="form-group">
                 <label for="Input">Postcode</label><br>
-                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_zipcode" placeholder="Postcode" required>
+                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_zipcode" placeholder="1234AB" required>
             </div>
         <!--    customer address-->
             <div class="form-group">
@@ -55,7 +63,7 @@
         <!--    customer phone-->
             <div class="form-group">
                 <label for="Input">Telefoonnummer</label><br>
-                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_phone" pattern="06+[0-9]{8}" required>
+                <input class="form-control shadow-sm p-3 mb-2 bg-white rounded" type="text" name="customer_phone" placeholder="0612345678" pattern="06+[0-9]{8}" required>
             </div>
         <!--    customer particulier/zakelijk-->
             <div class="form-check form-check-inline">

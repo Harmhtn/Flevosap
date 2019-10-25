@@ -58,9 +58,9 @@ $pdf->Ln(6);
 $carts = $_SESSION['cart_item'];
 $cart_amount = count($carts);
 $totalPrice = 0;
-    foreach ($carts as $cart) {
-        $totalPrice += $cart['quantity'] * $cart['price'];
-    }
+foreach ($carts as $cart) {
+    $totalPrice += $cart['quantity'] * $cart['price'];
+}
 $totalPriceExBtw = $totalPrice * 0.9;
 $pdf->Cell(35, 5, $totalPriceExBtw);
 $pdf->Ln(6);

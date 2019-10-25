@@ -5,6 +5,7 @@ $products = null;
 if (isset($_GET['sort'])) {
     $sort = $_GET['sort'];
 
+    $all_products = $app['database']->selectAll($table);
     if ($sort === 'alphabetical') {
         $products = $app['database']->orderByName($table);
     } elseif ($sort === 'price-high') {

@@ -20,9 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $flevo->login($email, $new_password);
     $block = $app['database']->checkBlock($email, $new_password);
 
-
-    if (!$user) {
-       $error =  "Geen account bekend met deze gegevens!";
+    if ($block[0][0] == 4) {
+        echo 'Dit account is geblokkeerd';
     } else {
         if ($block[0][0] == 4) {
             $error = 'Dit account is geblokkeerd';
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             //Provide the user with a login session.
-            $_SESSION['role'] = $user['customer_type_customer_type_id'];
+            $_SESSION['user_type'] = $user['customer_type_customer_type_id'];
             $_SESSION["logged_in"] = true;
             header('Location: /');
         }
