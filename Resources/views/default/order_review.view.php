@@ -9,7 +9,11 @@
         </tr>
 
         <?php
-
+        if (!empty($user_data)){
+            if ($user_data) {
+                echo '<div class="alert alert-danger">Er is een fout opgetreden met de bestelling.</div>';
+            }
+        }
         foreach ($_SESSION['cart_item'] as $result) {
             ?>
             <tr>
@@ -30,7 +34,11 @@
 <div class="container">
     <h2>De producten worden bezorgd naar
         <?php
-
+        if (!empty($success)){
+            if ($success){
+                echo '<div class="alert alert-danger">Er is een fout opgetreden met de bestelling.</div>';
+            }
+        }
         if (!empty($user_data)) {
             foreach ($user_data as $r) {
                 echo $r['customer_address'];

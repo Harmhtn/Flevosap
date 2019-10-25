@@ -9,6 +9,13 @@
             <img src="src/Resources/public/images/logo-flevosap.png" id="icon" alt="Flevosap Logo"/>
         </div>
 
+        <?php
+        if (!empty($user) || !empty($block)){
+            if ($user || $block){
+                echo '<div class="alert alert-danger">Er is een fout opgetreden met het inloggen.</div>';
+            }
+        }
+        ?>
 
         <!-- Login Form -->
         <form method="post" action="login">
