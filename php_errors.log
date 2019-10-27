@@ -292,3 +292,11 @@ Stack trace:
 #0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(39): Router->direct('flevosap_2.0/in...')
 #1 {main}
   thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 32
+[27-Oct-2019 10:50:17 UTC] PHP Notice:  Undefined index: user_type in C:\inetpub\wwwroot\PHP\flevosap_2.0\Resources\views\nav.php on line 16
+[27-Oct-2019 10:50:17 UTC] PHP Notice:  Undefined index: user_type in C:\inetpub\wwwroot\PHP\flevosap_2.0\Resources\views\nav.php on line 20
+[27-Oct-2019 10:50:17 UTC] PHP Notice:  Undefined index: user_type in C:\inetpub\wwwroot\PHP\flevosap_2.0\Resources\views\nav.php on line 20
+[27-Oct-2019 10:50:21 UTC] PHP Fatal error:  Uncaught Exception: no route defined in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php:32
+Stack trace:
+#0 C:\inetpub\wwwroot\PHP\flevosap_2.0\index.php(19): Router->direct('login')
+#1 {main}
+  thrown in C:\inetpub\wwwroot\PHP\flevosap_2.0\src\Router.php on line 32
