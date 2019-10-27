@@ -52,6 +52,20 @@
         </select>
         <button class="btn btn-primary" type="submit" href="#">Bestellen</button>
     </form>
+    <div class="container">
+        <div class="alert alert-succes">
+            <?php
+            if ($success) {
+                echo $succesMessage; ?>
+        </div>
+<!--        <div class="alert alert-danger">-->
+            <?php
+            } else {
+                echo $failMessage;
+            }
+            ?>
+        </div>
+    </div>
 </div>
 
 <script>
