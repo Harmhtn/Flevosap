@@ -10,6 +10,7 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
+    //select everything from the given table and return it in a associative array
     public function selectAll($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table");
@@ -20,6 +21,7 @@ class QueryBuilder
         return $results;
     }
 
+    //select all from the id column return an associative array
     public function selectAllWhere($table, $column, $id)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table WHERE $column = $id");
@@ -30,7 +32,7 @@ class QueryBuilder
         return $results;
     }
 
-
+    //get the customer address from the given table from the user with the given id and return an array
     public function selectUserAddress($table, $userId)
     {
         $sql = $this->pdo->prepare("SELECT customer_address FROM $table WHERE customer_id = $userId");
@@ -40,6 +42,8 @@ class QueryBuilder
 
         return $results;
     }
+
+    //select everything where the email equals the given variable and return it in an array
     public function selectIfEmailLoginExists($login)
     {
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$login'");
@@ -49,6 +53,8 @@ class QueryBuilder
 
         return $results;
     }
+
+    //select the delivery address where the order id = user id
     public function selectUserOrderAddress($table, $userId)
     {
         $sql = $this->pdo->prepare("SELECT delivery_address FROM $table WHERE order_id = $userId");
@@ -59,6 +65,7 @@ class QueryBuilder
         return $results;
     }
 
+    //order everything by product name in the given table
     public function orderByName($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_name");
@@ -69,6 +76,7 @@ class QueryBuilder
         return $results;
     }
 
+    //order everything by the price high to low in the given table
     public function orderByPriceHigh($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price DESC");
@@ -79,6 +87,7 @@ class QueryBuilder
         return $results;
     }
 
+    //order everything by the price low to high in the given table
     public function orderByPriceLow($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price ASC");
@@ -89,6 +98,7 @@ class QueryBuilder
         return $results;
     }
 
+    //if product type is 1 order by name
     public function orderByNameWhere()
     {
         $sql = $this->pdo->prepare("SELECT * FROM `product` WHERE product_type = 1 ORDER BY `product_name`");
@@ -99,6 +109,7 @@ class QueryBuilder
         return $results;
     }
 
+    //if product type is 1 order by price descending
     public function orderByPriceHighWhere()
     {
         $sql = $this->pdo->prepare("SELECT * FROM `product` WHERE product_type = 1 ORDER BY product_price DESC");
@@ -109,6 +120,7 @@ class QueryBuilder
         return $results;
     }
 
+    //if product type is 1 order by price ascending
     public function orderByPriceLowWhere()
     {
         $sql = $this->pdo->prepare("SELECT * FROM `product` WHERE product_type = 1  ORDER BY product_price ASC");
@@ -120,7 +132,7 @@ class QueryBuilder
     }
 
 
-
+    //get product with the given id
     public function getProduct($id)
     {
         $sql = ("SELECT * FROM product WHERE product_id = :id ");
@@ -135,6 +147,7 @@ class QueryBuilder
         return $results;
     }
 
+    //create a product with all the posted info
     public function createProduct()
     {
 
@@ -190,7 +203,7 @@ class QueryBuilder
         }
     }
 
-
+    //remove a product with the given id
     public function removeItem($id)
     {
         $sql = ("DELETE FROM product WHERE product_id = '$id'");
@@ -200,6 +213,7 @@ class QueryBuilder
         $sel->execute();
     }
 
+    //block a user with the given id
     public function blockUser($id)
     {
         $sql = ("UPDATE customers SET customer_type_customer_type_id = 4 WHERE customer_id = $id");
@@ -209,6 +223,7 @@ class QueryBuilder
         $sel->execute();
     }
 
+    //de block a user with the given id
     public function deBlockUser($id)
     {
         $sql = ("UPDATE customers SET customer_type_customer_type_id = 1 WHERE customer_id = $id");
@@ -218,7 +233,7 @@ class QueryBuilder
         $sel->execute();
     }
 
-
+    //select all where the given email and password match in database
     public function login($email, $password)
     {
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
@@ -234,6 +249,8 @@ class QueryBuilder
 
         return $results;
     }
+
+    //check if the user is blocked by looking for user type 4
     public function checkBlock($email, $password)
     {
         $sql = $this->pdo->prepare("SELECT customer_type_customer_type_id FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
@@ -244,6 +261,7 @@ class QueryBuilder
         return $results;
     }
 
+    //register user by inserting all given data into the database
     public function register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date)
     {
         //insert de user in de db vergeet niet alle columns!!!!!
@@ -276,6 +294,7 @@ class QueryBuilder
         return $error;
     }
 
+    //get all the cities in the database
     public function getCities()
     {
         //select all cities
@@ -290,6 +309,7 @@ class QueryBuilder
         return $result;
     }
 
+    //insert a order with the given data
     public function placeOrder($newAddress, $customerId, $paymentMethodId, $orderDateConverted, $orderNote)
     {
         $sql = "INSERT INTO orders(order_date,
@@ -306,6 +326,7 @@ class QueryBuilder
         return $sel->execute();
     }
 
+    //set a token with the email and the given token
     public function addToken($token, $email)
     {
         $sql = "UPDATE customers SET authentication_date = CURRENT_TIMESTAMP,
@@ -320,6 +341,7 @@ class QueryBuilder
         $sql->execute();
     }
 
+    //set a new token
     public function resetToken($token, $user_id)
     {
         $sql = "UPDATE customers SET authentication_date = NULL,
@@ -333,6 +355,7 @@ class QueryBuilder
         $sql->execute();
     }
 
+    //check if token equals (if it is valid)
     public function checkToken($token)
     {
         $sql = "select * from customers where authentication_token = '$token'";
@@ -347,6 +370,7 @@ class QueryBuilder
         return $results;
     }
 
+    //update the password where password with the user with the given id
     public function updatePassword($password, $id)
     {
         $sql = "UPDATE customers SET customer_password = :pass

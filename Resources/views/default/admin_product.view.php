@@ -74,7 +74,7 @@ if(!empty($allProduct)) {
                 //check for errors
                 if (!empty($error)) {
                     if ($error) {
-                        echo '<div class="alert alert-danger">er is een fout opgetreden met het toevoegen!</div>';
+                        echo '<div class="alert alert-danger">'. $error .'</div>';
                     }
                 }
 
