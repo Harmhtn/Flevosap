@@ -5,7 +5,7 @@ if (!empty($router)) {
     $router->define([
 
         '' => 'src/Controllers/index.php',
-        'flevosap_2.0/index.php/login' => 'src/Controllers/login.php',
+        'login' => 'src/Controllers/login.php',
         'logout' => 'src/Controllers/login.php',
         'register' => 'src/Controllers/register.php',
         'orderreview' => 'src/Controllers/order_review.php',
