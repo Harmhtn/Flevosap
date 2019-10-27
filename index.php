@@ -5,6 +5,7 @@ require 'src/bootstrap.php';
 session_start();
 
 
+
 if (isset($_SESSION['logged_in']) != true) {
 
     $str = $_SERVER['REQUEST_URI'];
