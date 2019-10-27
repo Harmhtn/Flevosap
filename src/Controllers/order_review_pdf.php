@@ -62,8 +62,13 @@ $totalPrice = 0;
 foreach ($carts as $cart) {
     $totalPrice += $cart['quantity'] * $cart['price'];
 }
-$totalPriceExBtw = $totalPrice * 0.9;
+$totalPriceExBtw = number_format($totalPrice * 0.9, 2);
 $shippingCosts = 0;
+if ($totalPrice < 20){
+    $shippingCosts = 5;
+}else {
+    $shippingCosts = 0;
+}
 $pdf->Cell(35, 5, $totalPriceExBtw . ' euro');
 $pdf->Ln(6);
 $pdf->Cell(35, 5, 'Totaal bedrag inclusief btw');
