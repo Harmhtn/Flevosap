@@ -21,10 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $block = $app['database']->checkBlock($email, $new_password);
 
     if (!empty($block) && $block[0][0] == 4) {
-        echo 'Dit account is geblokkeerd';
+        $error = 'Dit account is geblokkeerd';
     } else {
-        if (!empty($user)) {
-            $error = 'Dit account is geblokkeerd';
+        if (empty($user)) {
+            $error = 'Dit is een fout email of wachtwoord';
         } else {
             foreach ($user as $use) {
                 $_SESSION['user_id'] = $use['customer_id'];
