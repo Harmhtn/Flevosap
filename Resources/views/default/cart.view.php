@@ -1,4 +1,4 @@
-
+<!-- view for cart -->
     <div class='cart'>
     <div class='pb-5 ml-xl-5 ml-sm-0 ml-md-0 ml-lg-2'>
     <div class='container-fluid'>
@@ -28,6 +28,7 @@
                 </tr>
               </thead>
 <?php
+// show all cart items
 if (!empty($_SESSION['cart_item'])) {
     foreach ($_SESSION['cart_item'] as $product) {
         echo "
@@ -44,6 +45,7 @@ if (!empty($_SESSION['cart_item'])) {
                   <td class='border-0 align-middle'><strong>€ " . $product['price'] . "</strong></td>
                   <td class='border-0 align-middle'><strong>" . $product['quantity'] . "</strong></td>
                   <td class='border-0 align-middle'><strong>€ " . number_format($product['quantity'] * $product['price'], 2) . "</strong></td>
+                  <!-- button for removing item -->
                   <td class='border-0 align-middle'><a href='winkelmand?id=" . $product['name'] . "&action=remove' class='fa fa-trash' aria-hidden='true'></a></td>
                   </tr>
               
@@ -55,11 +57,13 @@ if (!empty($_SESSION['cart_item'])) {
             <td class='border-0'></td>
             <td class='border-0 '></td>  
             <td class='border-0 '></td>
+            <!-- button for emptying basket -->
             <td class='border-0'><a href='winkelmand?action=empty' class='btn btn-info' role='button'>Leeg mand</a></td>                    
         </tr>
     </tbody>
     ";
 } else {
+    // if the basket is empty show this
     echo "
         <tbody>
             <tr>
@@ -74,6 +78,7 @@ if (!empty($_SESSION['cart_item'])) {
             </table>
           </div>
         </div>
+          <!-- kosten weergave -->
                 <div class="col-xl-3 col-sm-11 p-5 bg-white mb-5 mr-xl-3 mr-md-3 mr-sm-2 ml-sm-2 shadow-lg " style="height: 500px; border-radius: 15px">
                     <div class="text-white rounded-pill px-4 py-3 text-uppercase font-weight-bold" style="background-color: #4B515D">Bestelling </div>
                     <div class="p-4">

@@ -1,3 +1,4 @@
+<!-- view for forgot password -->
 <link rel="stylesheet" href="src/Resources/public/css/registerstyle.css">
 
 <div class="container shadow-sm p-3 mb-2 bg-white rounded">
@@ -8,12 +9,12 @@
         </div>
     </div>
 <div class="container">
-    <?php if (!empty($mail_send)) {
+    <?php
+    //check if mail is send
+    if (!empty($mail_send)) {
         echo $mail_send;
     }else{ ?>
-    <?php if (!empty($error)) {
-        echo $error;
-    } ?>
+
     <form action="/forgot_password" method="post">
         <label>Voer hier je email adres in: </label>
         <input class="form-control" name="email" type="text">

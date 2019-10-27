@@ -1,7 +1,8 @@
-    <div class="container">
+    <!-- styling for admin main page -->
       <div class="row">
           <div class="col-md-6" >
               <div class="card mb-4 " style="background-color: #d3d3d3">
+                  <!-- button for admin product -->
                   <a class="btn btn-secondary font-weight-bold text-light" href="admin/product" style="font-size: 50px" >Producten</a>
                   <ul>
                       <li class='mt-4'>Producten toevoegen</li>
@@ -11,6 +12,7 @@
           </div>
        <div class="col-md-6" >
            <div class="card mb-4 " style="background-color: #d3d3d3">
+               <!-- button for admin users -->
                 <a class="btn btn-secondary font-weight-bold text-light" href="admin/gebruiker" style="font-size: 50px" >Gebruikers</a>
                <ul>
                    <li class='mt-4'>Gebruikers bekijken</li>

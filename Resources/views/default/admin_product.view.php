@@ -1,12 +1,11 @@
-
-
+<!-- styling for admin product -->
 <div class='cart'>
     <div class='pb-5 m-4'>
         <div class='container-fluid'>
             <div class='justify-content-between'>
                 <div class='pl-5 pr-5 pt-0 bg-white rounded shadow mb-5'>
 
-
+                    <!-- table for viewing products -->
                 <table class='table'>
                     <thead class="rounded-pill px-4">
                     <tr>
@@ -36,6 +35,7 @@
 
 <div class="container" style="margin-top: 100px">
 <?php
+//show all products in database
 if(!empty($allProduct)) {
     foreach ($allProduct as $product) {
 
@@ -52,6 +52,7 @@ if(!empty($allProduct)) {
                   <td class='border-0 align-middle'>" . $product['nutrition_value'] . "</td>
                   <td class='border-0 align-middle'><strong>€" . $product['product_price'] . "</strong></td>
                   <td class='border-0 align-middle '><strong class='ml-3'>" . $product['storage_amount'] . "</strong></td>
+                  <!-- button to delete item from database with a confirm -->
                   <td class='border-0 align-middle'><a onclick=\"return confirm('Are you sure you want to delete this item?')\" href='product?action=remove&id=" . $product['product_id'] . "' class='fa fa-trash' aria-hidden='true'></a></td>
                   </tr>              
         ";
@@ -59,6 +60,7 @@ if(!empty($allProduct)) {
     }
 
 }
+
 
 ?>
                         </table>
@@ -68,6 +70,21 @@ if(!empty($allProduct)) {
         <div class="p-5 bg-white mb-5 mr-xl-3 mr-md-3 mr-sm-2 ml-sm-2 shadow-lg " style="height: fit-content; border-radius: 15px">
             <div class="text-white rounded-pill px-4 py-3 text-uppercase font-weight-bold" style="background-color: #4B515D">Product toevoegen </div>
             <div class="p-4">
+                <?php
+                //check for errors
+                if (!empty($error)) {
+                    if ($error) {
+                        echo '<div class="alert alert-danger">er is een fout opgetreden met het toevoegen!</div>';
+                    }
+                }
+
+                if (!empty($_SESSION['errorcreate'])) {
+
+                        echo '<div class="alert alert-danger">'.$_SESSION["errorcreate"].'</div>';
+
+                }
+                ?>
+                <!-- form for adding products -->
                 <form method="POST" enctype="multipart/form-data"  action="product?action=add"  class="form-group">
                     <ul class="">
                     <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Foto product</strong></li>
