@@ -9,11 +9,7 @@
         </div>
     </div>
 <div class="container">
-    <?php
-    //check for errors
-    if (!empty($error)) {
-    echo $error;
-} ?>
+
             <form action="/forgot_password" method="post">
                 <label>Voer hier je email adres in: </label>
                     <input class="form-control" name="email" type="text">

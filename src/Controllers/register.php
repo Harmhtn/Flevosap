@@ -7,10 +7,13 @@ require 'Resources/views/head.php';
 $flevo = $app['database'];
 $cities = $flevo->getCities();
 
+
+
 //check if the post isset
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //all $_POST values for registering
+
     $username = $_POST['customer_name'];
     $mail = $_POST['customer_email'];
     $pass = $_POST['customer_password'];
@@ -43,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else {
     require 'Resources/views/default/register.view.php';
 }
+
 
 //load footer
 require 'Resources/views/footer.php';

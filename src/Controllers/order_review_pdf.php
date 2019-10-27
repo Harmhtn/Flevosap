@@ -31,7 +31,7 @@ class PDF extends FPDF
         $this->Cell(0, 10, 'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'C');
     }
 }
-//content for the pdf
+
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
@@ -42,7 +42,6 @@ $pdf->Cell(25, 10, 'Aantal', '1');
 $pdf->Cell(35, 10, 'Prijs', '1');
 $pdf->Cell(35, 10, 'Totaal', '1');
 $pdf->Ln(11);
-//for every cart item make a result
 foreach ($_SESSION['cart_item'] as $result) {
     $pdf->Cell(30, 5, $result['id'], '1');
     $pdf->Cell(35, 5, $result['name'], '1');
@@ -51,7 +50,6 @@ foreach ($_SESSION['cart_item'] as $result) {
     $pdf->Cell(35, 5, ($result['quantity']*$result['price']), '1');
     $pdf->Ln(6);
 }
-
 $pdf->Cell(300, 5, '_________________________________________________________________', '0', 'C');
 $pdf->Ln(6);
 $pdf->Cell(35, 5, 'Totaal bedrag exclusief btw');
@@ -87,7 +85,6 @@ $userdId = $_SESSION['user_id'];
 //haal gegevens uit db met order id
 $user_data = $app['database']->selectUserOrderAddress($table, $userdId);
 
-//put a delivery adress on the pdf when userdata isnt empty
 if (!empty($user_data)) {
     foreach ($user_data as $r) {
         $pdf->Cell(35, 5, $r['delivery_address']);

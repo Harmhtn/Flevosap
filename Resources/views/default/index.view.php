@@ -18,17 +18,6 @@
     </div>
 
     <?php
-    //check for errors
-    if (!empty($all_products) || !empty($products)) {
-        if ($all_products || $products) {
-            echo '<div class="alert alert-danger">Er is een fout opgetreden met het laden.</div>';
-        }
-    }
-    if (!empty($productById)){
-        if ($productById){
-            echo '<div class="alert alert-danger">Er is een fout opgetreden met het toevoegen aan het winkelmandje.</div>';
-        }
-    }
 
     foreach ($products as $product) {
 //for select make a for loop or input field

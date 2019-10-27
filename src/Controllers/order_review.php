@@ -11,8 +11,8 @@ $user_data = $app['database']->selectUserAddress($table, $userdId);
 //check if the request method is equal to post
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    //set customer id
-    $customerId = $_SESSION['customer_id'];
+    $customerId = $_SESSION['user_id'];
+
 
     //check if post newaddress isset and is isnt empty
     if (isset($_POST['newAddress']) && !empty($_POST['newAddress'])) {

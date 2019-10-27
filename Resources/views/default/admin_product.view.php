@@ -35,17 +35,6 @@
 
 <div class="container" style="margin-top: 100px">
 <?php
-//check for errors
-if (!empty($error)) {
-    if ($error) {
-        echo '<div class="alert alert-danger">er is een fout opgetreden met het laden!</div>';
-    }
-}
-if (!empty($error)) {
-    if ($error) {
-        echo '<div class="alert alert-danger">er is een fout opgetreden met het verwijderen!</div>';
-    }
-}
 //show all products in database
 if(!empty($allProduct)) {
     foreach ($allProduct as $product) {

@@ -18,14 +18,6 @@
     }
     ?>
         <form method="post" action="register">
-            <?php
-            //check for error
-            if (!empty($error)) {
-                if ($error) {
-                    echo '<div class="alert alert-danger">vul de goede gegevens in!</div>';
-                }
-            }
-            ?>
 
         <!--    customer name-->
             <div class="form-group">

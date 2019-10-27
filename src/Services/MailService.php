@@ -9,7 +9,6 @@ class MailService
      */
     private $mailer;
 
-    //construct mail
     public function __construct()
     {
         $transport = (new Swift_SmtpTransport($_ENV['mailer']['host'], $_ENV['mailer']['port'], $_ENV['mailer']['encryption']))
@@ -19,7 +18,6 @@ class MailService
         $this->mailer = new Swift_Mailer($transport);
     }
 
-    //send the mail to the person with the given variables
     public function sendMail(string $to, string $subject, string $body): bool
     {
         $message = (new Swift_Message($subject))

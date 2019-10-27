@@ -10,153 +10,82 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
-    //select all from the given table and return a array
     public function selectAll($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table");
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
+        $sql->execute();
 
-        }
-        return $error;
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
         return $results;
     }
 
-    //select the user address from the given table and the id and return it in an array
     public function selectUserAddress($table, $userId)
     {
         $sql = $this->pdo->prepare("SELECT customer_address FROM $table WHERE customer_id = $userId");
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
-
-        }
-        return $error;
+        $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
     }
-
-    //check if email in database
     public function selectIfEmailLoginExists($login)
     {
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$login'");
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
+        $sql->execute();
 
-        }
-        return $error;
         $results = $sql->fetch(PDO::FETCH_ASSOC);
 
         return $results;
     }
-
-    //select the adress from the user with the given variables and return a array
     public function selectUserOrderAddress($table, $userId)
     {
-
-        $sql = $this->pdo->prepare("SELECT delivery_address FROM $table WHERE customers_customer_id = $userId");
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
-
-        }
-        return $error;
-
+        $sql = $this->pdo->prepare("SELECT delivery_address FROM $table WHERE order_id = $userId");
+        $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
     }
 
-    //order the table by product name and return an array
     public function orderByName($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_name");
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
+        $sql->execute();
 
-        }
-        return $error;
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
     }
 
-    //order the table by price from high to low and return an array
     public function orderByPriceHigh($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price DESC");
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
-
-        }
-        return $error;
+        $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
     }
 
-    //order the table by price from low to high and return an array
     public function orderByPriceLow($table)
     {
         $sql = $this->pdo->prepare("SELECT * FROM $table ORDER BY product_price ASC");
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
-
-        }
-        return $error;
+        $sql->execute();
 
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
     }
 
-    //get the product info where the id given matches
+
     public function getProduct($id)
     {
         $sql = ("SELECT * FROM product WHERE product_id = :id ");
 
         $sel = $this->pdo->prepare($sql);
         $sel->bindValue('id', $id);
-        $error = false;
-        try {
-            $sel->execute();
-        }
-        catch (exception $e){
-            $error = true;
-
-        }
-        return $error;
+        $sel->execute();
 
 
         $results = $sel->fetchAll(PDO::FETCH_ASSOC);
@@ -164,7 +93,6 @@ class QueryBuilder
         return $results;
     }
 
-    //make the needed variables and insert a new product into the table also check for errors
     public function createProduct()
     {
 
@@ -196,16 +124,16 @@ class QueryBuilder
                     $sel->bindValue('juiceType', $juice_type);
                     $sel->bindValue('productType', $product_type);
                     $sel->bindValue('amount', $amount);
-                    $error = false;
+
                     try {
                         $sel->execute();
                     }
-                    catch (exception $e){
-                        $error = true;
+                    catch (exeption $e){
+
+                        $_SESSION['error'] = true;
 
                     }
-                    return $error;
-
+                    return;
 
                 } else {
                     echo 'Je moet een product soort kiezen';
@@ -220,96 +148,60 @@ class QueryBuilder
         }
     }
 
-    //remove and item with the given id
+
     public function removeItem($id)
     {
         $sql = ("DELETE FROM product WHERE product_id = '$id'");
 
         $sel = $this->pdo->prepare($sql);
-        $error = false;
-        try {
-            $sel->execute();
-        }
-        catch (exception $e){
-            $error = true;
 
-        }
-        return $error;
+        $sel->execute();
     }
 
-    //block and user with the given id (set the customer type id to 4)
     public function blockUser($id)
     {
         $sql = ("UPDATE customers SET customer_type_customer_type_id = 4 WHERE customer_id = $id");
 
         $sel = $this->pdo->prepare($sql);
-        $error = false;
-        try {
-            $sel->execute();
-        }
-        catch (exception $e){
-            $error = true;
 
-        }
-        return $error;
+        $sel->execute();
     }
 
-    //deblock the user with the given id (set the customer type id to 1)
     public function deBlockUser($id)
     {
         $sql = ("UPDATE customers SET customer_type_customer_type_id = 1 WHERE customer_id = $id");
 
         $sel = $this->pdo->prepare($sql);
-        $error = false;
-        try {
-            $sel->execute();
-        }
-        catch (exception $e){
-            $error = true;
 
-        }
-        return $error;
+        $sel->execute();
     }
 
-    //login with the given mail and password (check if there is any rows with the given items)
+
     public function login($email, $password)
     {
         $sql = $this->pdo->prepare("SELECT * FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
 
-        $error = false;
+
         try {
             $sql->execute();
         }
-        catch (exception $e){
-            $error = true;
-
+        catch (exeption $e){
+        $_SESSION['error'] = true;
         }
-        return $error;
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         return $results;
     }
-
-    //check if the account has been blocked
     public function checkBlock($email, $password)
     {
         $sql = $this->pdo->prepare("SELECT customer_type_customer_type_id FROM customers WHERE customer_email = '$email' AND customer_password = '$password'");
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
-
-        }
-        return $error;
+        $sql->execute();
 
         $results = $sql->fetchAll();
 
         return $results;
     }
 
-    //register the account with the given variables
     public function register($username, $mail, $pass, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date)
     {
         //insert de user in de db vergeet niet alle columns!!!!!
@@ -342,29 +234,20 @@ class QueryBuilder
         return $error;
     }
 
-    //get als the cities in the database
     public function getCities()
     {
         //select all cities
         $sql = ("SELECT * FROM city");
 
         $sel = $this->pdo->prepare($sql);
-        $error = false;
-        try {
-            $sel->execute();
-        }
-        catch (exception $e){
-            $error = true;
 
-        }
-        return $error;
+        $sel->execute();
 
         $result = $sel->fetchAll();
 
         return $result;
     }
 
-    //place an order in the database
     public function placeOrder($newAddress, $customerId, $paymentMethodId, $orderDateConverted, $orderNote)
     {
         $sql = "INSERT INTO orders(order_date,
@@ -377,20 +260,10 @@ class QueryBuilder
         $sel->bindValue('paymentId', $paymentMethodId);
         $sel->bindValue('deliveryAddress', $newAddress);
         $sel->bindValue('customersId', $customerId);
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
 
-        }
-        return $error;
-
-        return;
+        return $sel->execute();
     }
 
-    //insert an authentication token to the customer
     public function addToken($token, $email)
     {
         $sql = "UPDATE customers SET authentication_date = CURRENT_TIMESTAMP,
@@ -401,18 +274,10 @@ class QueryBuilder
 
         $sql->bindParam('tn', $token);
         $sql->bindParam('em', $email);
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
 
-        }
-        return $error;
+        $sql->execute();
     }
 
-    //reset the token given to the customer
     public function resetToken($token, $user_id)
     {
         $sql = "UPDATE customers SET authentication_date = NULL,
@@ -422,39 +287,24 @@ class QueryBuilder
         $sql = $this->pdo->prepare($sql);
 
         $sql->bindParam('id', $user_id);
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
 
-        }
-        return $error;
+        $sql->execute();
     }
 
-    // check if an token is valid
     public function checkToken($token)
     {
         $sql = "select * from customers where authentication_token = '$token'";
 
         $sql = $this->pdo->prepare($sql);
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
 
-        }
-        return $error;
+        $sql->execute();
+
         $results = $sql->fetch(PDO::FETCH_ASSOC);
 
 
         return $results;
     }
 
-    //update the password in the database with the given variables
     public function updatePassword($password, $id)
     {
         $sql = "UPDATE customers SET customer_password = :pass
@@ -463,15 +313,6 @@ class QueryBuilder
         $sql = $this->pdo->prepare($sql);
         $sql->bindParam('pass', $password);
         $sql->bindParam('id', $id);
-        $error = false;
-        try {
-            $sql->execute();
-        }
-        catch (exception $e){
-            $error = true;
-
-        }
-        return $error;
 
     }
 }
