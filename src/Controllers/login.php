@@ -1,7 +1,5 @@
 <?php
-
 //if the request uri equals /logout destroy session
-
 if ($_SERVER['REQUEST_URI'] == '/logout') {
     session_destroy();
 }
@@ -20,14 +18,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $pass = $_POST['password'];
 
-
     //hash the password and set the functions login and checkBlock
+
     $new_password = hash('sha256', $pass);
     $user = $flevo->login($email, $new_password);
     $block = $app['database']->checkBlock($email, $new_password);
 
 
     // als de user is geblokkeerd kan hij niet inloggen
+
+
     if (!empty($block) && $block[0][0] == 4) {
         $error = 'Dit account is geblokkeerd';
     } else {

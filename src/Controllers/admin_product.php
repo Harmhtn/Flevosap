@@ -1,24 +1,30 @@
 <?php
+//check if action is empty
 if (!empty($_GET['action'])) {
+    //check what action isset
     switch ($_GET['action']) {
         case 'remove':
-
+            //check if id isset and use it in the getProduct method
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
                 $picture = $app['database']->getProduct($id);
+                //get the file path/name
                 $filename = "src/Resources/public/images/imageupload/" . $picture[0]['product_image'];
-
+                //look if the file exists and if it does delete it
                 if (file_exists($filename)) {
                     unlink($filename);
                 }
+                //remove the item from the database
                 $product = $app['database']->removeItem($id);
+                //go back to product page
                 header('Location:/admin/product');
             }
 
             break;
         case 'add':
-        case "add":
+            //check if post add isset
             if (isset($_POST['add'])) {
+                //get the needed info from the picture
                 $file = $_FILES['image'];
 
                 $fileName = $_FILES['image']['name'];
@@ -27,50 +33,44 @@ if (!empty($_GET['action'])) {
                 $fileError = $_FILES['image']['error'];
                 $fileType = $_FILES['image']['type'];
 
+                //get the file type
                 $fileExtTmp = explode('.', $fileName);
                 $fileExt = strtolower(end($fileExtTmp));
 
-                $allowed = array('jpg', 'jpeg', 'png');
+                $allowed = array('jpg', 'jpeg', 'png', 'JPG','JPEG','PNG');
 
-                $_SESSION[''] = '';
+                //check if the extention is in the allowed types, if the file has no errors and if the file is smaller than 20 mb
                 if (in_array($fileExt, $allowed)) {
                     if ($fileError === 0) {
-                        if ($fileSize > 20000) {
-                            $allowed = array('jpg', 'jpeg', 'png', 'PGN', 'JPG', 'JPEG');
+                        if ($fileSize < 20000) {
 
-
-                            if (in_array($fileExt, $allowed)) {
-                                if ($fileError === 0) {
-                                    if ($fileSize > 20000) {
-
-                                        $fileNameNew = uniqid('', true) . '.' . $fileExt;
-                                        $fileDestination = 'src/Resources/public/images/imageupload/' . $fileNameNew;
-                                        move_uploaded_file($fileTmpName, $fileDestination);
-                                        $_SESSION['picture'] = $fileNameNew;
-                                        $productById = $app['database']->createProduct();
-                                    } else {
-
-                                        echo "The picture is to big";
-                                    }
+                            //make a new random name with the extention and move the file to the right location
+                             $fileNameNew = uniqid('', true) . '.' . $fileExt;
+                             $fileDestination = 'src/Resources/public/images/imageupload/' . $fileNameNew;
+                             move_uploaded_file($fileTmpName, $fileDestination);
+                             $_SESSION['picture'] = $fileNameNew;
+                             $productById = $app['database']->createProduct();
+                        } else {
+                            // if the picture is to big
+                            $error = "The picture is to big";
+                         }
                                 } else {
-                                    echo "Er is een fout opgetreden." . $fileError;
+                                    $error = "Er is een fout opgetreden." . $fileError;
                                 }
                             } else {
-                                echo "Dit type bestand is niet toegestaan.";
+                                $error = "Dit type bestand is niet toegestaan.";
                             }
                         }
                         header('Location:/admin/product');
                         break;
                     }
-                }
-            }
-    }
+
+
+
 }
 
 $table = 'product';
 $allProduct = $app['database']->selectAll($table);
-$table1 = 'customers';
-$allCustomers = $app['database']->selectAll($table1);
 
 if ($_SESSION['user_type'] != 3) {
     header('Location:/');
