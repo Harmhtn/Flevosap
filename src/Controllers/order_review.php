@@ -9,7 +9,7 @@ $user_data = $app['database']->selectUserAddress($table, $userdId);
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $customerId = $_SESSION['customer_id'];
+    $customerId = $_SESSION['user_id'];
 
     if (isset($_POST['newAddress']) && !empty($_POST['newAddress'])) {
         $newAddress = $_POST['newAddress'];
