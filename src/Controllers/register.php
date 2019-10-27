@@ -6,6 +6,7 @@ require 'Resources/views/head.php';
 $flevo = $app['database'];
 $cities = $flevo->getCities();
 
+//Als er word gepost doe dit
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //alle $_POST values
@@ -20,10 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $customer_type = $_POST['MyRadio'];
     $last_updated = new DateTime();
     $last_updated_date = $last_updated->format('Y-m-d H:i:s');
-
-
-
     $new_password = hash('sha256', $pass);
+
     //inloggen om te checken of de gebruiker al bestaat
     if ($flevo->login($mail, $new_password)) {
         $already_exists = true;

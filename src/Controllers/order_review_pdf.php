@@ -31,7 +31,7 @@ class PDF extends FPDF
         $this->Cell(0, 10, 'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'C');
     }
 }
-
+//page body
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
@@ -58,6 +58,7 @@ $pdf->Ln(6);
 $carts = $_SESSION['cart_item'];
 $cart_amount = count($carts);
 $totalPrice = 0;
+//de prijs uit te database halen en berekenen
 foreach ($carts as $cart) {
     $totalPrice += $cart['quantity'] * $cart['price'];
 }
