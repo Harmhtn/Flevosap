@@ -55,12 +55,14 @@ if (isset($_POST['email_send'])) {
         try {
             $mail = $smtp->send($to, $headers, $body);
         } catch (PEAR_Exception $e) {
-            $error = "Er kon geen mail verstuurd worden";
+            $mail_send = "Er kon geen mail verstuurd worden";
         }
-        $error =  "Er is een mail verstuurd naar het email adress controlleer ook uw spam box";
+        $mail_send =  "Er is een mail verstuurd naar het email adress controlleer ook uw spam box";
+
     } else {
-        $error =  "Dit email adress staat niet geregistreerd";
+        $mail_send =  "Dit email adress staat niet geregistreerd";
     }
+    require 'Resources/views/default/forgot_password.view.php';
 } elseif (isset($_GET['token'])) {
     $result = $app['database']->checkToken($_GET['token']);
     if ($result != '') {
