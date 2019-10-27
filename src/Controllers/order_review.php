@@ -9,6 +9,10 @@ $user_data = $app['database']->selectUserAddress($table, $userdId);
 $succesMessage ="Gelukt! De order is geplaatst, bekijk hier de pdf <a href='orderreviewpdf'>versie</a>";
 $failMessage = "Error! De order is niet geplaatst";
 $success = '';
+if (empty($_SESSION['cart_item'])) {
+    echo 'Je hebt nog geen items in je winkelmand';
+    die;
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $customerId = $_SESSION['user_id'];
