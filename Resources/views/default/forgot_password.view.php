@@ -8,17 +8,23 @@
         </div>
     </div>
 <div class="container">
+    <?php if (!empty($mail_send)) {
+        echo $mail_send;
+    }else{ ?>
     <?php if (!empty($error)) {
-    echo $error;
-} ?>
-            <form action="/forgot_password" method="post">
-                <label>Voer hier je email adres in: </label>
-                    <input class="form-control" name="email" type="text">
-                <input type="hidden" name="email_send">
-                <br>
-                <input class="btn btn-primary" type="submit" value="Bevestig">
-            </form>
+        echo $error;
+    } ?>
+    <form action="/forgot_password" method="post">
+        <label>Voer hier je email adres in: </label>
+        <input class="form-control" name="email" type="text">
+        <input type="hidden" name="email_send">
+        <br>
+        <input class="btn btn-primary" type="submit" value="Bevestig">
+    </form>
     <div align="center">
-            <a href="login">Terug naar login pagina</a>
+        <a href="login">Terug naar login pagina</a>
     </div>
-        </div>
+</div>
+
+<?php
+}

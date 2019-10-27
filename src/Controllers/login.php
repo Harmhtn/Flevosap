@@ -20,14 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $flevo->login($email, $new_password);
     $block = $app['database']->checkBlock($email, $new_password);
 
-    if ($block[0][0] == 4) {
-        echo 'Dit account is geblokkeerd';
+    if (!empty($block) && $block[0][0] == 4) {
+        $error = 'Dit account is geblokkeerd';
     } else {
-        if ($block[0][0] == 4) {
-            $error = 'Dit account is geblokkeerd';
+        if (empty($user)) {
+            $error = 'Dit is een fout email of wachtwoord';
         } else {
             foreach ($user as $use) {
-                $_SESSION["user_id"] = $use["customer_id"];
+                $_SESSION['user_id'] = $use['customer_id'];
                 $_SESSION['user_type'] = $use['customer_type_customer_type_id'];
             }
 

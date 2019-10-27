@@ -15,6 +15,6 @@ if (!empty($router)) {
         'business' => 'src/Controllers/business.php',
         'admin/product' => 'src/Controllers/admin_product.php',
         'admin/gebruiker' => 'src/Controllers/admin_user.php',
-        'flevosap_2.0/index.php/forgot_password' => 'src/Controllers/forgot_password.php'
+        'forgot_password' => 'src/Controllers/forgot_password.php'
     ]);
 }

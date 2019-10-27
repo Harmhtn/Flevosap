@@ -356,5 +356,7 @@ class QueryBuilder
         $sql->bindParam('pass', $password);
         $sql->bindParam('id', $id);
 
+        $sql->execute();
+
     }
 }
