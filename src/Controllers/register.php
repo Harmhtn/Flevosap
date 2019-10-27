@@ -35,15 +35,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $already_exists = true;
 
     } else {
+        if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+            $flevo->register($username, $mail, $new_password, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
+            require 'Resources/views/default/login.view.php';
+        }
+        else
+        {
+            $error = 'De mail is niet correct';
+            require 'Resources/views/default/register.view.php';
+        }
         // functie aanroepen om gebruiker te maken
-
-        $flevo->register($username, $mail, $new_password, $zipcode, $phone, $address, $city_id, $payment_method, $customer_type, $last_updated_date);
-        header('Location: /login');
-
     }
-} else {
+}else{
     require 'Resources/views/default/register.view.php';
+
 }
+
 
 
 //load footer

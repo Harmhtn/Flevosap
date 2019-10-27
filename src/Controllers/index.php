@@ -20,8 +20,9 @@ if (isset($_GET['sort'])) {
 }
 
 //if products is null select all the products
-if ($products === null) {
+if ($products == null) {
     $products = $app['database']->selectAll($table);
+
 }
 
 //see if an action is specified

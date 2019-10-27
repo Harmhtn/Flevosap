@@ -10,6 +10,12 @@
         </div>
     </div>
     <?php
+    if (!empty($error)) {
+        ?>
+        <div class="alert alert-danger">Geen goede gegevens!</div>
+        <?php
+    }
+
     //check if the account is already existing
     if (!empty($already_exists)) {
         ?>

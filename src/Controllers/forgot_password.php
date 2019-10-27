@@ -11,49 +11,41 @@ if (isset($_POST['email_send'])) {
 
     $user_info = $app['database']->selectIfEmailLoginExists($email_login);
 
-
-    if ($user_info != null) {
-
+    if ($user_info != Null) {
         //set token and send email with token
         $length = 40;
         $token = bin2hex(random_bytes($length));
+
         $app['database']->addToken($token, $user_info['customer_email']);
 
         require_once "vendor/pear/mail/Mail.php";
 
-        $host = "smtp.gmail.com";
-        $username = "team3wind@gmail.com";
-        $password = "flevosap";
-        $port = '465';
+        //login credentials
+        $host = $app['config']['email']['host'];
+        $username = $app['config']['email']['username'];
+        $password = $app['config']['email']['password'];
+        $port = $app['config']['email']['port'];
 
-        $from = 'Taalproof';
+        $from = 'info@flevosap.nl';
         $to = $user_info['customer_email'];
         $subject = "Wachtwoord veranderen";
 
-        $body = "je hebt recent aangevraagt om uw wachtwoord te veranderen. 
+        $body = "je hebt recent op de website van flevosap aangevraagt om uw wachtwoord te veranderen. 
                 Klik op de volgende link om uw wachtwoord opnieuw in te stellen 
-                http://localhost:8000/forgot_password?token={$token}";
+                http://www.flevosapteam3c.nl/forgot_password?token={$token}";
         $headers = array('From' => $from,
             'To' => $to,
             'Subject' => $subject);
-        $smtp = Mail::factory(
-            'smtp',
+        $smtp = Mail::factory('smtp',
             array('host' => $host,
                 'port' => $port,
                 'auth' => true,
                 'username' => $username,
-                'password' => $password)
-        );
-        $smtp = Mail::factory(
-            'smtp',
-            array('host' => $host,
-                'auth' => true,
-                'username' => $username,
-                'password' => $password)
-        );
+                'password' => $password));
 
         try {
             $mail = $smtp->send($to, $headers, $body);
+
         } catch (PEAR_Exception $e) {
             $mail_send = "Er kon geen mail verstuurd worden";
         }
@@ -63,23 +55,29 @@ if (isset($_POST['email_send'])) {
         $mail_send =  "Dit email adress staat niet geregistreerd";
     }
     require 'Resources/views/default/forgot_password.view.php';
+
 } elseif (isset($_GET['token'])) {
+//check if token expired
+
     $result = $app['database']->checkToken($_GET['token']);
-    if ($result != '') {
+
+    if (!empty($result)){
 
         //get date now and check if more then ten minutes past
         $date = date("Y-m-d H:i:s");
         $authentication_date = $result['authentication_date'];
         $authentication_date = new DateTime($authentication_date);
         $new_date = $authentication_date->modify('+10 minutes');
+        $winter_date = new DateTime($date);
+        $winter_date->modify('-60 minutes');
 
-        if ($date <= $new_date->format('Y-m-d H:i:s')) {
+        if ($winter_date->format('Y-m-d H:i:s') <= $new_date->format('Y-m-d H:i:s') ) {
             require 'Resources/views/default/newpass.view.php';
-            $app['database']->resetToken($_GET['token'], $result['customer_id']);
-
-            $app['database']->resetToken($_GET['token'], $result['customer_id']);
+            $app['database']->resetToken($result['user_id']);
         }
-    } else {
+
+    }else{
+
         $error = "Authenticatie token is Helaas verlopen";
         require 'Resources/views/default/forgot_password.view.php';
     }
@@ -88,7 +86,7 @@ if (isset($_POST['email_send'])) {
 
     $app['database']->updatePassword($new_password, $_GET['newpass']);
 
-    header('Location: /login');
+    require 'Resources/views/default/login.view.php';
 } else {
 
 //load view

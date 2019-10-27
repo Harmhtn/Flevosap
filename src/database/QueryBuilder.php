@@ -182,8 +182,7 @@ class QueryBuilder
 
                     try {
                         $sel->execute();
-                    }
-                    catch (exeption $e){
+                    } catch (exeption $e) {
 
                         $_SESSION['error'] = true;
 
@@ -241,9 +240,8 @@ class QueryBuilder
 
         try {
             $sql->execute();
-        }
-        catch (exeption $e){
-        $_SESSION['error'] = true;
+        } catch (exeption $e) {
+            $_SESSION['error'] = true;
         }
         $results = $sql->fetchAll(PDO::FETCH_ASSOC);
 
@@ -286,8 +284,7 @@ class QueryBuilder
         $error = false;
         try {
             $sel->execute();
-        }
-        catch (exception $e){
+        } catch (exception $e) {
             $error = true;
 
         }
@@ -329,6 +326,7 @@ class QueryBuilder
     //set a token with the email and the given token
     public function addToken($token, $email)
     {
+
         $sql = "UPDATE customers SET authentication_date = CURRENT_TIMESTAMP,
                 authentication_token = :tn
                 WHERE customer_email = :em";
@@ -338,7 +336,10 @@ class QueryBuilder
         $sql->bindParam('tn', $token);
         $sql->bindParam('em', $email);
 
+
         $sql->execute();
+
+
     }
 
     //set a new token
