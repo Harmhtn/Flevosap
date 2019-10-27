@@ -14,10 +14,14 @@
         <a class="p-2 text-dark ml-2" href="#">Contact</a>
         <a class="p-2 text-dark ml-2" href="logout">Logout</a>
         <?php
-
         // if admin show a admin link
+
         if ($_SESSION['user_type'] == 3) {
             echo '<a class="p-2 text-dark ml-2" href="admin">Admin</a>';
+        } ?>
+        <?php
+        if ($_SESSION['user_type'] == 1 || $_SESSION['user_type'] == 3) {
+            echo '<a class="p-2 text-dark ml-2" href="business">Zakelijk</a>';
         } ?>
         <a class="fas fa-shopping-cart p-2" href="winkelmand"></a>
     </nav>

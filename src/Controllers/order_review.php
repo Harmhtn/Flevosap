@@ -7,9 +7,22 @@ $flevo = $app['database'];
 $table = 'customers';
 $userdId = $_SESSION['user_id'];
 $user_data = $app['database']->selectUserAddress($table, $userdId);
+<<<<<<< HEAD
 
 //check if the request method is equal to post
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+=======
+$succesMessage ="Gelukt! De order is geplaatst, bekijk hier de pdf <a href='orderreviewpdf'>versie</a>";
+$failMessage = "Error! De order is niet geplaatst";
+$success = '';
+if (empty($_SESSION['cart_item'])) {
+    echo 'Je hebt nog geen items in je winkelmand';
+    die;
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $customerId = $_SESSION['user_id'];
+>>>>>>> fef788b87c4c96aa9c9e461fc96acf68a2f9a350
 
     $customerId = $_SESSION['user_id'];
 
@@ -33,13 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //    $paymentMethodId = $paymentMethod[$_POST['select_payment_method']];
     $paymentMethodId = 0;
 
+
     //in db plaatsen
     $success = $flevo->placeOrder($newAddress, $customerId, $paymentMethodId, $orderDateConverted, $orderNote);
-    if ($success) {
-        echo "Gelukt! De order is geplaatst, bekijk hier de pdf <a href='orderreviewpdf'>versie</a>";
-    } else {
-        echo "Faal! De order is niet geplaatst";
-    }
+
 }
 
 //make a var from cart item session and count the amount of items also set totalprice exbtw 0
@@ -58,7 +68,7 @@ $totalPriceInBtw = number_format($totalPriceExBtw * 1.1, 2);
 
 //set shipping costs
 $shippingCosts = 0;
-if($totalPriceInBtw < 20) {
+if ($totalPriceInBtw < 20) {
     $shippingCosts = 5;
 }
 

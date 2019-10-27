@@ -29,7 +29,7 @@
 <div class="container">
     <p style="font-weight: bold">Totaal prijs exclusief btw: <?php echo $totalPriceExBtw ?> euro</p>
     <p style="font-weight: bold">Totaal prijs inclusief btw: <?php echo $totalPriceInBtw ?> euro</p>
-    <p style="font-weight: bold">Verzendkosten: <?php $shippingCosts ?></p>
+    <p style="font-weight: bold">Verzendkosten: <?php echo $shippingCosts ?> euro</p>
 </div>
 <div class="container">
     <h2>De producten worden bezorgd naar
@@ -57,6 +57,20 @@
         </select>
         <button class="btn btn-primary" type="submit" href="#">Bestellen</button>
     </form>
+    <div class="container">
+        <div class="alert alert-succes">
+            <?php
+            if ($success) {
+                echo $succesMessage; ?>
+        </div>
+<!--        <div class="alert alert-danger">-->
+            <?php
+            } else {
+                echo $failMessage;
+            }
+            ?>
+        </div>
+    </div>
 </div>
 
 <script>
