@@ -4,15 +4,12 @@ require 'Resources/views/head.php';
 
 $flevo = $app['database'];
 $table = 'customers';
-$userdId = $_SESSION['customer_id'];
-echo "<pre>";
-print_r($_SESSION);
-exit;
+$userdId = $_SESSION['user_id'];
 $user_data = $app['database']->selectUserAddress($table, $userdId);
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $customerId = $_SESSION['customer_id'];
+    $customerId = $_SESSION['user_id'];
 
     if (isset($_POST['newAddress']) && !empty($_POST['newAddress'])) {
         $newAddress = $_POST['newAddress'];
