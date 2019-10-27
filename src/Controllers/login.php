@@ -28,10 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             foreach ($user as $use) {
                 $_SESSION["user_id"] = $use["customer_id"];
+                $_SESSION['user_type'] = $use['customer_type_customer_type_id'];
             }
 
             //Provide the user with a login session.
-            $_SESSION['user_type'] = $user['customer_type_customer_type_id'];
             $_SESSION["logged_in"] = true;
             header('Location: /');
         }

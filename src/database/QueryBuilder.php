@@ -20,6 +20,17 @@ class QueryBuilder
         return $results;
     }
 
+    public function selectAllWhere($table, $column, $id)
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM $table WHERE $column = $id");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+
     public function selectUserAddress($table, $userId)
     {
         $sql = $this->pdo->prepare("SELECT customer_address FROM $table WHERE customer_id = $userId");
@@ -77,6 +88,37 @@ class QueryBuilder
 
         return $results;
     }
+
+    public function orderByNameWhere()
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM `product` WHERE product_type = 1 ORDER BY `product_name`");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function orderByPriceHighWhere()
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM `product` WHERE product_type = 1 ORDER BY product_price DESC");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
+    public function orderByPriceLowWhere()
+    {
+        $sql = $this->pdo->prepare("SELECT * FROM `product` WHERE product_type = 1  ORDER BY product_price ASC");
+        $sql->execute();
+
+        $results = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
+
 
 
     public function getProduct($id)
