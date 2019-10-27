@@ -22,17 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = $flevo->login($email, $new_password);
     $block = $app['database']->checkBlock($email, $new_password);
 
-<<<<<<< HEAD
-    //check if blocked equals 4 if it does the account id blocked and the site will tell you that the account is blocked
-    if ($block[0][0] == 4) {
-        echo 'Dit account is geblokkeerd';
-=======
+
     if (!empty($block) && $block[0][0] == 4) {
         $error = 'Dit account is geblokkeerd';
     } else {
         if (empty($user)) {
             $error = 'Dit is een fout email of wachtwoord';
->>>>>>> fef788b87c4c96aa9c9e461fc96acf68a2f9a350
+
         } else {
 
             //if the user is not blocked make a loop and make  sessions for the user id , the user type and logged in
@@ -48,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: /');
         }
 
-
+    }
 }
 //load view
 require 'Resources/views/default/login.view.php';

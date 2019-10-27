@@ -32,6 +32,7 @@ if (!empty($_GET['action'])) {
 
                 $allowed = array('jpg', 'jpeg', 'png');
 
+                $_SESSION[''] = '';
                 if (in_array($fileExt, $allowed)) {
                     if ($fileError === 0) {
                         if ($fileSize > 20000) {

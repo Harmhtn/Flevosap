@@ -9,7 +9,9 @@
         </div>
     </div>
 <div class="container">
-    <?php if (!empty($mail_send)) {
+    <?php
+    //check if mail is send
+    if (!empty($mail_send)) {
         echo $mail_send;
     }else{ ?>
 
