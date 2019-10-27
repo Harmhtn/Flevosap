@@ -8,7 +8,6 @@ $flevo = $app['database'];
 $cities = $flevo->getCities();
 
 
-
 //check if the post isset
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -27,8 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $last_updated_date = $last_updated->format('Y-m-d H:i:s');
 
 
+
     //hash the password for safety
     $new_password = hash('sha256', $pass);
+
     //inloggen om te checken of de gebruiker al bestaat
     if ($flevo->login($mail, $new_password)) {
         $already_exists = true;

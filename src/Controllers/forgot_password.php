@@ -12,7 +12,7 @@ if (isset($_POST['email_send'])) {
     $user_info = $app['database']->selectIfEmailLoginExists($email_login);
 
 
-    if ($user_info != Null) {
+    if ($user_info != null) {
 
         //set token and send email with token
         $length = 40;
@@ -36,21 +36,24 @@ if (isset($_POST['email_send'])) {
         $headers = array('From' => $from,
             'To' => $to,
             'Subject' => $subject);
-        $smtp = Mail::factory('smtp',
+        $smtp = Mail::factory(
+            'smtp',
             array('host' => $host,
                 'port' => $port,
                 'auth' => true,
                 'username' => $username,
-                'password' => $password));
-        $smtp = Mail::factory('smtp',
+                'password' => $password)
+        );
+        $smtp = Mail::factory(
+            'smtp',
             array('host' => $host,
                 'auth' => true,
                 'username' => $username,
-                'password' => $password));
+                'password' => $password)
+        );
 
         try {
             $mail = $smtp->send($to, $headers, $body);
-
         } catch (PEAR_Exception $e) {
             $mail_send = "Er kon geen mail verstuurd worden";
         }
@@ -59,12 +62,10 @@ if (isset($_POST['email_send'])) {
     } else {
         $mail_send =  "Dit email adress staat niet geregistreerd";
     }
-
     require 'Resources/views/default/forgot_password.view.php';
-}
-elseif (isset($_GET['token'])) {
+} elseif (isset($_GET['token'])) {
     $result = $app['database']->checkToken($_GET['token']);
-    if ($result != ''){
+    if ($result != '') {
 
         //get date now and check if more then ten minutes past
         $date = date("Y-m-d H:i:s");
@@ -72,28 +73,23 @@ elseif (isset($_GET['token'])) {
         $authentication_date = new DateTime($authentication_date);
         $new_date = $authentication_date->modify('+10 minutes');
 
-        if ($date <= $new_date->format('Y-m-d H:i:s') ) {
-
+        if ($date <= $new_date->format('Y-m-d H:i:s')) {
             require 'Resources/views/default/newpass.view.php';
             $app['database']->resetToken($_GET['token'], $result['customer_id']);
 
             $app['database']->resetToken($_GET['token'], $result['customer_id']);
         }
-    }else{
+    } else {
         $error = "Authenticatie token is Helaas verlopen";
         require 'Resources/views/default/forgot_password.view.php';
     }
-
-}
-elseif (isset($_GET['newpass'])) {
-
+} elseif (isset($_GET['newpass'])) {
     $new_password = hash('sha256', $_POST['new_password']);
 
     $app['database']->updatePassword($new_password, $_GET['newpass']);
 
     header('Location: /login');
-}
-else {
+} else {
 
 //load view
     require 'Resources/views/default/forgot_password.view.php';
