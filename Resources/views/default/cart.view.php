@@ -42,9 +42,9 @@ if (!empty($_SESSION['cart_item'])) {
                       </div>
                     </div>
                   </th>
-                  <td class='border-0 align-middle'><strong>€ " . $product['price'] . "</strong></td>
+                  <td class='border-0 align-middle'><strong>&#8364; " . $product['price'] . "</strong></td>
                   <td class='border-0 align-middle'><strong>" . $product['quantity'] . "</strong></td>
-                  <td class='border-0 align-middle'><strong>€ " . number_format($product['quantity'] * $product['price'], 2) . "</strong></td>
+                  <td class='border-0 align-middle'><strong>&#8364; " . number_format($product['quantity'] * $product['price'], 2) . "</strong></td>
                   <!-- button for removing item -->
                   <td class='border-0 align-middle'><a href='winkelmand?id=" . $product['name'] . "&action=remove' class='fa fa-trash' aria-hidden='true'></a></td>
                   </tr>
@@ -83,11 +83,11 @@ if (!empty($_SESSION['cart_item'])) {
                     <div class="text-white rounded-pill px-4 py-3 text-uppercase font-weight-bold" style="background-color: #4B515D">Bestelling </div>
                     <div class="p-4">
                         <ul class="list-unstyled mb-4 border-bottom  border-secondary">
-                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Subtotaal</strong><strong>€ <?= number_format($_SESSION['total_price'], 2);?></strong></li>
-                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Verzendkosten</strong><strong><?php echo "€ " . $shippingCosts = number_format($shippingCosts, 2)?></strong></li>
-                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">BTW</strong><strong>€ <?= number_format($_SESSION['btw'], 2);?></strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Subtotaal</strong><strong>&#8364;<?= number_format($_SESSION['total_price'], 2);?></strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Verzendkosten</strong><strong><?php echo "&#8364; " . $shippingCosts = number_format($shippingCosts, 2)?></strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">BTW</strong><strong>&#8364; <?= number_format($_SESSION['btw'], 2);?></strong></li>
                             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Totaal</strong>
-                                <h5 class="font-weight-bold">€ <?= number_format($_SESSION['total_price']+$_SESSION['btw']+$shippingCosts, 2);?></h5>
+                                <h5 class="font-weight-bold">&#8364; <?= number_format($_SESSION['total_price']+$_SESSION['btw']+$shippingCosts, 2);?></h5>
                             </li>
                         </ul><a href="orderreview" class="btn btn-dark rounded-pill py-2 btn-block">Bestelling afronden</a>
                     </div>

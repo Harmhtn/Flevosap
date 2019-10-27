@@ -4,13 +4,7 @@ if ($_SERVER['REQUEST_URI'] == '/logout') {
     session_destroy();
 }
 
-
 $flevo = $app['database'];
-
-//load head and navbar
-//require 'Resources/views/head.php';
-require 'Resources/views/head.php';
-
 
 //if the request method equals post then get the the user posted values email and password
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -33,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         if (empty($user)) {
             $error = 'Dit is een fout email of wachtwoord';
-
+            require 'Resources/views/default/login.view.php';
         } else {
 
             //if the user is not blocked make a loop and make  sessions for the user id , the user type and logged in
@@ -45,14 +39,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Provide the user with a login session.
             $_SESSION["logged_in"] = true;
 
-            //return to index.php
-            header('Location: /');
+            header("Location: /");
         }
 
     }
-}
+}else{
+    //load head and navbar
+//require 'Resources/views/head.php';
+    require 'Resources/views/head.php';
 //load view
-require 'Resources/views/default/login.view.php';
+    require 'Resources/views/default/login.view.php';
+}
+
 
 
 //load footer
