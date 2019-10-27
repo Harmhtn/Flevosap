@@ -1,3 +1,4 @@
+<!-- view for register -->
 <link rel="stylesheet" href="src/Resources/public/css/registerstyle.css">
 
 
@@ -9,6 +10,7 @@
         </div>
     </div>
     <?php
+    //check if the account is already existing
     if (!empty($already_exists)) {
         ?>
         <div class="alert alert-danger"> Dit account bestaat al</div>
@@ -16,13 +18,6 @@
     }
     ?>
         <form method="post" action="register">
-            <?php
-            if (!empty($error)) {
-                if ($error) {
-                    echo '<div class="alert alert-danger">vul de goede gegevens in!</div>';
-                }
-            }
-            ?>
 
         <!--    customer name-->
             <div class="form-group">

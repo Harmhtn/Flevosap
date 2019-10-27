@@ -2,43 +2,19 @@
 
 //See if an action is specified
 if (!empty($_GET["action"])) {
+    //use the action that is specified
     switch ($_GET["action"]) {
         //add product to cart
 
-        case "add":
-        //check if q
-        if (!empty($_POST["quantity"])) {
-            $id = $_GET['id'];
-            $productById = $app['database']->getProduct($id);
-            $itemArray = array($productById[0]["product_name"]=>array('id'=>$productById[0]["product_id"], 'name'=>$productById[0]["product_name"], 'quantity'=>$_POST["quantity"], 'price'=>$productById[0]["product_price"], 'image'=>$productById[0]["product_image"]));
-
-            if (!empty($_SESSION["cart_item"])) {
-                if (in_array($productById[0]["product_name"], array_keys($_SESSION["cart_item"]))) {
-                    foreach ($_SESSION["cart_item"] as $current => $value) {
-                        if ($productById[0]["product_name"] == $current) {
-                            if (empty($_SESSION["cart_item"][$current]["quantity"])) {
-                                $_SESSION["cart_item"][$current]["quantity"] = 0;
-                            }
-                            $_SESSION["cart_item"][$current]["quantity"] += $_POST["quantity"];
-                        }
-                    }
-                } else {
-                    $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
-                }
-            } else {
-                $_SESSION["cart_item"] = $itemArray;
-            }
-        }
-        break;
-
-
         case "remove":
+            //if the session cart_item isnt empty make a current loop with the cart items
             if (!empty($_SESSION["cart_item"])) {
                 foreach ($_SESSION["cart_item"] as $current => $value) {
+                    //if the id equals the current id unset the current cart item
                     if ($_GET["id"] == $current) {
                         unset($_SESSION["cart_item"][$current]);
                     }
-
+                    //if the session cart item is empty unset it
                     if (empty($_SESSION["cart_item"])) {
                         unset($_SESSION["cart_item"]);
                     }
@@ -47,28 +23,36 @@ if (!empty($_GET["action"])) {
         break;
 
         case "empty":
+            //if the action is empty then unset the session cart item
             unset($_SESSION["cart_item"]);
         break;
 
 
     }
-    //change link
+    //go back to winkelmand and get rid of the get
     header('Location:winkelmand');
 }
 //verzendkosten
 $shippingCosts = 5;
+//check if session cart item is not empty
 if (!empty($_SESSION['cart_item'])) {
+    //set total price 0 if session is not empty
     $totalPrice = 0;
 
+    //loop through the cart items and do the total price + quantity times price
     foreach ($_SESSION["cart_item"] as $item) {
         $totalPrice += $item["quantity"] * $item["price"];
+        //btw equals 9% of total price
         $_SESSION['btw'] = $totalPrice/ 100 * 9;
     }
+    //make totalPrice a session
     $_SESSION['total_price'] = $totalPrice;
+    //if the totalPrice is equal or higher than 20 shippingcosts is 0
     if ($totalPrice >= 20) {
         $shippingCosts = 0;
     }
 } else {
+    //if the session cartitem is empty total price ant btw both = 0
     $_SESSION['total_price'] = 0;
     $_SESSION['btw'] = 0;
 }
