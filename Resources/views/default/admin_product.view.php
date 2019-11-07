@@ -85,7 +85,7 @@ if(!empty($allProduct)) {
                 }
                 ?>
                 <!-- form for adding products -->
-                <form method="POST" enctype="multipart/form-data"  action="?url=?product&action=add"  class="form-group">
+                <form method="POST" enctype="multipart/form-data"  action="?url=product&action=add"  class="form-group">
                     <ul class="">
                     <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Foto product</strong></li>
                         <input type="file" name="image" class="mb-2 mt-3">
