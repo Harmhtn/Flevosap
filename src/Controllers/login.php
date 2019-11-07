@@ -1,6 +1,6 @@
 <?php
 //if the request uri equals /logout destroy session
-if ($_SERVER['REQUEST_URI'] == '/logout') {
+if ($_GET['url'] == 'logout') {
     session_destroy();
 }
 
@@ -30,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             require 'Resources/views/default/login.view.php';
         } else {
 
+            header('Location: /');
+
             //if the user is not blocked make a loop and make  sessions for the user id , the user type and logged in
             foreach ($user as $use) {
                 $_SESSION['user_id'] = $use['customer_id'];
@@ -39,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Provide the user with a login session.
             $_SESSION["logged_in"] = true;
 
-            header("Location: /");
         }
 
     }

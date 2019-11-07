@@ -32,7 +32,7 @@ if (isset($_POST['email_send'])) {
 
         $body = "je hebt recent op de website van flevosap aangevraagt om uw wachtwoord te veranderen. 
                 Klik op de volgende link om uw wachtwoord opnieuw in te stellen 
-                http://www.flevosapteam3c.nl/forgot_password?token={$token}";
+                https://adsd2019.clow.nl/~maud/flevosap/?url=forgot_password&token={$token}";
         $headers = array('From' => $from,
             'To' => $to,
             'Subject' => $subject);
@@ -45,8 +45,8 @@ if (isset($_POST['email_send'])) {
 
         try {
             $mail = $smtp->send($to, $headers, $body);
-
         } catch (PEAR_Exception $e) {
+
             $mail_send = "Er kon geen mail verstuurd worden";
         }
         $mail_send =  "Er is een mail verstuurd naar het email adress controlleer ook uw spam box";
@@ -54,6 +54,7 @@ if (isset($_POST['email_send'])) {
     } else {
         $mail_send =  "Dit email adress staat niet geregistreerd";
     }
+
     require 'Resources/views/default/forgot_password.view.php';
 
 } elseif (isset($_GET['token'])) {

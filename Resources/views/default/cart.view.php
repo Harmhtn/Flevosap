@@ -89,7 +89,7 @@ if (!empty($_SESSION['cart_item'])) {
                             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Totaal</strong>
                                 <h5 class="font-weight-bold">&#8364; <?= number_format($_SESSION['total_price']+$_SESSION['btw']+$shippingCosts, 2);?></h5>
                             </li>
-                        </ul><a href="orderreview" class="btn btn-dark rounded-pill py-2 btn-block">Bestelling afronden</a>
+                        </ul><a href="?url=orderreview" class="btn btn-dark rounded-pill py-2 btn-block">Bestelling afronden</a>
                     </div>
                 </div>
           </div>

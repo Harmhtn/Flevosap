@@ -98,7 +98,7 @@ $userdId = $_SESSION['user_id'];
 $user_data = $app['database']->selectUserAddress($table, $userdId);
 
 
-$succesMessage = "Gelukt! De order is geplaatst, bekijk hier de pdf <a href='orderreviewpdf'>versie</a>";
+$succesMessage = "Gelukt! De order is geplaatst, bekijk hier de pdf <a href='?url=orderreviewpdf'>versie</a>";
 $failMessage = "De order is nog niet geplaatst.";
 $success = '';
 //als er niets is geplaats in de winkelmand, laat de orderreview niet zien
@@ -108,7 +108,7 @@ if (empty($_SESSION['cart_item'])) {
 }
 //De order plaatsen in de database
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $succesMessage = "Gelukt! De order is geplaatst, bekijk hier de pdf <a href='orderreviewpdf'>versie</a>";
+    $succesMessage = "Gelukt! De order is geplaatst, bekijk hier de pdf <a href='?url=orderreviewpdf'>versie</a>";
     $failMessage = "Error! De order is niet geplaatst";
     $success = '';
     if (empty($_SESSION['cart_item'])) {

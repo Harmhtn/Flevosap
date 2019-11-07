@@ -23,7 +23,7 @@
         <?php
     }
     ?>
-        <form method="post" action="register">
+        <form method="post" action="?url=register">
 
         <!--    customer name-->
             <div class="form-group">

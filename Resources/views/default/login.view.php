@@ -12,7 +12,7 @@
 
 
         <!-- Login Form -->
-        <form method="post" action="login">
+        <form method="post" action="?url=login">
             <?php
             //check for errors
             if (!empty($error)) {
@@ -28,8 +28,8 @@
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
-            <a class="underlineHover" href="forgot_password">Wachtwoord vergeten?</a><br>
-            <a class="underlineHover" href="register">Nog geen account?</a>
+            <a class="underlineHover" href="?url=forgot_password">Wachtwoord vergeten?</a><br>
+            <a class="underlineHover" href="?url=register">Nog geen account?</a>
         </div>
 
     </div>

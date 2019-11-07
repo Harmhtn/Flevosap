@@ -64,7 +64,7 @@ if(!empty($allCustomers)) {
                   <td class='border-0 align-middle'><strong>" . $customer['customer_phone'] . "</strong></td>
                   <td class='border-0 align-middle '><strong class='ml-3'>" . $type . "</strong></td>
                   <!-- button for blocking/deblocking users -->
-                  <td class='border-0 align-middle'><a onclick=\"return confirm('Weet u zeker dat u dit wilt doen?')\" class='btn-info p-2 rounded' href='/admin/gebruiker?action=". $button ."&id=" . $customer['customer_id'] . "'>$button</a> </td>
+                  <td class='border-0 align-middle'><a onclick=\"return confirm('Weet u zeker dat u dit wilt doen?')\" class='btn-info p-2 rounded' href='?url=admin/gebruiker&action=". $button ."&id=" . $customer['customer_id'] . "'>$button</a> </td>
                   </tr>  
               </tbody>            
         ";

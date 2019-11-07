@@ -38,7 +38,7 @@
         </div>
         <div class='col-md-6'>
             <div class='card-body'>
-                <form action='?action=add&id=" . $product['product_id'] . "'  method='post'>
+                <form action='&action=add&id=" . $product['product_id'] . "'  method='post'>
                 <button type=\"submit\" onclick='added()' class=\"btn btn-info float-right mb-2\">
                 <i class=\"fas fa-cart-arrow-down\"></i>
                 </button>

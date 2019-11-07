@@ -1,33 +1,31 @@
 <?php
 
 require 'src/bootstrap.php';
-
 session_start();
 
 if (isset($_SESSION['logged_in']) != true) {
 
-    $str = $_SERVER['REQUEST_URI'];
+    $str = $_GET['url'];
     $request_uri = substr($str, 0, strrpos($str, '?'));
 
-    if ($_SERVER['REQUEST_URI'] == '/register' ||
-        $_SERVER['REQUEST_URI'] == '/login' ||
-        $_SERVER['REQUEST_URI'] == '/forgot_password' ||
-        $request_uri == '/forgot_password') {
+    if ($_GET['url'] == 'register' ||
+        $_GET['url'] == 'login' ||
+        $_GET['url'] == 'forgot_password') {
 
         require Router::load('routes.php')
             ->direct(Request::uri());
     } else {
 
-        $_SERVER['REQUEST_URI'] = 'login';
+        $_GET['url'] = 'login';
 
         require Router::load('routes.php')
             ->direct(Request::uri());
     }
 } elseif (isset($_SESSION['user_type']) && $_SESSION['user_type'] != 3) {
-    if ($_SERVER['REQUEST_URI'] == '/admin' ||
-        $_SERVER['REQUEST_URI'] == '/admin/product' ||
-        $_SERVER['REQUEST_URI'] == '/admin/gebruiker') {
-        $_SERVER['REQUEST_URI'] = '/';
+    if ($_GET['url'] == 'admin' ||
+        $_GET['url'] == 'admin/product' ||
+        $_GET['url'] == 'admin/gebruiker') {
+        $_GET['url'] = 'home';
     }
 
     require Router::load('routes.php')

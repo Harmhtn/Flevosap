@@ -10,9 +10,9 @@
                 Sorteer producten
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/?sort=alphabetical">Alfabetische volgorde</a>
-                <a class="dropdown-item" href="/?sort=price-high">Prijs hoog</a>
-                <a class="dropdown-item" href="/?sort=price-low">Prijs laag</a>
+                <a class="dropdown-item" href="?url=/&sort=alphabetical">Alfabetische volgorde</a>
+                <a class="dropdown-item" href="?url=/&sort=price-high">Prijs hoog</a>
+                <a class="dropdown-item" href="?url=/&sort=price-low">Prijs laag</a>
             </div>
         </form>
     </div>
@@ -50,8 +50,14 @@
             </form>
             <h5 class='card-title'> " . $product['product_name'] . "</h5>
             <p class='card-text'>" . $product['product_description'] . "</p>
-            <a data-toggle='collapse' role=\"button\" href=\"#" . $product['product_id'] . "\"  >Voedingswaarde</a>
-            <p class='card-text collapse' role=\"button\" id=\"" . $product['product_id'] . "\" >" . $product['nutrition_value'] . "</p>
+                        <a class=\"\" data-toggle=\"collapse\" href=\"#collapse" . $product['product_id'] . "\" role=\"button\" aria-expanded=\"false\" aria-controls=\"collapse\">
+                Voedingswaarde
+            </a>
+            <div class=\"collapse\" id=\"collapse". $product['product_id'] ."\">
+                <div class=\"card card-body\">
+                ". $product['nutrition_value'] ."
+                </div>
+            </div>
             <p class='card-text'><small class='text-muted'>" . $product['product_price'] . "</small></p>
         </div>
     </div>

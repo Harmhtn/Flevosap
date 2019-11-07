@@ -44,7 +44,7 @@
         ?>
     </h2>
     <!-- form for different adress -->
-    <form action="orderreview" method="post">
+    <form action="?url=orderreview" method="post">
         Wilt u naar een ander adres laten bezorgen?
         <input id="jabutton" type="button" class=" btn btn-primary" value="Verander" onclick="Show()"><br>
         <input style="display: none;" id="inputfield" class="form-control" name="newAddress"/><br>
@@ -53,7 +53,6 @@
             <option value="ideal">Ideal</option>
             <option value="paypal">PayPal</option>
             <option value="mastercard">Mastercard</option>
-            $
         </select>
         <button class="btn btn-primary" type="submit" href="#">Bestellen</button>
     </form>

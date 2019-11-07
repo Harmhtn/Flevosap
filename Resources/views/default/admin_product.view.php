@@ -53,7 +53,7 @@ if(!empty($allProduct)) {
                   <td class='border-0 align-middle'><strong>€" . $product['product_price'] . "</strong></td>
                   <td class='border-0 align-middle '><strong class='ml-3'>" . $product['storage_amount'] . "</strong></td>
                   <!-- button to delete item from database with a confirm -->
-                  <td class='border-0 align-middle'><a onclick=\"return confirm('Are you sure you want to delete this item?')\" href='product?action=remove&id=" . $product['product_id'] . "' class='fa fa-trash' aria-hidden='true'></a></td>
+                  <td class='border-0 align-middle'><a onclick=\"return confirm('Are you sure you want to delete this item?')\" href='?url=product&action=remove&id=" . $product['product_id'] . "' class='fa fa-trash' aria-hidden='true'></a></td>
                   </tr>              
         ";
 
@@ -85,7 +85,7 @@ if(!empty($allProduct)) {
                 }
                 ?>
                 <!-- form for adding products -->
-                <form method="POST" enctype="multipart/form-data"  action="product?action=add"  class="form-group">
+                <form method="POST" enctype="multipart/form-data"  action="?url=?product&action=add"  class="form-group">
                     <ul class="">
                     <li class="d-flex justify-content-between py-3 border-bottom border-secondary"><strong class="text-muted">Foto product</strong></li>
                         <input type="file" name="image" class="mb-2 mt-3">
